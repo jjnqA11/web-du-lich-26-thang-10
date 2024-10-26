@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Khám Phá Di Sản</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 </head>
 <body>
     <header>
@@ -47,32 +49,62 @@
                     <a href="/diem-den-hap-dan/">Điểm đến hấp dẫn</a>
                 </span>
             </h2>
-            <div class="destinations-container">
-                <div class="destination-card">
+            <div class="destinations-container owl-carousel">
+                <div class="destination-card item">
                     <img src="images/ho-hoan-kiem-7185.jpg" alt="Hà Nội">
                     <div class="overlay">
                         <p>Hà Nội – Biểu tượng lịch sử độc đáo của Việt Nam</p>
                     </div>
                 </div>
-                <div class="destination-card">
+                <div class="destination-card item">
                     <img src="images/DTQGDB_Chua Keo Thai Binh.jpg" alt="Thái Bình">
                     <div class="overlay">
                         <p>Thái Bình - Nơi sản sinh những nhân tài kiệt xuất</p>
                     </div>
                 </div>
-                <div class="destination-card">
+                <div class="destination-card item">
                     <img src="images/Ninh_binh.webp" alt="Ninh Bình">
                     <div class="overlay">
                         <p>Ninh Bình - Cảnh đẹp thiên nhiên ngút trời</p>
                     </div>
                 </div>
-                <div class="destination-card">
+                <div class="destination-card item">
                     <img src="images/hue.jpg" alt="Huế">
                     <div class="overlay">
                         <p>Huế – Biểu tượng Cố Đô</p>
                     </div>
                 </div>
-                <div class="destination-card">
+                <div class="destination-card item">
+                    <img src="images/TPHCM.jpg" alt="TPHCM">
+                    <div class="overlay">
+                        <p>TP Hồ Chí Minh - Thành phố của tương lai</p>
+                    </div>
+                </div>
+                <div class="destination-card item">
+                    <img src="images/TPHCM.jpg" alt="TPHCM">
+                    <div class="overlay">
+                        <p>TP Hồ Chí Minh - Thành phố của tương lai</p>
+                    </div>
+                </div>
+                <div class="destination-card item">
+                    <img src="images/TPHCM.jpg" alt="TPHCM">
+                    <div class="overlay">
+                        <p>TP Hồ Chí Minh - Thành phố của tương lai</p>
+                    </div>
+                </div>
+                <div class="destination-card item">
+                    <img src="images/TPHCM.jpg" alt="TPHCM">
+                    <div class="overlay">
+                        <p>TP Hồ Chí Minh - Thành phố của tương lai</p>
+                    </div>
+                </div>
+                <div class="destination-card item">
+                    <img src="images/TPHCM.jpg" alt="TPHCM">
+                    <div class="overlay">
+                        <p>TP Hồ Chí Minh - Thành phố của tương lai</p>
+                    </div>
+                </div>
+                <div class="destination-card item">
                     <img src="images/TPHCM.jpg" alt="TPHCM">
                     <div class="overlay">
                         <p>TP Hồ Chí Minh - Thành phố của tương lai</p>
@@ -273,5 +305,37 @@
             </div>
         </div>
     </footer>
+
+    <!-- Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <!-- Execute -->
+    <script>
+        $(document).ready(function(){
+            $(".owl-carousel").owlCarousel({
+                items: 6,
+                loop:true, // vong lap carousel
+                margin: 1, //khoang cach giua cac muc
+                nav: true, // hien thi nut dieu khien
+                autoplay: true, // Tự động chạy
+                autoplayTimeout: 3000, // Thời gian mỗi slide là 3 giây
+                responsive: {
+                    0: {
+                        item: 1 // o kich thuoc man hinh nho nhat, hien thi ra 1 item
+                    },
+                    600: {
+                        item: 2 // o kich thuoc man hinh tu 600 px tro len, hien thi ra 2 item
+                    },
+                    1000: {
+                        item: 5 // o kich thuoc man hinh tu 1000px  tro len, hien thi ra 5 phan tu
+                    }
+                },
+                navText: [
+                '<img src="./utils/back.svg" alt="Previous">', // Nút Prev
+                '<img src="./utils/next.svg" alt="Next">'     // Nút Next
+                ]
+            })
+        })
+    </script>
 </body>
 </html>
