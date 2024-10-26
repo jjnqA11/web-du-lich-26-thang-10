@@ -1,0 +1,52 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="register.css">
+</head>
+<body>
+    <div class="container">
+      <form action="" method="post" id="f-register">
+        <div class="header">
+          <h2>Register</h2>
+        </div>
+        <div class="f-input">
+          <div class="label">
+            <label for="username">Username:</label>
+          </div>
+          <input type="text" placeholder="Please enter your username..." name="username" id="username">
+        </div>
+        <div class="f-input">
+          <div class="label">
+            <label for="email">Email:</label>
+          </div>
+          <input type="text" placeholder="Please enter your email..." name="email" id="email">
+        </div>
+        <div class="f-input">
+          <div class="label">
+            <label for="password">Password:</label>
+          </div>
+          <input type="text" placeholder="Please enter your password..." name="password" id="password">
+        </div>
+
+        <div class="f-checkbox">
+            <input type="checkbox" name="agree-term">
+            <span>I agree with terms and conditions</span>
+            <br>
+            <input type="checkbox" name="newsletter">
+            <span>I want to receive the newsletter</span>
+        </div>
+
+        <div class="button-register">
+            <div class="accept-submit">
+              <span>Already have an account ?</span> <a href="login.html">login</a>
+            </div>
+            <div class="accept-submit">
+              <button id="btn-submit" type="submit">Submit</button>
+            </div>
+        </div>
+      </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,526 @@
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;
+    overflow-x: hidden; 
+    /* an thanh truot truc x */
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: white;
+}
+
+.logo {
+    margin-left: 40px;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.logo img {
+    width: 100px; /* Adjust according to logo size */
+}
+
+.banner {
+    color: grey;
+    font-size: 16px;
+}
+
+.login {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #0066ff;
+    border-radius: 8px;
+    margin-right: 40px;
+}
+
+.login a{
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+}
+
+.navbar {
+    background-color: #0066ff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+div {
+    display: block;
+    unicode-bidi: isolate;
+}
+*, p, ul, li, h1, h2, h3, h4, h5 {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.navbar ul li {
+    display: inline;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar ul li a:hover {
+    color: yellow;
+}
+
+.search-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 10px;
+}
+
+.search-bar input[type="text"],
+.search-bar select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 300px;
+}
+
+.search-bar button {
+    background-color: #0066ff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+
+.search-bar button:hover {
+    background-color: #0051cc;
+}
+
+h2.title span {
+    display: inline-block;
+    background: #f5fcff;
+    padding: 5px 9px;
+    position: absolute;
+    top: -12px;
+    z-index: 99999;
+    left: 16px;
+}
+
+h2.title a {
+    color: #2874ff;
+}
+
+.attractive-destinations {
+    padding: 30px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.attractive-destinations h2 {
+    color: #0066ff;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.attractive-destinations h2::before {
+    content: '';
+    width: 50px;
+    height: 5px;
+    background-color: #0066ff;
+    position: absolute;
+    top: 50%;
+    left: calc(50% - 60px);
+}
+
+h2.title:after {
+    width: 100%;
+    position: absolute;
+    display: block;
+    height: 7px;
+    background: #2874ff;
+    content: "";
+}
+
+.destinations-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.destination-card {
+    position: relative;
+    width: 200px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.destination-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.destination-card .overlay {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    width: 200px;
+    text-align: center;
+    font-size: 14px;
+}
+.row {
+    margin-right: 15px;
+    margin-left: 15px;
+}
+.main-news-km {
+    margin-bottom: 30px;
+}
+.container {
+    width: 100%;
+    padding: 20px;
+}
+
+.row {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.list-kn {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.list-kn li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.list-kn li a {
+    text-decoration: none;
+}
+
+.list-kn li img {
+    width: 100px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
+.tit-kn a {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 5px;
+}
+
+.tit-kn a:hover {
+    color: #0066cc;
+}
+.container{
+    display: flex;
+}
+.container p {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+}
+.tour-card {
+    width: 300px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+    right:20px; /* Cách bên phải 20px */
+    top: 100px; /* Cách phía trên 100px */
+    z-index: 1000; /* Đảm bảo phần này nằm trên các phần khác */
+    margin-left: 325px;
+}
+
+.tour-card h3 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.original-price {
+    color: #888;
+    font-size: 14px;
+}
+
+.new-price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #e63946;
+    margin-bottom: 10px;
+}
+
+.discount {
+    background-color: #ff4c4c;
+    color: white;
+    padding: 3px 5px;
+    font-size: 12px;
+    border-radius: 4px;
+    margin-left: 10px;
+}
+
+.btn-tour {
+    display: block;
+    width: 100%;
+    background-color: #ffc107;
+    color: white;
+    border: none;
+    padding: 8px;
+    margin-top: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.itinerary {
+    font-size: 14px;
+    color: #555;
+    margin: 10px 0;
+    padding-left: 20px;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.btn-book,
+.btn-request {
+    background-color: #ffc107;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 48%;
+}
+
+.btn-book:hover,
+.btn-request:hover {
+    background-color: #ffb000;
+}
+
+
+.clear {
+    clear: both;
+}
+.hotel-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .hotel-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    background-color: #fff;
+  }
+  
+  .hotel-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  .hotel-card h3 {
+    font-size: 1.1em;
+    margin: 10px 0;
+    color: #333;
+  }
+  
+  .hotel-card .price {
+    font-size: 1.2em;
+    color: #ff5722;
+    margin-bottom: 10px;
+  }
+  
+  .stars {
+    margin: 10px 0;
+    color: #ffbf00;
+  }
+  
+  .stars span {
+    font-size: 1.3em;
+  }
+  
+  .hotel-card button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  @media (max-width: 1200px) {
+    .hotel-container {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  @media (max-width: 900px) {
+    .hotel-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .hotel-container {
+      grid-template-columns: 1fr;
+    }
+  }
+  .tour-booking {
+    width: 100%;
+    max-width: 600px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 0 auto;
+}
+
+.tour-booking h2 {
+    font-size: 18px;
+    background-color: #ffe29a;
+    color: #333;
+    padding: 10px;
+    border-radius: 5px 5px 0 0;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.tour-booking table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.tour-booking th, .tour-booking td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.tour-booking thead th {
+    font-weight: bold;
+    color: #333;
+}
+
+.tour-booking input[type="number"] {
+    width: 50px;
+    padding: 5px;
+    text-align: center;
+}
+
+.tour-booking .total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.tour-booking .book-tour {
+    width: 100%;
+    padding: 10px;
+    background-color: #f9a825;
+    color: #ffffff;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.tour-booking .book-tour:hover {
+    background-color: #f57f17;
+}
+
+
+
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-content {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    margin: 10px;
+}
+
+.footer-section h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #0066cc;
+}
+
+.footer-section p {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.footer-section .contact p {
+    margin: 5px 0;
+}
+
