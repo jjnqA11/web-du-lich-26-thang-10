@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Khám Phá Di Sản</title>
     <link rel="stylesheet" href="style.css">
+    <script src="index.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 </head>
@@ -21,15 +22,18 @@
             <a href="login.html">Login</a>
         </div>
     </header>
-
-    <nav class="navbar">
+    <div>
+        <nav class="navbar">
         <ul>
             <li><a href="#">TRANG CHỦ</a></li>
             <li><a href="#">ĐIỂM ĐẾN HẤP DẪN</a></li>
             <li><a href="#">CẨM NANG DU LỊCH</a></li>
             <li><a href="#">KHÁCH SẠN</a></li>
+            <li class="theme-toggle"><button class="theme-toggle-btn" onclick="toggleTheme()">Giao diện: Tối</button></li>
         </ul>
     </nav>
+    </div>
+    
         <form>
     <div class="search-bar">
         <input type="text" placeholder="Từ khóa tìm kiếm...">

@@ -6,7 +6,9 @@ body {
     background-color: #fff;
     overflow-x: hidden; 
     /* an thanh truot truc x */
+    transition: background-color 0.3s, color 0.3s;
 }
+
 
 header {
     display: flex;
@@ -64,10 +66,9 @@ div {
 
 .navbar ul {
     list-style-type: none;
-    margin: 0;
-    padding: 0;
+    margin: 5px;
+    padding: 1px;
     display: flex;
-    justify-content: center;
     gap: 30px;
 }
 
@@ -84,7 +85,9 @@ div {
 .navbar ul li a:hover {
     color: yellow;
 }
-
+.theme-toggle {
+    padding-left: 47%;
+}
 .search-bar {
     display: flex;
     justify-content: center;
@@ -112,7 +115,7 @@ div {
 }
 
 .search-bar button:hover {
-    background-color: #0051cc;
+    background-color: #9da4ae;
 }
 
 h2.title span {
@@ -301,7 +304,7 @@ h2.title:after {
 .btn-tour {
     display: block;
     width: 100%;
-    background-color: #ffc107;
+    background-color: #0066cc;
     color: white;
     border: none;
     padding: 8px;
@@ -326,7 +329,7 @@ h2.title:after {
 
 .btn-book,
 .btn-request {
-    background-color: #ffc107;
+    background-color: #0066cc;
     color: white;
     border: none;
     padding: 8px 12px;
@@ -338,7 +341,7 @@ h2.title:after {
 
 .btn-book:hover,
 .btn-request:hover {
-    background-color: #ffb000;
+    background-color: #0051cc;
 }
 
 
@@ -430,7 +433,7 @@ h2.title:after {
 
 .tour-booking h2 {
     font-size: 18px;
-    background-color: #ffe29a;
+    background-color: #69a4fe;
     color: #333;
     padding: 10px;
     border-radius: 5px 5px 0 0;
@@ -472,7 +475,7 @@ h2.title:after {
 .tour-booking .book-tour {
     width: 100%;
     padding: 10px;
-    background-color: #f9a825;
+    background-color: #0066cc;
     color: #ffffff;
     font-size: 18px;
     border: none;
@@ -481,7 +484,7 @@ h2.title:after {
 }
 
 .tour-booking .book-tour:hover {
-    background-color: #f57f17;
+    background-color: #0051cc;
 }
 
 
@@ -524,3 +527,91 @@ h2.title:after {
     margin: 5px 0;
 }
 
+/* phần dark mode */
+/* Thay đổi chung cho body khi ở chế độ tối */
+body.dark-theme {
+    background-color: #2b2b2b;
+    color: white;
+}
+
+/* Header ở chế độ tối */
+body.dark-theme header {
+    background-color: #333;
+    color: white;
+}
+
+/* Navbar ở chế độ tối */
+body.dark-theme .navbar {
+    background-color: #444;
+}
+
+body.dark-theme .navbar ul li a {
+    color: #ccc;
+}
+
+body.dark-theme .navbar ul li a:hover {
+    color: #ffdd57;
+}
+
+/* Nút chuyển đổi theme */
+body.dark-theme .theme-toggle-btn {
+    background-color: #555;
+    color: #fff;
+}
+
+/* Thay đổi các button khi ở chế độ tối */
+body.dark-theme button {
+    background-color: #666;
+    color: white;
+}
+
+body.dark-theme button:hover {
+    background-color: #555;
+}
+
+/* Phần tử .search-bar ở chế độ tối */
+body.dark-theme .search-bar input[type="text"],
+body.dark-theme .search-bar select {
+    background-color: #555;
+    color: white;
+    border-color: #444;
+}
+
+body.dark-theme .search-bar button {
+    background-color: #666;
+}
+
+body.dark-theme .search-bar button:hover {
+    background-color: #555;
+}
+
+/* Cập nhật màu nền cho các thẻ h2 và các vùng khác */
+body.dark-theme h2.title {
+    color: #ffdd57;
+}
+
+body.dark-theme .attractive-destinations {
+    background-color: #3b3b3b;
+}
+
+body.dark-theme .container,
+body.dark-theme .tour-card,
+body.dark-theme .hotel-card,
+body.dark-theme .footer {
+    background-color: #3a3a3a;
+    color: white;
+}
+
+/* Cập nhật màu của các liên kết */
+body.dark-theme a {
+    color: #ffdd57;
+}
+
+body.dark-theme a:hover {
+    color: #ffcc00;
+}
+
+/* Phần footer */
+body.dark-theme .footer {
+    background-color: #222;
+}
