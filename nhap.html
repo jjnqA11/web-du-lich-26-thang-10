@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông tin Địa điểm</title>
+    <link rel="stylesheet" href="nhap.css">
+</head>
+<body>
+    <section class="main-news">
+        <section class="attractive-destinations">
+            <h2 class="title">
+                <span id="DiemDen">
+                    <a href="/diem-den-hap-dan/">Điểm đến hấp dẫn</a>
+                </span>
+            </h2>
+            <div class="destinations-container owl-carousel">
+                <div class="destination-card item">
+                    <img src="images/ho-hoan-kiem-7185.jpg" alt="Hà Nội">
+                    <div class="overlay">
+                        <p>Hà Nội – Biểu tượng lịch sử độc đáo của Việt Nam</p>
+                    </div>
+                    <button class="info-btn" data-info="Hà Nội, thủ đô của Việt Nam, là một thành phố giàu lịch sử và văn hóa...">Chi tiết</button>
+                </div>
+                <!-- Thêm các thẻ <div> khác cho các địa điểm khác -->
+            </div>
+        </section>
+    </section>
+
+    <div id="infoBox" class="hidden">
+        <div class="info-content">
+            <span id="infoText"></span>
+            <button id="closeInfoBox">Close</button>
+        </div>
+    </div>
+    <script src="nhap.js"></script>
+</body>
+</html>

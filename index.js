@@ -10,3 +10,24 @@ function toggleTheme() {
         btn.textContent = 'Tối';
     }
 }
+// Load the infobox HTML into the main page
+window.onload = function() {
+    fetch('infoBox.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('infobox-container').innerHTML = data;
+            
+            // Add the close button functionality
+            document.getElementById('closeInfoBox').addEventListener('click', function() {
+                document.getElementById('infoBox').classList.add('hidden');
+                document.getElementById('infoBox').classList.remove('show');
+            });
+        });
+};
+
+function details(title, info) {
+    document.getElementById('infoTitle').textContent = title;
+    document.getElementById('infoText').textContent = info;
+    document.getElementById('infoBox').classList.add('show');
+    document.getElementById('infoBox').classList.remove('hidden');
+}
