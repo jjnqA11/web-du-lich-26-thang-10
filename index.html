@@ -10,32 +10,34 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <img src="images/logo.jpg">
-            <h1>Trùm Phượt Thủ</h1>
-        </div>
-        <div class="banner">
-            <span>Default Banner</span>
-        </div>
-        <div class="login">
-            <a href="login.html">Login</a>
-        </div>
-    </header>
-    <div>
+    <section id="header__banner">
+        <header>
+            <div class="logo">
+                <img src="images/logo.jpg">
+                <h1>Trùm Phượt Thủ</h1>
+            </div>
+            <div class="banner">
+                <span>Default Banner</span>
+            </div>
+            <div class="login">
+                <a href="login.html">Login</a>
+            </div>
+        </header>
         <nav class="navbar">
-        <ul>
-            <li><a href="#">TRANG CHỦ</a></li>
-            <li><a href="#">ĐIỂM ĐẾN HẤP DẪN</a></li>
-            <li><a href="#">CẨM NANG DU LỊCH</a></li>
-            <li><a href="#">KHÁCH SẠN</a></li>
-            <li class="theme-toggle"><button class="theme-toggle-btn" onclick="toggleTheme()">Giao diện: Tối</button></li>
-        </ul>
-    </nav>
-    </div>
-    
-        <form>
-    <div class="search-bar">
+            <ul class="menu">
+                <div class="menu_item">
+                    <li><a href="#">TRANG CHỦ</a></li>
+                    <li><a href="#DiemDen">ĐIỂM ĐẾN HẤP DẪN</a></li>
+                    <li><a href="#CamNang">CẨM NANG DU LỊCH</a></li>
+                    <li><a href="#KhachSan">KHÁCH SẠN</a></li>
+                </div>
+                <div class="menu_item">
+                    <li class="theme-toggle"><button class="theme-toggle-btn" onclick="toggleTheme()">Chế Độ</button></li>
+                </div>
+            </ul>
+        </nav>
+    </section>
+    <section class="search-bar">
         <input type="text" placeholder="Từ khóa tìm kiếm...">
         <select>
             <option selected disabled>Chọn địa điểm</option>
@@ -44,12 +46,11 @@
             <option value="3">Miền Nam</option>
         </select>
         <button>TÌM KIẾM NGAY</button>
-    </div>
-        </form>
-        <div class = "main-news">
+    </section>
+    <section class = "main-news">
         <section class="attractive-destinations">
             <h2 class="title">
-                <span>
+                <span id="DiemDen">
                     <a href="/diem-den-hap-dan/">Điểm đến hấp dẫn</a>
                 </span>
             </h2>
@@ -116,11 +117,11 @@
                 </div>
             </div>
         </section>
-    </div>
-    <div class="main-news-km">
+    </section>
+    <section class="main-news-km">
         <section class="attractive-destinations">
             <h2 class="title">
-                <span>
+                <span id="CamNang">
                     <a href="/cam-nang-du-dich/">Cẩm nang du lịch</a>
                 </span>
             </h2>
@@ -197,17 +198,17 @@
                 </div>
             </div>
         </div>        
-    </div>
-    <div>
+    </section>
+    <section>
         <section class="attractive-destinations">
             <h2 class="title">
-                <span>
+                <span id="KhachSan">
                     <a href="/khach-san/">Khách sạn</a>
                 </span>
             </h2>
         </section>
-    </div>
-    <div class="hotel-container">
+    </section>
+    <section class="hotel-container">
         <div class="hotel-card">
           <img src="images/nguyen-ho-homstay-da-lat.jpg" alt="Nguyễn Hồ Homestay" />
           <h3>Nguyễn Hồ Homestay Đà Lạt</h3>
@@ -247,9 +248,9 @@
           </div>
           <button>Đặt Phòng Ngay</button>
         </div>
-      </div>
-      
-      <div class="tour-booking">
+    </section>
+   
+    <section class="tour-booking">
         <h2>CHỌN NGÀY KHỞI HÀNH</h2>
         <table>
             <thead>
@@ -292,23 +293,25 @@
             <span>14.490.000₫</span>
         </div>
         <a href="login.html"><button class="book-tour">ĐẶT TOUR NGAY</button></a>
-    </div>
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section about">
-                <h3>Giới thiệu về trang web</h3>
-                <p>
-                    Đây là trang web cung cấp thông tin du lịch và các dịch vụ tour đáng tin cậy. Chúng tôi cam kết mang đến trải nghiệm tốt nhất cho khách hàng với những dịch vụ chất lượng và phong phú.
-                </p>
+    </section>
+    <section class="footer">
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <h3>Giới thiệu về trang web</h3>
+                    <p>
+                        Đây là trang web cung cấp thông tin du lịch và các dịch vụ tour đáng tin cậy. Chúng tôi cam kết mang đến trải nghiệm tốt nhất cho khách hàng với những dịch vụ chất lượng và phong phú.
+                    </p>
+                </div>
+                <div class="footer-section contact">
+                    <h3>Liên hệ quảng cáo - hợp tác</h3>
+                    <p>Email: quangcao@website.com</p>
+                    <p>Số điện thoại: 0123 456 789</p>
+                    <p>Địa chỉ: Số 123, Đường ABC, TP. XYZ</p>
+                </div>
             </div>
-            <div class="footer-section contact">
-                <h3>Liên hệ quảng cáo - hợp tác</h3>
-                <p>Email: quangcao@website.com</p>
-                <p>Số điện thoại: 0123 456 789</p>
-                <p>Địa chỉ: Số 123, Đường ABC, TP. XYZ</p>
-            </div>
-        </div>
-    </footer>
+        </footer>
+    </section>
 
     <!-- Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
