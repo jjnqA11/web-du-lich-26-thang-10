@@ -1,0 +1,134 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <section id="header__banner">
+        <header>
+            <div class="logo">
+                <img src="images/logo.jpg">
+                <h1>Trùm Phượt Thủ</h1>
+            </div>
+            <div class="banner">
+                <span>Default Banner</span>
+            </div>
+            <div class="login">
+                <a href="login.html">Login</a>
+            </div>
+        </header>
+        <nav class="navbar">
+            <ul class="menu">
+                <div class="menu_item">
+                    <li><a href="#">TRANG CHỦ</a></li>
+                    <li><a href="#DiemDen">ĐIỂM ĐẾN HẤP DẪN</a></li>
+                    <li><a href="#CamNang">CẨM NANG DU LỊCH</a></li>
+                    <li><a href="#KhachSan">KHÁCH SẠN</a></li>
+                </div>
+                <div class="menu_item">
+                    <li class="theme-toggle"><button class="theme-toggle-btn" onclick="toggleTheme()">Chế Độ</button></li>
+                </div>
+            </ul>
+        </nav>
+    </section>
+    <section class="search-bar">
+        <input type="text" placeholder="Từ khóa tìm kiếm...">
+        <select>
+            <option selected disabled>Chọn địa điểm</option>
+            <option value="1">Miền Bắc</option>
+            <option value="2">Miền Trung</option>
+            <option value="3">Miền Nam</option>
+        </select>
+        <button>TÌM KIẾM NGAY</button>
+    </section>
+
+    <section class="main">
+        <header>
+            <h1>Thanh Toan</h1>
+
+            <p>Vui long kiem tra thong tin khach hang, thong tin gio hang truoc khi dat hang</p>
+        </header>
+
+        <div class="info_user">
+            <div class="col-left">
+                <div>
+                    <h1>Thong tin khach hang</h1>
+                </div>
+                <div>
+                    <label for="name">Ho ten</label>
+                    <input id="name" type="text" placeholder="Vui long nhap vao ho va ten">
+                </div>
+                <div>
+                    <label for="sex">Gioi tinh</label>
+                    <input id="sex" type="text" placeholder="Vui long nhap vao gioi tinh">
+                </div>
+                <div>
+                    <label for="adress">Dia chi</label>
+                    <input id="adress" type="text" placeholder="Vui long nhap vao dia chi">
+                </div>
+                <div>
+                    <label for="phone">Dien thoai</label>
+                    <input id="phone" type="number" placeholder="Vui long nhap vao so dien thoat">
+                </div>
+                <div>
+                    <label for="email">Email</label>
+                    <input id="email" type="text" placeholder="Vui long nhap vao email">
+                </div>
+                <div>
+                    <label for="cmnd">CMND</label>
+                    <input id="cmnd" type="number" placeholder="Vui long nhap vao CMND">
+                </div>
+                <div>
+                    <h1>Hinh thuc thanh toan</h1>
+                    <form action="">
+                        <input type="radio" id="html" name="fav_language">
+                        <label for="html">Tien Mat</label><br>
+                        <input type="radio" id="css" name="fav_language" >
+                        <label for="css">Chuyen Khoan</label><br>
+                        <input type="radio" id="javascript" name="fav_language">
+                        <label for="javascript">Ship COD</label>
+
+                        <hr>
+                        <input type="submit" value="Dat Hang">
+                    </form>
+                </div>
+            </div>
+            <div class="col-right">
+                <h1>Gio Hang</h1>
+
+                <div>
+                    <h2>Tour ngay 29/12</h2> <span>So tien cu the</span> 
+                </div>
+                <hr>
+                <div>
+                    <h1>Tong So Tien</h1> <span>110000000000000$</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="footer">
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <h3>Giới thiệu về trang web</h3>
+                    <p>
+                        Đây là trang web cung cấp thông tin du lịch và các dịch vụ tour đáng tin cậy. Chúng tôi cam kết mang đến trải nghiệm tốt nhất cho khách hàng với những dịch vụ chất lượng và phong phú.
+                    </p>
+                </div>
+                <div class="footer-section contact">
+                    <h3>Liên hệ quảng cáo - hợp tác</h3>
+                    <p>Email: quangcao@website.com</p>
+                    <p>Số điện thoại: 0123 456 789</p>
+                    <p>Địa chỉ: Số 123, Đường ABC, TP. XYZ</p>
+                </div>
+            </div>
+        </footer>
+    </section>
+
+    <!-- Script -->
+     <script src="./index.js"></script>
+</body>
+</html>

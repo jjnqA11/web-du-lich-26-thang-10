@@ -270,10 +270,15 @@ h2.title:after {
 .main-news-km {
     margin-bottom: 30px;
 }
+
 .container {
     width: 100%;
-    padding: 20px;
-}
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  
 
 .row {
     display: flex;
