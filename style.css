@@ -13,8 +13,6 @@ body {
     transition: background-color 0.3s, color 0.3s;
 }
 
-
-
 #header__banner{
     width: 100%;
     display: block;
@@ -206,6 +204,31 @@ h2.title:after {
     height: 7px;
     background: #2874ff;
     content: "";
+}
+
+#title_detail_carousel{
+    display: none;
+}
+
+.table-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    height: 355px;
+    position: absolute;
+    z-index: 5;
+    background-color: aliceblue;
+    padding: 25px;
+    margin-left: 12%;
+}
+
+.table-content #closeBtnTitle{
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    top: 16px;
+    right: 16px;
 }
 
 .destinations-container {

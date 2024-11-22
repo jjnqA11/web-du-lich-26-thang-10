@@ -6,7 +6,6 @@
     <title>Khám Phá Di Sản</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="infoBox.css">
-    <script src="index.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 </head>
@@ -55,11 +54,24 @@
                     <a href="/diem-den-hap-dan/">Điểm đến hấp dẫn</a>
                 </span>
             </h2>
+            <div id="title_detail_carousel">
+                <div class="table-content">
+                    <button id="closeBtnTitle">X</button>
+                    <div class="img_carousel">
+                        <img src="images/DTQGDB_Chua Keo Thai Binh.jpg" width="200px" height="100%" alt="">
+                    </div>
+                    <div class="title_detail_content">
+                        <h1>Ha Noi - Bieu Tuong du lich lich su doc dao cua viet nam</h1>
+                        <p>Thong Tin chi tiet</p>
+                        <button type="submit" id="submitTour">Dat Tour Ngay</button>
+                    </div>
+                </div>
+            </div>
             <div class="destinations-container owl-carousel">
                 <div class="destination-card item">
-                <a onclick="details()">
-                    <img src="images/ho-hoan-kiem-7185.jpg" alt="Hà Nội">
-                </a>
+                    <a>
+                        <img src="images/ho-hoan-kiem-7185.jpg" alt="Hà Nội">
+                    </a>
                     <div class="overlay">
                         <p>Hà Nội – Biểu tượng lịch sử độc đáo của Việt Nam</p>
                     </div>
@@ -80,24 +92,6 @@
                     <img src="images/hue.jpg" alt="Huế">
                     <div class="overlay">
                         <p>Huế – Biểu tượng Cố Đô</p>
-                    </div>
-                </div>
-                <div class="destination-card item">
-                    <img src="images/TPHCM.jpg" alt="TPHCM">
-                    <div class="overlay">
-                        <p>TP Hồ Chí Minh - Thành phố của tương lai</p>
-                    </div>
-                </div>
-                <div class="destination-card item">
-                    <img src="images/TPHCM.jpg" alt="TPHCM">
-                    <div class="overlay">
-                        <p>TP Hồ Chí Minh - Thành phố của tương lai</p>
-                    </div>
-                </div>
-                <div class="destination-card item">
-                    <img src="images/TPHCM.jpg" alt="TPHCM">
-                    <div class="overlay">
-                        <p>TP Hồ Chí Minh - Thành phố của tương lai</p>
                     </div>
                 </div>
                 <div class="destination-card item">
@@ -140,7 +134,7 @@
                             <h4 class="tit-kn">
                                 <a href="#">Khám phá Măng Đen – Thiên nhiên đại ngàn</a>
                             </h4>
-                            <p>Măng Đen là một thị trấn được mệnh danh là “Đà Lạt thu nhỏ”...</p>
+                            <p class="tit-kn-detail">Măng Đen là một thị trấn được mệnh danh là “Đà Lạt thu nhỏ”...</p>
                         </div>
                     </li>
                     <li>
@@ -151,7 +145,7 @@
                             <h4 class="tit-kn">
                                 <a href="#">Khám phá Măng Đen – Thiên nhiên đại ngàn</a>
                             </h4>
-                            <p>Măng Đen là một thị trấn được mệnh danh là “Đà Lạt thu nhỏ”...</p>
+                            <p class="tit-kn-detail">Măng Đen là một thị trấn được mệnh danh là “Đà Lạt thu nhỏ”...</p>
                         </div>
                     </li>
                     <li>
@@ -162,7 +156,7 @@
                             <h4 class="tit-kn">
                                 <a href="#">Khám phá Măng Đen – Thiên nhiên đại ngàn</a>
                             </h4>
-                            <p>Măng Đen là một thị trấn được mệnh danh là “Đà Lạt thu nhỏ”...</p>
+                            <p class="tit-kn-detail">Măng Đen là một thị trấn được mệnh danh là “Đà Lạt thu nhỏ”...</p>
                         </div>
                     </li>
                     <li>
@@ -173,7 +167,7 @@
                             <h4 class="tit-kn">
                                 <a href="#">Khám phá Măng Đen – Thiên nhiên đại ngàn</a>
                             </h4>
-                            <p>Măng Đen là một thị trấn được mệnh danh là “Đà Lạt thu nhỏ”...</p>
+                            <p class="tit-kn-detail">Măng Đen là một thị trấn được mệnh danh là “Đà Lạt thu nhỏ”...</p>
                         </div>
                     </li>
                 </ul>
@@ -267,33 +261,33 @@
             <tbody>
                 <tr>
                     <td>26/10/2024</td>
-                    <td><input type="number" value="1" min="0"></td>
+                    <td><input id="input-passenger1" type="number" value="0" min="0"></td>
                     <td>14.490.000₫</td>
-                    <td>14.490.000₫</td>
+                    <td id="tour-booking-price1">0₫</td>
                 </tr>
                 <tr>
                     <td>16/11/2024</td>
-                    <td><input type="number" value="0" min="0"></td>
+                    <td><input id="input-passenger2" type="number" value="0" min="0"></td>
                     <td>14.490.000₫</td>
-                    <td>0₫</td>
+                    <td id="tour-booking-price2">0₫</td>
                 </tr>
                 <tr>
                     <td>30/11/2024</td>
-                    <td><input type="number" value="0" min="0"></td>
+                    <td><input id="input-passenger3" type="number" value="0" min="0"></td>
                     <td>14.490.000₫</td>
-                    <td>0₫</td>
+                    <td id="tour-booking-price3">0₫</td>
                 </tr>
                 <tr>
                     <td>28/12/2024 (Bali Countdown 2025)</td>
-                    <td><input type="number" value="0" min="0"></td>
+                    <td><input id="input-passenger-sell" type="number" value="0" min="0"></td>
                     <td>16.990.000₫</td>
-                    <td>0₫</td>
+                    <td id="tour-booking-price-sell">0₫</td>
                 </tr>
             </tbody>
         </table>
         <div class="total">
             <span>Tổng tiền</span>
-            <span>14.490.000₫</span>
+            <span>0₫</span>
         </div>
         <a href="login.html"><button class="book-tour">ĐẶT TOUR NGAY</button></a>
     </section>
@@ -320,6 +314,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <!-- Execute -->
+    <script src="index.js"></script>
     <script>
         $(document).ready(function(){
             $(".owl-carousel").owlCarousel({
@@ -341,12 +336,11 @@
                     }
                 },
                 navText: [
-                '<img src="./utils/back.svg" alt="Previous">', // Nút Prev
-                '<img src="./utils/next.svg" alt="Next">'     // Nút Next
+                '<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"> <path d="M640-80 240-480l400-400 71 71-329 329 329 329-71 71Z"/> </svg>', // Nút Prev
+                '<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"> <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z"/> </svg>'     // Nút Next
                 ]
             })
         })
     </script>
-    <div id="infobox-container"></div> 
 </body>
 </html>
