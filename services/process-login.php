@@ -21,7 +21,7 @@
         // htmlspecialchar() chuyen doi cac ki tu dac biet thanh cac ma html an toan tranh loi XSS . 
         // vidu "<" => "&lt" va ">" chuyen thanh "&gt"
 
-        $loginSQL = "SELECT * FROM user WHERE email = ? AND password = ?";
+        $loginSQL = "SELECT * FROM user_table WHERE email = ? AND password = ?";
         // $loginSQL => cau lenh sql kiem tra email va mat khau co khop voi ban ghi khong trong bang user hay khong 
         // ? : Placeholder dung de bao ve chong lai loi SQL Injection (Truy van khong an toan)
 

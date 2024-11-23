@@ -48,7 +48,7 @@ document.getElementById("btn-submit").addEventListener("click", function (event)
   // Hiển thị kết quả kiểm tra
   if (isValid) {
       // Chuyển hướng đến trang login.html nếu thông tin hợp lệ
-      window.location.href = "login.html";
+      window.location.href = "login.php";
   } else {
       alert("Có lỗi trong thông tin, vui lòng kiểm tra lại.");
   }
