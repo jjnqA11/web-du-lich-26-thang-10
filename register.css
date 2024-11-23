@@ -40,6 +40,7 @@ body{
     margin-bottom: 16px;
     margin-left: 16px;
     margin-right: 16px;
+    position: relative;
 }
 
 .f-input input[type="text"]{
@@ -48,10 +49,11 @@ body{
   font-size: 20px;
 }
 
-.f-input input[type="password"]{
-  width: 80%;
-  height: 40px;
-  font-size: 20px;
+.f-input input[type="password"] {
+  width: 80%; /* Chiều rộng của input */
+  height: 40px; /* Chiều cao của input */
+  font-size: 20px; /* Kích thước chữ */
+  padding-right: 40px; /* Padding bên phải để tạo khoảng cách cho icon */
 }
 
 .f-input input[type="email"]{
