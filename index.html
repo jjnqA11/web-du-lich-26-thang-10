@@ -5,9 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Khám Phá Di Sản</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="infoBox.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 </head>
 <body>
     <section id="header__banner">
@@ -196,14 +193,12 @@
             </div>
         </div>        
     </section>
-    <section>
-        <section class="attractive-destinations">
-            <h2 class="title">
-                <span id="KhachSan">
-                    <a href="/khach-san/">Khách sạn</a>
-                </span>
-            </h2>
-        </section>
+    <section class="attractive-destinations">
+        <h2 class="title">
+            <span id="KhachSan">
+                <a href="/khach-san/">Khách sạn</a>
+            </span>
+        </h2>
     </section>
     <section class="hotel-container">
         <div class="hotel-card">
@@ -287,7 +282,7 @@
         </table>
         <div class="total">
             <span>Tổng tiền</span>
-            <span>0₫</span>
+            <span id="thanh-tien">0₫</span>
         </div>
         <a href="login.html"><button class="book-tour">ĐẶT TOUR NGAY</button></a>
     </section>
@@ -310,37 +305,7 @@
         </footer>
     </section>
 
-    <!-- Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <!-- Execute -->
     <script src="index.js"></script>
-    <script>
-        $(document).ready(function(){
-            $(".owl-carousel").owlCarousel({
-                items: 6,
-                loop:true, // vong lap carousel
-                margin: 1, //khoang cach giua cac muc
-                nav: true, // hien thi nut dieu khien
-                autoplay: true, // Tự động chạy
-                autoplayTimeout: 3000, // Thời gian mỗi slide là 3 giây
-                responsive: {
-                    0: {
-                        item: 1 // o kich thuoc man hinh nho nhat, hien thi ra 1 item
-                    },
-                    600: {
-                        item: 2 // o kich thuoc man hinh tu 600 px tro len, hien thi ra 2 item
-                    },
-                    1000: {
-                        item: 5 // o kich thuoc man hinh tu 1000px  tro len, hien thi ra 5 phan tu
-                    }
-                },
-                navText: [
-                '<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"> <path d="M640-80 240-480l400-400 71 71-329 329 329 329-71 71Z"/> </svg>', // Nút Prev
-                '<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"> <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z"/> </svg>'     // Nút Next
-                ]
-            })
-        })
-    </script>
 </body>
 </html>

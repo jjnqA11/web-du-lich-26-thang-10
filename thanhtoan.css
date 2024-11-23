@@ -1,0 +1,60 @@
+#header__main{
+    display: block !important;
+    text-align: center;
+}
+
+.main{
+    margin-bottom: 48px;
+}
+
+.info_user {
+    display: flex; /* Sử dụng Flexbox để bố trí hai cột */
+    gap: 20px; /* Khoảng cách giữa hai cột */
+    align-items: flex-start; /* Đẩy the ben trong lên trên cùng */
+    margin: 0 200px;
+}
+
+
+.col-left{
+    flex: 1;
+    padding: 12px;
+}
+
+.col-right {
+    flex: 1;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Tạo viền bóng */
+    padding: 20px;
+    background-color: #f9f9f9; /* Màu nền */
+    border-radius: 8px; /* Bo góc */
+}
+
+
+label {
+    display: inline-block; /* Đảm bảo nhãn được căn chỉnh đẹp */
+    width: 70px; /* Độ rộng cố định của nhãn để căn đều */
+    text-align: left; /* Căn chữ sang trai */
+    margin-right: 4px; /* Tạo khoảng cách giữa nhãn và input */
+}
+
+input[type="text"], input[type="number"] {
+    width: 300px; /* Đặt chiều rộng cố định cho tất cả các input */
+    padding: 4px; /* Tăng kích thước cho input */
+    border: 1px solid #ccc; /* Thêm viền cho input */
+    border-radius: 4px; /* Bo góc */
+    box-sizing: border-box; /* Đảm bảo padding không làm thay đổi kích thước */
+}
+
+.select-payment{
+    margin-top: 32px;
+}
+
+.select-payment form {
+    margin-top: 12px;
+    padding: 4px;
+}
+
+#btn-submit{
+    margin-top: 32px;
+    width: 100%;
+    padding: 8px;
+}

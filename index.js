@@ -33,32 +33,20 @@ function toggleTheme() {
     }
 }
 
-// xu ly click vao anh trong bang chuyen hien thi va tat info
-document.addEventListener('DOMContentLoaded', function () {
-    const title_detail_content = document.getElementById('title_detail_carousel');
-    if(title_detail_content){
-        // Khởi tạo Owl Carousel
-    const owlCarousel = document.querySelector('.owl-carousel');
-
-    // Lắng nghe sự kiện click vào phần tử con bên trong carousel
-    owlCarousel.addEventListener('click', function (event) {
-        // Kiểm tra nếu phần tử được click là item của carousel
-        const clickedItem = event.target.closest('.owl-item > div');
-        if (clickedItem) {
-           title_detail_content.style.display = "block"; 
-        }
+// xử lý click vào box hiện ra title box
+let titleInfoBox = document.getElementById('title_detail_carousel');
+let imageTitleBox = document.querySelectorAll('.destination-card');
+let closeBtnTitle = document.getElementById('closeBtnTitle');
+imageTitleBox.forEach((box) => {
+    let ImageElement = box.querySelector('img');
+    ImageElement.addEventListener('click', () => {
+        titleInfoBox.style.display = "block";
     });
-    }else{
-        console.log('Error');
-    }
-
-    const closeBtnTitleCarousel = document.getElementById('closeBtnTitle');
-
-    closeBtnTitleCarousel.addEventListener('click', () =>{
-        title_detail_content.style.display = "none" ? "none" : "block";
+    closeBtnTitle.addEventListener('click', () => {
+        titleInfoBox.style.display = "none";
     })
+})
 
-});
 
 // xử lý tour-booking
 const giaBinhDan = 14490000;
@@ -73,45 +61,36 @@ let totalPrice1 = document.getElementById('tour-booking-price1');
 let totalPrice2 = document.getElementById('tour-booking-price2');
 let totalPrice3 = document.getElementById('tour-booking-price3');
 let totalPriceSell = document.getElementById('tour-booking-price-sell');
+let totalBill = document.getElementById('thanh-tien');
 
+let tongSoTienSauCung = 0;
 
-    let tongSoTienSauCung = 0;
-    countNumberInputPassenger1.addEventListener('input', (event) => {
-        const tongSoNguoi = parseInt(event.target.value);
-    
-        let bill = tongSoNguoi * giaBinhDan;
+// Hàm tính tổng và cập nhật giá trị hiển thị
+const updatePrices = () => {
+    const tongSoNguoi1 = parseInt(countNumberInputPassenger1.value) || 0;
+    const tongSoNguoi2 = parseInt(countNumberInputPassenger2.value) || 0;
+    const tongSoNguoi3 = parseInt(countNumberInputPassenger3.value) || 0;
+    const tongSoNguoiSell = parseInt(countNumberInputPassengerSell.value) || 0;
 
-        tongSoTienSauCung += bill;
-    
-        totalPrice1.innerText = `${bill}₫`
-    })
-    
-    countNumberInputPassenger2.addEventListener('input', (event) => {
-        const tongSoNguoi = parseInt(event.target.value);
-    
-        let bill = tongSoNguoi * giaBinhDan;
+    // Tính giá trị từng mục
+    const bill1 = tongSoNguoi1 * giaBinhDan;
+    const bill2 = tongSoNguoi2 * giaBinhDan;
+    const bill3 = tongSoNguoi3 * giaBinhDan;
+    const billSell = tongSoNguoiSell * giaSell;
 
-        tongSoTienSauCung += bill;
-    
-        totalPrice2.innerText = `${bill}₫`
-    })
-    
-    countNumberInputPassenger3.addEventListener('input', (event) => {
-        const tongSoNguoi = parseInt(event.target.value);
-    
-        let bill = tongSoNguoi * giaBinhDan;
+    // Cập nhật tổng
+    tongSoTienSauCung = bill1 + bill2 + bill3 + billSell;
 
-        tongSoTienSauCung += bill;
-    
-        totalPrice3.innerText = `${bill}₫`
-    })
-    
-    countNumberInputPassengerSell.addEventListener('input', (event) => {
-        const tongSoNguoi = parseInt(event.target.value);
-    
-        let bill = tongSoNguoi * giaSell;
+    // Cập nhật giao diện
+    totalPrice1.innerText = `${bill1.toLocaleString()}₫`;
+    totalPrice2.innerText = `${bill2.toLocaleString()}₫`;
+    totalPrice3.innerText = `${bill3.toLocaleString()}₫`;
+    totalPriceSell.innerText = `${billSell.toLocaleString()}₫`;
+    totalBill.innerText = `${tongSoTienSauCung.toLocaleString()}₫`;
+};
 
-        tongSoTienSauCung += bill;
-    
-        totalPriceSell.innerText = `${bill}₫`
-    })
+// Gắn sự kiện `input` cho các input
+countNumberInputPassenger1.addEventListener('input', updatePrices);
+countNumberInputPassenger2.addEventListener('input', updatePrices);
+countNumberInputPassenger3.addEventListener('input', updatePrices);
+countNumberInputPassengerSell.addEventListener('input', updatePrices);
