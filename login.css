@@ -88,6 +88,7 @@ form .row input::placeholder {
 }
 
 .wrapper form .row i:last-child {
+  top:0;
   right: 0;
   background: none;
   color: #0066ff;
