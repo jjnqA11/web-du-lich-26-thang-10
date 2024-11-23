@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./thanhtoan.css">
 </head>
 <body>
     <section id="header__banner">
@@ -45,7 +46,7 @@
     </section>
 
     <section class="main">
-        <header>
+        <header id="header__main">
             <h1>Thanh Toan</h1>
 
             <p>Vui long kiem tra thong tin khach hang, thong tin gio hang truoc khi dat hang</p>
@@ -57,30 +58,30 @@
                     <h1>Thong tin khach hang</h1>
                 </div>
                 <div>
-                    <label for="name">Ho ten</label>
+                    <label for="name">Ho ten:</label>
                     <input id="name" type="text" placeholder="Vui long nhap vao ho va ten">
                 </div>
                 <div>
-                    <label for="sex">Gioi tinh</label>
+                    <label for="sex">Gioi tinh:</label>
                     <input id="sex" type="text" placeholder="Vui long nhap vao gioi tinh">
                 </div>
                 <div>
-                    <label for="adress">Dia chi</label>
+                    <label for="adress">Dia chi:</label>
                     <input id="adress" type="text" placeholder="Vui long nhap vao dia chi">
                 </div>
                 <div>
-                    <label for="phone">Dien thoai</label>
+                    <label for="phone">Dien thoai:</label>
                     <input id="phone" type="number" placeholder="Vui long nhap vao so dien thoat">
                 </div>
                 <div>
-                    <label for="email">Email</label>
+                    <label for="email">Email:</label>
                     <input id="email" type="text" placeholder="Vui long nhap vao email">
                 </div>
                 <div>
-                    <label for="cmnd">CMND</label>
+                    <label for="cmnd">CMND:</label>
                     <input id="cmnd" type="number" placeholder="Vui long nhap vao CMND">
                 </div>
-                <div>
+                <div class="select-payment">
                     <h1>Hinh thuc thanh toan</h1>
                     <form action="">
                         <input type="radio" id="html" name="fav_language">
@@ -91,7 +92,9 @@
                         <label for="javascript">Ship COD</label>
 
                         <hr>
-                        <input type="submit" value="Dat Hang">
+                       <div>
+                            <input id="btn-submit" type="submit" value="Dat Hang">
+                       </div>
                     </form>
                 </div>
             </div>
