@@ -48,6 +48,18 @@ body{
   font-size: 20px;
 }
 
+.f-input input[type="password"]{
+  width: 80%;
+  height: 40px;
+  font-size: 20px;
+}
+
+.f-input input[type="email"]{
+  width: 80%;
+  height: 40px;
+  font-size: 20px;
+}
+
 .f-checkbox{
   margin-top: 16px !important;
   margin: 0 12px 32px;

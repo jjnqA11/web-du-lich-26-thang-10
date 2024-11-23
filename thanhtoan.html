@@ -23,7 +23,7 @@
         <nav class="navbar">
             <ul class="menu">
                 <div class="menu_item">
-                    <li><a href="#">TRANG CHỦ</a></li>
+                    <li><a href="index.html">TRANG CHỦ</a></li>
                     <li><a href="#DiemDen">ĐIỂM ĐẾN HẤP DẪN</a></li>
                     <li><a href="#CamNang">CẨM NANG DU LỊCH</a></li>
                     <li><a href="#KhachSan">KHÁCH SẠN</a></li>
@@ -49,52 +49,61 @@
         <header id="header__main">
             <h1>Thanh Toan</h1>
 
-            <p>Vui long kiem tra thong tin khach hang, thong tin gio hang truoc khi dat hang</p>
+            <p>Vui lòng nhập đầy đủ thông tin chính xác của khách hàng trước khi đặt phòng</p>
         </header>
 
         <div class="info_user">
             <div class="col-left">
                 <div>
-                    <h1>Thong tin khach hang</h1>
+                    <h1>Thông tin khách hàng</h1><br>
                 </div>
                 <div>
-                    <label for="name">Ho ten:</label>
-                    <input id="name" type="text" placeholder="Vui long nhap vao ho va ten">
+                    <label for="name">Họ và Tên:</label>
+                    <input id="name" type="text" placeholder="Nhập họ tên của bạn">
                 </div>
+                <br>
                 <div>
-                    <label for="sex">Gioi tinh:</label>
-                    <input id="sex" type="text" placeholder="Vui long nhap vao gioi tinh">
+                    <label for="sex">Giới tính:</label>
+                    <input id="sex" type="radio"> Nam
+                    <input id="sex" type="radio"> Nữ
                 </div>
+                <br>
                 <div>
-                    <label for="adress">Dia chi:</label>
-                    <input id="adress" type="text" placeholder="Vui long nhap vao dia chi">
+                    <label for="adress">Địa chỉ:</label>
+                    <input id="adress" type="text" placeholder="Nhập địa chỉ của bạn">
                 </div>
+                <br>
                 <div>
-                    <label for="phone">Dien thoai:</label>
-                    <input id="phone" type="number" placeholder="Vui long nhap vao so dien thoat">
+                    <label for="phone">Số điện thoại:</label>
+                    <input id="phone" type="number" placeholder="Nhập số điện thoại">
                 </div>
+                <br>
                 <div>
                     <label for="email">Email:</label>
-                    <input id="email" type="text" placeholder="Vui long nhap vao email">
+                    <input id="email" type="text" placeholder="Email">
                 </div>
+                <br>
                 <div>
                     <label for="cmnd">CMND:</label>
-                    <input id="cmnd" type="number" placeholder="Vui long nhap vao CMND">
+                    <input id="cmnd" type="number" placeholder="Nhập đầy đủ số CMND gồm 12 chữ số">
                 </div>
+                <br>
                 <div class="select-payment">
-                    <h1>Hinh thuc thanh toan</h1>
+                    <h1>Hình thức thanh toán</h1>
                     <form action="">
-                        <input type="radio" id="html" name="fav_language">
-                        <label for="html">Tien Mat</label><br>
-                        <input type="radio" id="css" name="fav_language" >
-                        <label for="css">Chuyen Khoan</label><br>
-                        <input type="radio" id="javascript" name="fav_language">
-                        <label for="javascript">Ship COD</label>
-
+                        <label class="radio">
+                            <input type="radio" name="fav_language"> Thanh toán Tiền mặt
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="fav_language"> Ship COD
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="fav_language"> Chuyển khoản
+                        </label>
                         <hr>
-                       <div>
-                            <input id="btn-submit" type="submit" value="Dat Hang">
-                       </div>
+                        <div>
+                            <input id="btn-submit" type="submit" value="Đặt phòng">
+                        </div>
                     </form>
                 </div>
             </div>

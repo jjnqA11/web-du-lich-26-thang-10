@@ -720,3 +720,9 @@ body.dark-theme .tour-booking {
     color: white;
     transition: 0.3s ease-in-out;
 }
+
+body.dark-theme .col-right {
+    background-color: #373737;
+    color: white;        
+    transition: 0.3s ease-in-out;
+}
