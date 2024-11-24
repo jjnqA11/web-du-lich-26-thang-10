@@ -94,3 +94,18 @@ countNumberInputPassenger1.addEventListener('input', updatePrices);
 countNumberInputPassenger2.addEventListener('input', updatePrices);
 countNumberInputPassenger3.addEventListener('input', updatePrices);
 countNumberInputPassengerSell.addEventListener('input', updatePrices);
+
+function toggleDropdown() {
+    const dropdown = document.getElementById('userDropdown');
+    dropdown.classList.toggle('show');
+}
+
+// Close dropdown when clicking outside
+document.addEventListener('click', (e) => {
+    const dropdown = document.getElementById('userDropdown');
+    const userInfo = document.querySelector('.user-info');
+
+    if (!userInfo.contains(e.target)) {
+        dropdown.classList.remove('show');
+    }
+});

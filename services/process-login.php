@@ -1,74 +1,61 @@
 <?php
-    // chen file db_connection.php
-    include './connect-mysql/db_connection.php';
+// Chèn file db_connection.php
+include './connect-mysql/db_connection.php';
 
-    // lay du lieu duoc gui ra tu form
-    $email = $_POST['email'] ?? ''; // lay gia tri input co name = 'email'
-    $password = $_POST['password'] ?? ''; // lay gia tri input co name = 'password'
+// Lấy dữ liệu được gửi từ form
+$email = $_POST['email'] ?? ''; // Lấy giá trị input có name = 'email'
+$password = $_POST['password'] ?? ''; // Lấy giá trị input có name = 'password'
 
-    // toan tu ?? (Null Coalecsing Operator) toan tu ket hop null toan tu hoat dong nhu sau 
-    /**
-     * Neu gia tri $_POST['email'] ton tai khong phai null , thi $email nhan gia tri cua $_POST['email'] con neu gia tri
-     * khong ton tai hoac bang null thi $email nhan gia tri ''
-     */
+// Kiểm tra dữ liệu đầu vào
+if (!empty($email) && !empty($password)) {
+    // Hiển thị thông tin kiểm tra (chỉ dùng khi debug, nên xóa đi khi triển khai thật)
+    // echo "Email: " . htmlspecialchars($email) . "<br>";
+    // echo "Password: " . htmlspecialchars($password) . "<br>";
 
-     // kiem tra du lieu dau vao 
-     if (!empty($email) && !empty($password)){
-        // hien thi thong tin kiem tra 
-        echo "Email" . htmlspecialchars($email) . "<br>";
-        echo "Password" . htmlspecialchars($password) . "<br>";
+    // SQL kiểm tra email và mật khẩu
+    $loginSQL = "SELECT * FROM user_table WHERE email = ? AND password = ?";
 
-        // htmlspecialchar() chuyen doi cac ki tu dac biet thanh cac ma html an toan tranh loi XSS . 
-        // vidu "<" => "&lt" va ">" chuyen thanh "&gt"
+    // Chuẩn bị câu lệnh truy vấn
+    $stmt = mysqli_prepare($conn, $loginSQL);
 
-        $loginSQL = "SELECT * FROM user_table WHERE email = ? AND password = ?";
-        // $loginSQL => cau lenh sql kiem tra email va mat khau co khop voi ban ghi khong trong bang user hay khong 
-        // ? : Placeholder dung de bao ve chong lai loi SQL Injection (Truy van khong an toan)
+    if (!$stmt) {
+        die("Lỗi chuẩn bị truy vấn: " . mysqli_error($conn));
+    }
 
+    // Gán giá trị vào placeholder
+    mysqli_stmt_bind_param($stmt, "ss", $email, $password);
 
-        // chuan bi cau lenh truy van
-        $stmt = mysqli_prepare($conn, $loginSQL);
-        // mysqli_prepare: chuan bi mot cau truy van sql . no tra ve mot doi tuong stmt (statement) hoac false neu that bai
+    // Thực thi câu truy vấn
+    mysqli_stmt_execute($stmt);
 
-        if(!$stmt){
-            die("Loi chuan bi truy van: " . mysqli_error($conn));
-        }
+    // Lấy kết quả
+    $result = mysqli_stmt_get_result($stmt);
 
-        mysqli_stmt_bind_param($stmt, "ss", $email, $password);
+    // Kiểm tra kết quả
+    if ($result && mysqli_num_rows($result) > 0) {
+        // Người dùng đăng nhập thành công
+        $user = mysqli_fetch_assoc($result); // Lấy dữ liệu người dùng từ kết quả truy vấn
+        session_start();
+        $_SESSION['user'] = $user; // Lưu thông tin người dùng vào session
 
-        // ham mysqli_stmt_bind_param : gan gia tri vao cho placeholder (?) trong cau truy van 
-        // "ss" xac dinh kieu du lieu cua cac gia tri (s la string).
-
-        // thuc thi cau truy van 
-        mysqli_stmt_execute($stmt);
-
-        // lay ket qua
-        $result = mysqli_stmt_get_result($stmt);
-        // ham tren tra ve ket qua cua cau truy van duoi dang tap hop du lieu
-
-        // kiem tra ket qua 
-        if($result && mysqli_num_rows($result) > 0){
-            echo "Dang nhap thanh cong";
-        }else{
-            // sai mat khau hoac email
-            $error_message = "Sai mat khau hoac email!";
-            header("Location: ../login.php?error=" . urlencode($error_message) . "&email=" . urlencode($email));
-            exit();
-        }
-
-        // kiem tra mysqli_num_rows($result) dem so ban ghi tra ve 
-        // neu ban ghi > 0 : nguoi dung nhap dung thong tin. neu khong : email hoac mat khau khong dung
-
-        // dong cau lenh truy van 
-        mysqli_stmt_close($stmt);
-        // mysqli_stmt_close: Giải phóng tài nguyên liên quan đến đối tượng stmt.
-     }else{
-        $error_message = "Vui long nhap day du email va mat khau";
-        header("../login.php?error=" . urlencode($error_message));
+        // Chuyển hướng đến index.php
+        header("Location: ../index.php");
         exit();
-     }
+    } else {
+        // Sai mật khẩu hoặc email
+        $error_message = "Sai mật khẩu hoặc email!";
+        header("Location: ../login.php?error=" . urlencode($error_message) . "&email=" . urlencode($email));
+        exit();
+    }
 
-     // dong ket noi
-     mysqli_close($conn);
-     // mysqli_close: Đóng kết nối với MySQL, giải phóng tài nguyên.
+    // Đóng câu lệnh truy vấn
+    mysqli_stmt_close($stmt);
+} else {
+    $error_message = "Vui lòng nhập đầy đủ email và mật khẩu";
+    header("Location: ../login.php?error=" . urlencode($error_message));
+    exit();
+}
+
+// Đóng kết nối
+mysqli_close($conn);
 ?>

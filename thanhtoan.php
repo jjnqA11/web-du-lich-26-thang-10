@@ -1,3 +1,13 @@
+<?php
+session_start();
+if (!isset($_SESSION['user'])) {
+    header('Location: login.php');
+    exit();
+}
+
+// Lấy thông tin người dùng từ session
+$user = $_SESSION['user'];
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -16,35 +26,35 @@
             <div class="banner">
                 <span>Default Banner</span>
             </div>
-            <div class="login">
-                <a href="login.html">Login</a>
-            </div>
         </header>
         <nav class="navbar">
             <ul class="menu">
                 <div class="menu_item">
-                    <li><a href="index.html">TRANG CHỦ</a></li>
+                    <li><a href="index.php">TRANG CHỦ</a></li>
                     <li><a href="#DiemDen">ĐIỂM ĐẾN HẤP DẪN</a></li>
                     <li><a href="#CamNang">CẨM NANG DU LỊCH</a></li>
                     <li><a href="#KhachSan">KHÁCH SẠN</a></li>
                 </div>
                 <div class="menu_item">
                     <li class="theme-toggle"><button class="theme-toggle-btn" onclick="toggleTheme()">Chế Độ</button></li>
+                    <div class="user-info">
+                            <!-- Avatar icon -->
+                            <div class="user-avatar" onclick="toggleDropdown()">
+                                <img src="images/user.png" alt="Avatar" class="avatar">
+                                
+                            </div>
+                            <!-- Dropdown menu -->
+                            <div class="dropdown-menu" id="userDropdown">
+                                <span class="username">Xin chào, <?php echo htmlspecialchars($user['name']); ?>!</span>
+                                <a href="#" class="dropdown-item">Trạng thái tài khoản</a>
+                                <a href="logout.php" class="dropdown-item">Đăng xuất</a>
+                            </div>
+                    </div>
                 </div>
             </ul>
         </nav>
     </section>
-    <section class="search-bar">
-        <input type="text" placeholder="Từ khóa tìm kiếm...">
-        <select>
-            <option selected disabled>Chọn địa điểm</option>
-            <option value="1">Miền Bắc</option>
-            <option value="2">Miền Trung</option>
-            <option value="3">Miền Nam</option>
-        </select>
-        <button>TÌM KIẾM NGAY</button>
-    </section>
-
+    <br><br><br><br><br><br><br><br><br><br><br><br>
     <section class="main">
         <header id="header__main">
             <h1>Thanh Toan</h1>
