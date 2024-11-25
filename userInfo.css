@@ -1,0 +1,163 @@
+/* Reset mặc định */
+body, h1, h2, form, input, label, button, a {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body */
+body {
+    background-color: #f4f6f8;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Dark mode */
+body.dark-mode {
+    background-color: #333;
+    color: #f4f6f8;
+}
+
+/* Tiêu đề chính */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #0066ff;
+}
+
+/* Các section */
+section {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.delete-account-btn {
+    background-color: #ff4d4d;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.delete-account-btn:hover {
+    background-color: #cc0000;
+}
+
+section button {
+    margin-top: 10px;
+}
+
+body.dark-mode section {
+    background: #444;
+    color: #f4f6f8;
+}
+
+/* Tiêu đề section */
+section h2 {
+    font-size: 20px;
+    color: #0066ff;
+    margin-bottom: 15px;
+    border-left: 4px solid #0066ff;
+    padding-left: 10px;
+}
+
+body.dark-mode section h2 {
+    color: #66aaff;
+}
+
+/* Input */
+input[type="text"], 
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #0066ff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 102, 255, 0.3);
+}
+
+body.dark-mode input[type="text"],
+body.dark-mode input[type="password"] {
+    background-color: #555;
+    color: #f4f6f8;
+    border-color: #666;
+}
+
+/* Button */
+button {
+    background-color: #0066ff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #004bbd;
+}
+
+/* Theme toggle button */
+.theme-toggle {
+    text-align: right;
+    margin-bottom: 10px;
+}
+
+#themeButton {
+    background-color: #0066ff;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#themeButton:hover {
+    background-color: #004bbd;
+}
+
+/* Dark mode toggle button */
+body.dark-mode #themeButton {
+    background-color: #444;
+    color: #fff;
+}
+
+body.dark-mode #themeButton:hover {
+    background-color: #666;
+}
+
+a[href="index.php"] {
+    display: inline-block;
+    margin-top: 10px;
+    background: #0066ff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+}
+
+a[href="index.php"]:hover {
+    background-color: #004bbd;
+    transition: background-color 0.3s ease;
+}
