@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt = mysqli_prepare($conn, $loginSQL);
 
     if ($stmt === false) {
-        die("Lỗi câu lệnh SQL: " . mysqli_error($conn));
+        die("Lỗi chuẩn bị câu lệnh SQL: " . mysqli_error($conn));
     }
 
     mysqli_stmt_bind_param($stmt, "s", $email);
@@ -33,13 +33,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             header("Location: ../index.php");
             exit();
         } else {
-            echo "Sai mật khẩu!";
+            header("Location: ../login.php?error=" . urlencode("Sai mật khẩu.") . "&email=" . urlencode($email));
+            exit();
         }
-    } else {
-        echo "Tài khoản không tồn tại!";
-    }
+            } else {
+                header("Location: ../login.php?error=" . urlencode("Email không tồn tại."));
+                exit();
+            }
 
-    mysqli_stmt_close($stmt);
+    // Đóng câu lệnh
+    if ($stmt !== false) {
+        mysqli_stmt_close($stmt);
+    }
 }
 
 // Đóng kết nối

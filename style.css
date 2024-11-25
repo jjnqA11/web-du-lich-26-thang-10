@@ -162,6 +162,11 @@ div .login {
     background-color: #9da4ae;
 }
 
+.search-bar button a {
+    color: white;
+    text-decoration: none;
+}
+
 h2.title span {
     display: inline-block;
     background: #f5fcff;
@@ -790,5 +795,10 @@ body.dark-theme .tour-booking {
 body.dark-theme .col-right {
     background-color: #373737;
     color: white;        
+    transition: 0.3s ease-in-out;
+}
+
+body.dark-theme .username {
+    color: black;
     transition: 0.3s ease-in-out;
 }

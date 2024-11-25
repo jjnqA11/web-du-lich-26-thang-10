@@ -46,7 +46,7 @@ $user = $_SESSION['user'];
                             </div>
                             <!-- Dropdown menu -->
                             <div class="dropdown-menu" id="userDropdown">
-                                <span class="username">Xin chào, <?php echo htmlspecialchars($user['name']); ?>!</span>
+                                <span class="username"><b>Xin chào, <?php echo htmlspecialchars($user['name']); ?>!</b></span>
                                 <a href="userInfo.php" class="dropdown-item">Trạng thái tài khoản</a>
                                 <a href="logout.php" class="dropdown-item">Đăng xuất</a>
                             </div>
@@ -57,14 +57,17 @@ $user = $_SESSION['user'];
         </nav>
     </section>
     <section class="search-bar">
-        <input type="text" placeholder="Từ khóa tìm kiếm...">
+        <form id="searchForm" action="results.php" method="GET">
+            <input type="text" name="search_query" id="search_query" placeholder="Từ khóa tìm kiếm...">
         <select>
             <option selected disabled>Chọn địa điểm</option>
             <option value="1">Miền Bắc</option>
             <option value="2">Miền Trung</option>
             <option value="3">Miền Nam</option>
         </select>
-        <button>TÌM KIẾM NGAY</button>
+        <button type="submit">TÌM KIẾM NGAY</button>
+        </form>
+        
     </section>
     <section class = "main-news">
         <section class="attractive-destinations">
@@ -306,11 +309,7 @@ $user = $_SESSION['user'];
             <span>Tổng tiền</span>
             <span id="thanh-tien">0₫</span>
         </div>
-<<<<<<< HEAD
-        <a href="login.html"><button class="book-tour">ĐẶT TOUR NGAY</button></a>
-=======
         <a href="thanhtoan.php"><button class="book-tour">ĐẶT TOUR NGAY</button></a>
->>>>>>> upstream/main
     </section>
     <section class="footer">
         <footer class="footer">

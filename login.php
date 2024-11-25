@@ -26,10 +26,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           echo "Login successful!";
           // Tiến hành các bước tiếp theo, ví dụ chuyển hướng tới trang người dùng
       } else {
-          echo "Invalid email or password.";
+          header("Location: ../login.php?error=" . urlencode("Sai mật khẩu.") . "&email=" . urlencode($email));
+          exit();
       }
   } else {
-      echo "No user found with this email.";
+          header("Location: ../login.php?error=" . urlencode("Email không tồn tại."));
+          exit();
   }
 
   $stmt->close();

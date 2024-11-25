@@ -31,9 +31,9 @@ $user = $_SESSION['user'];
             <ul class="menu">
                 <div class="menu_item">
                     <li><a href="index.php">TRANG CHỦ</a></li>
-                    <li><a href="#DiemDen">ĐIỂM ĐẾN HẤP DẪN</a></li>
-                    <li><a href="#CamNang">CẨM NANG DU LỊCH</a></li>
-                    <li><a href="#KhachSan">KHÁCH SẠN</a></li>
+                    <li><a href="index.php#DiemDen">ĐIỂM ĐẾN HẤP DẪN</a></li>
+                    <li><a href="index.php#CamNang">CẨM NANG DU LỊCH</a></li>
+                    <li><a href="index.php#KhachSan">KHÁCH SẠN</a></li>
                 </div>
                 <div class="menu_item">
                     <li class="theme-toggle"><button class="theme-toggle-btn" onclick="toggleTheme()">Chế Độ</button></li>
@@ -46,7 +46,7 @@ $user = $_SESSION['user'];
                             <!-- Dropdown menu -->
                             <div class="dropdown-menu" id="userDropdown">
                                 <span class="username">Xin chào, <?php echo htmlspecialchars($user['name']); ?>!</span>
-                                <a href="#" class="dropdown-item">Trạng thái tài khoản</a>
+                                <a href="userInfo.php" class="dropdown-item">Trạng thái tài khoản</a>
                                 <a href="logout.php" class="dropdown-item">Đăng xuất</a>
                             </div>
                     </div>

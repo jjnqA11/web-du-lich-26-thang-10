@@ -23,10 +23,10 @@
         <nav class="navbar">
             <ul class="menu">
                 <div class="menu_item">
-                    <li><a href="#">TRANG CHỦ</a></li>
-                    <li><a href="#DiemDen">ĐIỂM ĐẾN HẤP DẪN</a></li>
-                    <li><a href="#CamNang">CẨM NANG DU LỊCH</a></li>
-                    <li><a href="#KhachSan">KHÁCH SẠN</a></li>
+                    <li><a href="index.php">TRANG CHỦ</a></li>
+                    <li><a href="index.php#DiemDen">ĐIỂM ĐẾN HẤP DẪN</a></li>
+                    <li><a href="index.php#CamNang">CẨM NANG DU LỊCH</a></li>
+                    <li><a href="index.php#KhachSan">KHÁCH SẠN</a></li>
                 </div>
                 <div class="menu_item">
                     <li class="theme-toggle"><button class="theme-toggle-btn" onclick="toggleTheme()">Chế Độ</button></li>
