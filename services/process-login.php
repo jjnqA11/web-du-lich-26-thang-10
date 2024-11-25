@@ -1,59 +1,45 @@
 <?php
-// Chèn file db_connection.php
-include './connect-mysql/db_connection.php';
+session_start();
 
-// Lấy dữ liệu được gửi từ form
-$email = $_POST['email'] ?? ''; // Lấy giá trị input có name = 'email'
-$password = $_POST['password'] ?? ''; // Lấy giá trị input có name = 'password'
+// Kết nối cơ sở dữ liệu
+include '../services/connect-mysql/db_connection.php';
 
-// Kiểm tra dữ liệu đầu vào
-if (!empty($email) && !empty($password)) {
-    // Hiển thị thông tin kiểm tra (chỉ dùng khi debug, nên xóa đi khi triển khai thật)
-    // echo "Email: " . htmlspecialchars($email) . "<br>";
-    // echo "Password: " . htmlspecialchars($password) . "<br>";
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Lấy dữ liệu từ form
+    $email = $_POST['email'] ?? '';
+    $password = $_POST['password'] ?? '';
 
-    // SQL kiểm tra email và mật khẩu
-    $loginSQL = "SELECT * FROM user_table WHERE email = ? AND password = ?";
-
-    // Chuẩn bị câu lệnh truy vấn
+    // Truy vấn thông tin người dùng dựa trên email
+    $loginSQL = "SELECT * FROM user_table WHERE email = ?";
     $stmt = mysqli_prepare($conn, $loginSQL);
 
-    if (!$stmt) {
-        die("Lỗi chuẩn bị truy vấn: " . mysqli_error($conn));
+    if ($stmt === false) {
+        die("Lỗi câu lệnh SQL: " . mysqli_error($conn));
     }
 
-    // Gán giá trị vào placeholder
-    mysqli_stmt_bind_param($stmt, "ss", $email, $password);
-
-    // Thực thi câu truy vấn
+    mysqli_stmt_bind_param($stmt, "s", $email);
     mysqli_stmt_execute($stmt);
-
-    // Lấy kết quả
     $result = mysqli_stmt_get_result($stmt);
 
-    // Kiểm tra kết quả
     if ($result && mysqli_num_rows($result) > 0) {
-        // Người dùng đăng nhập thành công
-        $user = mysqli_fetch_assoc($result); // Lấy dữ liệu người dùng từ kết quả truy vấn
-        session_start();
-        $_SESSION['user'] = $user; // Lưu thông tin người dùng vào session
+        $user = mysqli_fetch_assoc($result); // Lấy thông tin người dùng
+        $hashed_password = $user['password']; // Mật khẩu đã mã hóa từ database
 
-        // Chuyển hướng đến index.php
-        header("Location: ../index.php");
-        exit();
+        // So sánh mật khẩu nhập vào với mật khẩu đã mã hóa
+        if (password_verify($password, $hashed_password)) {
+            echo "Đăng nhập thành công!";
+            // Tạo session
+            $_SESSION['user'] = $user;
+            header("Location: ../index.php");
+            exit();
+        } else {
+            echo "Sai mật khẩu!";
+        }
     } else {
-        // Sai mật khẩu hoặc email
-        $error_message = "Sai mật khẩu hoặc email!";
-        header("Location: ../login.php?error=" . urlencode($error_message) . "&email=" . urlencode($email));
-        exit();
+        echo "Tài khoản không tồn tại!";
     }
 
-    // Đóng câu lệnh truy vấn
     mysqli_stmt_close($stmt);
-} else {
-    $error_message = "Vui lòng nhập đầy đủ email và mật khẩu";
-    header("Location: ../login.php?error=" . urlencode($error_message));
-    exit();
 }
 
 // Đóng kết nối

@@ -37,7 +37,7 @@ $user = $_SESSION['user'];
                     <li><a href="#CamNang">CẨM NANG DU LỊCH</a></li>
                     <li><a href="#KhachSan">KHÁCH SẠN</a></li>
                 </div>
-                    <div class="menu_item">
+                <div class="menu_item">
                         <li class="theme-toggle"><button class="theme-toggle-btn" onclick="toggleTheme()">Chế Độ</button></li>
                         <div class="user-info">
                             <!-- Avatar icon -->
@@ -306,7 +306,11 @@ $user = $_SESSION['user'];
             <span>Tổng tiền</span>
             <span id="thanh-tien">0₫</span>
         </div>
+<<<<<<< HEAD
+        <a href="login.html"><button class="book-tour">ĐẶT TOUR NGAY</button></a>
+=======
         <a href="thanhtoan.php"><button class="book-tour">ĐẶT TOUR NGAY</button></a>
+>>>>>>> upstream/main
     </section>
     <section class="footer">
         <footer class="footer">

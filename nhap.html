@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tìm kiếm</title>
+</head>
+<body>
+    <form id="searchForm" action="results.php" method="GET">
+        <input type="text" name="search_query" id="search_query" placeholder="Nhập từ khóa tìm kiếm...">
+        <button type="submit">Tìm kiếm</button>
+    </form>
+
+    <!-- Hiển thị kết quả tìm kiếm -->
+    <div id="results"></div>
+
+    <script>
+        // Lấy giá trị từ URL nếu có và hiển thị trong ô tìm kiếm
+        const urlParams = new URLSearchParams(window.location.search);
+        const searchQuery = urlParams.get("search_query");
+        if (searchQuery) {
+            document.getElementById("search_query").value = searchQuery;
+        }
+    </script>
+</body>
+</html>
