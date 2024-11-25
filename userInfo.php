@@ -36,33 +36,51 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (isset($_POST['update_password'])) {
-        // Đổi mật khẩu
         $current_password = $_POST['current_password'];
         $new_password = $_POST['new_password'];
         $confirm_password = $_POST['confirm_password'];
-
+    
         if (!empty($current_password) && !empty($new_password) && !empty($confirm_password)) {
             if ($new_password === $confirm_password) {
                 // Kiểm tra mật khẩu hiện tại
-                $checkSQL = "SELECT * FROM user_table WHERE id = ? AND password = ?";
+                $checkSQL = "SELECT password FROM user_table WHERE id = ?";
                 $stmt = mysqli_prepare($conn, $checkSQL);
-                mysqli_stmt_bind_param($stmt, "is", $user['id'], $current_password);
+                if ($stmt === false) {
+                    die("Lỗi chuẩn bị câu lệnh SQL: " . mysqli_error($conn));
+                }
+    
+                mysqli_stmt_bind_param($stmt, "i", $user['id']);
                 mysqli_stmt_execute($stmt);
                 $result = mysqli_stmt_get_result($stmt);
-
+    
                 if ($result && mysqli_num_rows($result) > 0) {
-                    // Cập nhật mật khẩu mới
-                    $updateSQL = "UPDATE user_table SET password = ? WHERE id = ?";
-                    $stmt = mysqli_prepare($conn, $updateSQL);
-                    mysqli_stmt_bind_param($stmt, "si", $new_password, $user['id']);
-                    if (mysqli_stmt_execute($stmt)) {
-                        $message = "Mật khẩu đã được thay đổi thành công.";
+                    $row = mysqli_fetch_assoc($result);
+                    $hashed_password = $row['password'];
+    
+                    if (password_verify($current_password, $hashed_password)) {
+                        // Mã hóa mật khẩu mới
+                        $hashed_new_password = password_hash($new_password, PASSWORD_DEFAULT);
+    
+                        // Cập nhật mật khẩu mới
+                        $updateSQL = "UPDATE user_table SET password = ? WHERE id = ?";
+                        $stmt = mysqli_prepare($conn, $updateSQL);
+                        if ($stmt === false) {
+                            die("Lỗi chuẩn bị câu lệnh SQL: " . mysqli_error($conn));
+                        }
+    
+                        mysqli_stmt_bind_param($stmt, "si", $hashed_new_password, $user['id']);
+                        if (mysqli_stmt_execute($stmt)) {
+                            $message = "Mật khẩu đã được thay đổi thành công.";
+                        } else {
+                            $error = "Có lỗi xảy ra khi thay đổi mật khẩu.";
+                        }
                     } else {
-                        $error = "Có lỗi xảy ra khi thay đổi mật khẩu.";
+                        $error = "Mật khẩu hiện tại không đúng.";
                     }
                 } else {
-                    $error = "Mật khẩu hiện tại không đúng.";
+                    $error = "Không tìm thấy người dùng.";
                 }
+    
                 mysqli_stmt_close($stmt);
             } else {
                 $error = "Mật khẩu mới và xác nhận mật khẩu không khớp.";
@@ -71,6 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $error = "Vui lòng điền đầy đủ các trường.";
         }
     }
+    
 
     if (isset($_POST['delete_account'])) {
         // Xóa tài khoản khỏi cơ sở dữ liệu
