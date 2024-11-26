@@ -26,6 +26,7 @@ header {
     align-items: center;
     padding: 20px;
     background-color: white;
+    transition: 0.3s ease-in-out;
 }
 
 div {
@@ -175,6 +176,7 @@ h2.title span {
     top: -20px;
     z-index: 1;
     left: 20px;
+    transition: 0.3s ease-in-out;
 }
 
 h2.title a {
@@ -186,6 +188,7 @@ h2.title a {
     padding: 30px;
     background-color: #f9f9f9;
     text-align: center;
+    transition: 0.3s ease-in-out;
 }
 
 .attractive-destinations h2 {
@@ -229,6 +232,7 @@ h2.title:after {
     background-color: aliceblue;
     padding: 25px;
     margin-left: 12%;
+    transition: 0.3s ease-in-out;
 }
 
 .table-content #closeBtnTitle{
@@ -355,6 +359,7 @@ h2.title:after {
     top: 100px; /* Cách phía trên 100px */
     z-index : 1; /* Đảm bảo phần này nằm trên các phần khác */
     margin-left: 325px;
+    transition: 0.3s ease-in-out;
 }
 
 .tour-card h3 {
@@ -383,6 +388,7 @@ h2.title:after {
     font-size: 12px;
     border-radius: 4px;
     margin-left: 10px;
+    transition: 0.3s ease-in-out;
 }
 
 .btn-tour {
@@ -396,6 +402,7 @@ h2.title:after {
     font-size: 14px;
     cursor: pointer;
     border-radius: 4px;
+    transition: 0.3s ease-in-out;
 }
 
 .itinerary {
@@ -421,6 +428,7 @@ h2.title:after {
     cursor: pointer;
     border-radius: 4px;
     width: 48%;
+    transition: 0.3s ease-in-out;
 }
 
 .btn-book:hover,
@@ -445,6 +453,7 @@ h2.title:after {
     overflow: hidden;
     text-align: center;
     background-color: #fff;
+    transition: 0.3s ease-in-out;
   }
   
   .hotel-card img {
@@ -482,6 +491,7 @@ h2.title:after {
     border-radius: 5px;
     cursor: pointer;
     margin-bottom: 10px;
+    transition: 0.3s ease-in-out;
   }
   
   button:hover {
@@ -515,6 +525,7 @@ h2.title:after {
     margin: 0 auto;
     margin-bottom: 32px;
     padding-bottom: 10px;
+    transition: 0.3s ease-in-out;
 }
 
 .tour-booking h2 {
@@ -525,6 +536,7 @@ h2.title:after {
     border-radius: 5px 5px 0 0;
     margin-bottom: 20px;
     text-align: center;
+    transition: 0.3s ease-in-out;
 }
 
 .tour-booking table {

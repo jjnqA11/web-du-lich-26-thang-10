@@ -57,15 +57,9 @@ $user = $_SESSION['user'];
         </nav>
     </section>
     <section class="search-bar">
-        <form id="searchForm" action="results.php" method="GET">
-            <input type="text" name="search_query" id="search_query" placeholder="Từ khóa tìm kiếm...">
-        <select>
-            <option selected disabled>Chọn địa điểm</option>
-            <option value="1">Miền Bắc</option>
-            <option value="2">Miền Trung</option>
-            <option value="3">Miền Nam</option>
-        </select>
-        <button type="submit">TÌM KIẾM NGAY</button>
+    <form id="searchForm" action="results.php" method="GET">
+    <input type="text" name="search_query" id="search_query" placeholder="Từ khóa tìm kiếm...">
+    <button type="submit">TÌM KIẾM NGAY</button>
         </form>
         
     </section>

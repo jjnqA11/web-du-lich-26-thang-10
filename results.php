@@ -9,6 +9,43 @@ if (!isset($_SESSION['user'])) {
 // Lấy thông tin người dùng từ session
 $user = $_SESSION['user'];
 ?>
+<?php
+// Kiểm tra nếu có tham số 'search_query' trong URL
+if (isset($_GET['search_query'])) {
+    $search_query = $_GET['search_query'];
+    // Làm sạch đầu vào để tránh XSS (Cross-site scripting)
+    $search_query = htmlspecialchars($search_query, ENT_QUOTES, 'UTF-8');
+
+    // Mảng dữ liệu mock (thay thế bằng dữ liệu thực tế hoặc kết nối cơ sở dữ liệu)
+    $mockData = [
+        [
+            'title' => 'Hà Nội - Thủ đô ngàn năm văn hiến',
+            'description' => 'Hà Nội nổi tiếng với Hồ Gươm, phố cổ và các món ăn đặc sắc.',
+            'image' => 'https://via.placeholder.com/150',
+            'link' => './pages/hanoi.html',
+        ],
+        [
+            'title' => 'Hạ Long - Kỳ quan thiên nhiên thế giới',
+            'description' => 'Vịnh Hạ Long với hàng nghìn hòn đảo lớn nhỏ và các hang động kỳ thú.',
+            'image' => 'https://via.placeholder.com/150',
+            'link' => '#',
+        ],
+        [
+            'title' => 'Đà Nẵng - Thành phố đáng sống',
+            'description' => 'Đà Nẵng nổi tiếng với bãi biển Mỹ Khê và cầu Rồng đặc sắc.',
+            'image' => 'https://via.placeholder.com/150',
+            'link' => '#',
+        ]
+    ];
+
+    // Lọc dữ liệu mock để tìm các kết quả phù hợp với từ khóa
+    $filteredResults = array_filter($mockData, function($item) use ($search_query) {
+        return stripos($item['title'], $search_query) !== false || stripos($item['description'], $search_query) !== false;
+    });
+} else {
+    $filteredResults = [];
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +53,9 @@ $user = $_SESSION['user'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Khám Phá Di Sản</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="results.css">
     <script src="index.js"></script>
+   
 </head>
 <body>
     <section id="header__banner">
@@ -58,54 +97,26 @@ $user = $_SESSION['user'];
         </nav>
     </section>
     <section class="search-bar">
-        <form id="searchForm" action="results.php" method="GET">
-            <input type="text" name="search_query" id="search_query" placeholder="Từ khóa tìm kiếm...">
-        <select>
-            <option selected disabled>Chọn địa điểm</option>
-            <option value="1">Miền Bắc</option>
-            <option value="2">Miền Trung</option>
-            <option value="3">Miền Nam</option>
-        </select>
+        <form id="searchForm">
+        <input type="text" name="search_query" id="search_query" placeholder="Từ khóa tìm kiếm...">
         <button type="submit">TÌM KIẾM NGAY</button>
-        </form>
+            </form>
     </section>
+    <h2>Kết quả tìm kiếm:</h2>
     <section class="search-results">
-        <div class="search-results">
-        <?php
-            if (isset($_GET['search_query'])) {
-                $searchQuery = htmlspecialchars($_GET['search_query']); // Chống XSS
-                echo "<div class='search-results'>";
-                echo "<h1>Kết quả tìm kiếm cho: <strong>$searchQuery</strong></h1>";
-
-                // Mô phỏng kết quả tìm kiếm (thay bằng truy vấn cơ sở dữ liệu nếu có)
-                $fakeDatabase = [
-                    "apple" => "Apple là một công ty công nghệ nổi tiếng.",
-                    "banana" => "Banana là một loại trái cây phổ biến.",
-                    "php" => "PHP là một ngôn ngữ lập trình server-side.",
-                ];
-
-                $found = false;
-                foreach ($fakeDatabase as $key => $value) {
-                    if (stripos($key, $searchQuery) !== false) { // Tìm kiếm không phân biệt hoa thường
-                        echo "<p><strong>$key:</strong> $value</p>";
-                        $found = true;
-                    }
-                }
-
-                if (!$found) {
-                    echo "<p>Không tìm thấy kết quả nào phù hợp.</p>";
-                }
-                echo "</div>"; // Đóng thẻ div
-            } else {
-                echo "<div class='search-results'><p>Vui lòng nhập từ khóa tìm kiếm.</p></div>";
-            }
-            ?>
-        </div>
-    </section>
-    <section class="search-results-item">
-            <div class="search-results-item">
-
-            </div>
+        <?php if (empty($filteredResults)): ?>
+            <p>Không tìm thấy kết quả nào.</p>
+        <?php else: ?>
+            <?php foreach ($filteredResults as $result): ?>
+                <div class="search-results-card">
+                    <img src="<?php echo $result['image']; ?>" alt="<?php echo $result['title']; ?>">
+                    <div class="content">
+                        <h3><a href="<?php echo $result['link']; ?>"><?php echo $result['title']; ?></a></h3>
+                        <p><?php echo $result['description']; ?></p>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        <?php endif; ?>
     </section>
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     <section class="footer">
