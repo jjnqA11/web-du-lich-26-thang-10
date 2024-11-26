@@ -22,17 +22,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $stmt->fetch();
 
       // Kiểm tra nếu mật khẩu đúng
-      if (password_verify($password, $hashed_password_from_db)) {
-          echo "Login successful!";
-          // Tiến hành các bước tiếp theo, ví dụ chuyển hướng tới trang người dùng
+          if (password_verify($password, $hashed_password_from_db)) {
+              echo "Login successful!";
+              // Tiến hành các bước tiếp theo, ví dụ chuyển hướng tới trang người dùng
+              session_start();
+              $_SESSION['user_id'] = $user_id;
+              $_SESSION['email'] = $email;
+              setcookie('user_id', $user_id, 0, "/");  // Cookie hết hạn khi trình duyệt đóng
+              setcookie('email', $email, 0, "/");  // Cookie hết hạn khi trình duyệt đóng
+          } else {
+              header("Location: ../login.php?error=" . urlencode("Sai mật khẩu.") . "&email=" . urlencode($email));
+              exit();
+          }
       } else {
-          header("Location: ../login.php?error=" . urlencode("Sai mật khẩu.") . "&email=" . urlencode($email));
-          exit();
+              header("Location: ../login.php?error=" . urlencode("Email không tồn tại."));
+              exit();
       }
-  } else {
-          header("Location: ../login.php?error=" . urlencode("Email không tồn tại."));
-          exit();
-  }
 
   $stmt->close();
   $conn->close();
@@ -46,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Responsive Login Form HTML CSS | CodingNepal</title>
-  <link rel="stylesheet" href="login.css" />
+  <link rel="stylesheet" href="assets/css/login.css" />
   <!-- Font Awesome CDN link for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
   <style>
@@ -91,6 +96,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       <div class="signup-link">Chưa có tài khoản? <a href="register.php">Đăng ký</a></div>
     </form>    
   </div>
-  <script src="login.js"></script>
+  <script src="assets/js/login.js"></script>
 </body>
 </html>

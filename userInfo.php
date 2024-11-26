@@ -117,8 +117,8 @@ mysqli_close($conn);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quản lý tài khoản</title>
-    <link rel="stylesheet" href="userInfo.css">
-    <script src="userInfo.js"></script>
+    <link rel="stylesheet" href="assets/css/userInfo.css">
+    <script src="assets/js/userInfo.js"></script>
 </head>
 <body>
     <div class="theme-toggle">

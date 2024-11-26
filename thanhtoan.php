@@ -13,8 +13,8 @@ $user = $_SESSION['user'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="./thanhtoan.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/thanhtoan.css">
 </head>
 <body>
     <section id="header__banner">
@@ -151,6 +151,6 @@ $user = $_SESSION['user'];
     </section>
 
     <!-- Script -->
-     <script src="./index.js"></script>
+     <script src="assets/js/index.js"></script>
 </body>
 </html>

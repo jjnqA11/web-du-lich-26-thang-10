@@ -7,14 +7,23 @@ if (!isset($_SESSION['user'])) {
 
 // Lấy thông tin người dùng từ session
 $user = $_SESSION['user'];
+if (isset($_COOKIE['user_id']) && isset($_COOKIE['email'])) {
+    $user_id = $_COOKIE['user_id'];
+    $email = $_COOKIE['email'];
+    // Bạn có thể thực hiện các thao tác như truy vấn cơ sở dữ liệu để lấy thông tin người dùng
+} else {
+    echo "Không có cookie người dùng.";
+}
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Khám Phá Di Sản</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 
 </head>
 <body>
@@ -227,7 +236,7 @@ $user = $_SESSION['user'];
           <div class="stars">
             <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
           </div>
-          <button>Đặt Phòng Ngay</button>
+          <a href="thanhtoan.php"><button>Đặt Phòng Ngay</button></a>
         </div>
         
         <div class="hotel-card">
@@ -237,7 +246,7 @@ $user = $_SESSION['user'];
           <div class="stars">
             <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
           </div>
-          <button>Đặt Phòng Ngay</button>
+          <a href="thanhtoan.php"><button>Đặt Phòng Ngay</button></a>
         </div>
       
         <div class="hotel-card">
@@ -247,7 +256,7 @@ $user = $_SESSION['user'];
           <div class="stars">
             <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
           </div>
-          <button>Đặt Phòng Ngay</button>
+          <a href="thanhtoan.php"><button>Đặt Phòng Ngay</button></a>
         </div>
         
         <div class="hotel-card">
@@ -257,7 +266,7 @@ $user = $_SESSION['user'];
           <div class="stars">
             <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
           </div>
-          <button>Đặt Phòng Ngay</button>
+          <a href="thanhtoan.php"><button>Đặt Phòng Ngay</button></a>
         </div>
     </section>
    
@@ -325,6 +334,6 @@ $user = $_SESSION['user'];
     </section>
 
     <!-- Execute -->
-    <script src="index.js"></script>
+    <script src="assets/js/index.js"></script>
 </body>
 </html>

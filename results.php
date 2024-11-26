@@ -25,14 +25,14 @@ if (isset($_GET['search_query'])) {
             'link' => './pages/hanoi.html',
         ],
         [
-            'title' => 'Hạ Long - Kỳ quan thiên nhiên thế giới',
-            'description' => 'Vịnh Hạ Long với hàng nghìn hòn đảo lớn nhỏ và các hang động kỳ thú.',
+            'title' => 'Thái Bình - Vùng đất hiền hòa, thăng hoa cảm xúc',
+            'description' => 'Thái bình nổi tiếng là đất quê lúa, đất nghề bốn bề sông nước.',
             'image' => 'https://via.placeholder.com/150',
-            'link' => '#',
+            'link' => './pages/thaibinh.html',
         ],
         [
-            'title' => 'Đà Nẵng - Thành phố đáng sống',
-            'description' => 'Đà Nẵng nổi tiếng với bãi biển Mỹ Khê và cầu Rồng đặc sắc.',
+            'title' => 'Ninh Bình - Thành phố đáng sống',
+            'description' => 'Ninh Bình nổi tiếng với bãi biển Mỹ Khê và cầu Rồng đặc sắc.',
             'image' => 'https://via.placeholder.com/150',
             'link' => '#',
         ]
@@ -52,9 +52,9 @@ if (isset($_GET['search_query'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Khám Phá Di Sản</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="results.css">
-    <script src="index.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/results.css">
+    <script src="assets/js/index.js"></script>
    
 </head>
 <body>

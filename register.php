@@ -57,9 +57,9 @@ mysqli_close($conn);
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Đăng ký tài khoản</title>
-  <link rel="stylesheet" href="register.css">
+  <link rel="stylesheet" href="assets/css/register.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <script src="register.js"></script>
+  <script src="assets/js/register.js"></script>
 </head>
 <body>
     <div class="container">
