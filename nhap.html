@@ -1,26 +1,34 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tìm kiếm</title>
+    <title>PHP và JavaScript</title>
 </head>
 <body>
-    <form id="searchForm" action="results.php" method="GET">
-        <input type="text" name="search_query" id="search_query" placeholder="Nhập từ khóa tìm kiếm...">
-        <button type="submit">Tìm kiếm</button>
-    </form>
-
-    <!-- Hiển thị kết quả tìm kiếm -->
-    <div id="results"></div>
+    <input type="text" id="nameInput" placeholder="Nhập tên">
+    <button id="sendButton">Gửi</button>
+    <p id="response"></p>
 
     <script>
-        // Lấy giá trị từ URL nếu có và hiển thị trong ô tìm kiếm
-        const urlParams = new URLSearchParams(window.location.search);
-        const searchQuery = urlParams.get("search_query");
-        if (searchQuery) {
-            document.getElementById("search_query").value = searchQuery;
-        }
+        document.getElementById('sendButton').addEventListener('click', function () {
+            const name = document.getElementById('nameInput').value;
+
+            // Gửi yêu cầu đến PHP qua AJAX
+            fetch('nhap.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `name=${encodeURIComponent(name)}`
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Hiển thị phản hồi từ PHP
+                document.getElementById('response').textContent = data.message;
+            })
+            .catch(error => console.error('Lỗi:', error));
+        });
     </script>
 </body>
 </html>

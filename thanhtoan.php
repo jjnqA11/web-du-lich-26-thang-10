@@ -1,13 +1,4 @@
-<?php
-session_start();
-if (!isset($_SESSION['user'])) {
-    header('Location: login.php');
-    exit();
-}
-
-// Lấy thông tin người dùng từ session
-$user = $_SESSION['user'];
-?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -36,7 +27,9 @@ $user = $_SESSION['user'];
                     <li><a href="index.php#KhachSan">KHÁCH SẠN</a></li>
                 </div>
                 <div class="menu_item">
-                    <li class="theme-toggle"><button class="theme-toggle-btn" onclick="toggleTheme()">Chế Độ</button></li>
+                <a class="theme-toggle-btn" onclick="toggleTheme(event)">
+                    <img id="theme-icon" src="images/sun-icon.png" alt="Theme Icon">
+                </a>
                     <div class="user-info">
                             <!-- Avatar icon -->
                             <div class="user-avatar" onclick="toggleDropdown()">
@@ -45,7 +38,7 @@ $user = $_SESSION['user'];
                             </div>
                             <!-- Dropdown menu -->
                             <div class="dropdown-menu" id="userDropdown">
-                                <span class="username">Xin chào, <?php echo htmlspecialchars($user['name']); ?>!</span>
+                                <span class="username"><b>Xin chào, <?php echo htmlspecialchars($_COOKIE['user']); ?>!</b></span>
                                 <a href="userInfo.php" class="dropdown-item">Trạng thái tài khoản</a>
                                 <a href="logout.php" class="dropdown-item">Đăng xuất</a>
                             </div>

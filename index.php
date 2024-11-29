@@ -1,21 +1,3 @@
-<?php
-session_start();
-if (!isset($_SESSION['user'])) {
-    header('Location: login.php');
-    exit();
-}
-
-// Lấy thông tin người dùng từ session
-$user = $_SESSION['user'];
-if (isset($_COOKIE['user_id']) && isset($_COOKIE['email'])) {
-    $user_id = $_COOKIE['user_id'];
-    $email = $_COOKIE['email'];
-    // Bạn có thể thực hiện các thao tác như truy vấn cơ sở dữ liệu để lấy thông tin người dùng
-} else {
-    echo "Không có cookie người dùng.";
-}
-?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -47,7 +29,11 @@ if (isset($_COOKIE['user_id']) && isset($_COOKIE['email'])) {
                     <li><a href="#KhachSan">KHÁCH SẠN</a></li>
                 </div>
                 <div class="menu_item">
-                        <li class="theme-toggle"><button class="theme-toggle-btn" onclick="toggleTheme()">Chế Độ</button></li>
+                    <li class="theme-toggle">
+                        <a class="theme-toggle-btn" onclick="toggleTheme(event)">
+                            <img id="theme-icon" src="images/sun-icon.png" alt="Theme Icon">
+                        </a>
+                    </li>  
                         <div class="user-info">
                             <!-- Avatar icon -->
                             <div class="user-avatar" onclick="toggleDropdown()">
@@ -55,7 +41,7 @@ if (isset($_COOKIE['user_id']) && isset($_COOKIE['email'])) {
                             </div>
                             <!-- Dropdown menu -->
                             <div class="dropdown-menu" id="userDropdown">
-                                <span class="username"><b>Xin chào, <?php echo htmlspecialchars($user['name']); ?>!</b></span>
+                                <span class="username"><b>Xin chào, <?php echo htmlspecialchars($_COOKIE['user']); ?>!</b></span>
                                 <a href="userInfo.php" class="dropdown-item">Trạng thái tài khoản</a>
                                 <a href="logout.php" class="dropdown-item">Đăng xuất</a>
                             </div>

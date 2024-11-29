@@ -1,37 +1,44 @@
-function toggleTheme() {
-    // Chuyển đổi giữa chế độ sáng và tối bằng cách thay đổi class "dark-theme"
-    document.body.classList.toggle('dark-theme');
+function toggleTheme(event) {
+    event.preventDefault(); // Ngăn hành vi mặc định của thẻ <a>
 
-    // Đổi nội dung nút dựa trên chế độ hiện tại
-    const btn = document.querySelector('.theme-toggle-btn');
-    const tit_kns = document.querySelectorAll('.tit-kn');// lay tat ca h4 tit-kn va lap qua moi phan tu qua forEach
-    const tit_kn_details = document.querySelectorAll('.tit-kn-detail'); // lay tat ca the p class tit-kn-detail va lap qua moi phan tu qua forEach
-    const svgTags = document.querySelectorAll('svg'); // lay ra tat ca cac the svg trong do cu nut carousel
-    if (document.body.classList.contains('dark-theme')) { //lấy giữa chế độ sáng và tối
-        tit_kns.forEach(function(e) {
-            e.querySelector('a').style.color = "white";
-        });
-        tit_kn_details.forEach(function(e){
-            e.style.color = "white";
-        });
-        svgTags.forEach(function(e){
-            e.style.fill = "rgb(255,255,255)";
-        })
-        btn.textContent = 'Sáng';
+    const body = document.body;
+    const themeIcon = document.getElementById("theme-icon");
+
+    // Kiểm tra và chuyển đổi class "dark-theme" và "light-theme"
+    if (body.classList.contains('dark-theme')) {
+        body.classList.remove('dark-theme');
+        body.classList.add('light-theme');
+        themeIcon.src = 'images/sun-icon.png';
+        localStorage.setItem('theme', 'light'); // Lưu trạng thái light
     } else {
-        btn.textContent = 'Tối';
-
-        tit_kns.forEach(function(e) {
-            e.querySelector('a').style.color = "black";
-        });
-        tit_kn_details.forEach(function(e){
-            e.style.color = "black";
-        });
-        svgTags.forEach(function(e){
-            e.style.fill = "rgb(0,0,0)";
-        })
+        body.classList.remove('light-theme');
+        body.classList.add('dark-theme');
+        themeIcon.src = 'images/moon-icon.png';
+        localStorage.setItem('theme', 'dark'); // Lưu trạng thái dark
     }
 }
+
+// Hàm kiểm tra trạng thái theme khi tải trang
+function loadTheme() {
+    const body = document.body;
+    const themeIcon = document.getElementById("theme-icon");
+
+    // Lấy trạng thái theme từ localStorage
+    const savedTheme = localStorage.getItem("theme");
+
+    // Áp dụng trạng thái theme đã lưu
+    if (savedTheme === "dark") {
+        body.classList.add("dark-theme");
+        themeIcon.src = "images/moon-icon.png"; // Icon giao diện tối
+    } else {
+        body.classList.add("light-theme");
+        themeIcon.src = "images/sun-icon.png"; // Icon giao diện sáng
+    }
+}
+
+// Đợi DOM tải xong rồi gọi hàm loadTheme
+document.addEventListener("DOMContentLoaded", loadTheme);
+
 
 // xử lý click vào box hiện ra title box
 let titleInfoBox = document.getElementById('title_detail_carousel');

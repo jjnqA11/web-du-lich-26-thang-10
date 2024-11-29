@@ -28,6 +28,12 @@ h1 {
     color: #0066ff;
 }
 
+#theme-icon {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+}
+
 /* Các section */
 section {
     background: #fff;

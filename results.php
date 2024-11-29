@@ -1,14 +1,3 @@
-
-<?php
-session_start();
-if (!isset($_SESSION['user'])) {
-    header('Location: login.php');
-    exit();
-}
-
-// Lấy thông tin người dùng từ session
-$user = $_SESSION['user'];
-?>
 <?php
 // Kiểm tra nếu có tham số 'search_query' trong URL
 if (isset($_GET['search_query'])) {
@@ -78,7 +67,9 @@ if (isset($_GET['search_query'])) {
                     <li><a href="index.php#KhachSan">KHÁCH SẠN</a></li>
                 </div>
                 <div class="menu_item">
-                        <li class="theme-toggle"><button class="theme-toggle-btn" onclick="toggleTheme()">Chế Độ</button></li>
+                        <a class="theme-toggle-btn" onclick="toggleTheme(event)">
+                            <img id="theme-icon" src="images/sun-icon.png" alt="Theme Icon">
+                        </a>
                         <div class="user-info">
                             <!-- Avatar icon -->
                             <div class="user-avatar" onclick="toggleDropdown()">

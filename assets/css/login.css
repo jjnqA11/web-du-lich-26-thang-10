@@ -1,142 +1,99 @@
-/* Importing Google Fonts - Poppins */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
-
-* {
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, #3483f8, #0066ff);
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-
-body {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   height: 100vh;
-  padding: 15px;
-  background: #0066ff;
-  overflow: hidden;
 }
 
-.wrapper {
-  max-width: 500px;
-  width: 100%;
-  background: #fff;
-  border-radius: 5px;
-  box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.1);
-}
-
-.wrapper .title {
-  height: 120px;
-  background: #0066ff;
-  border-radius: 5px 5px 0 0;
-  color: #fff;
-  font-size: 30px;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.wrapper form {
-  padding: 25px 35px;
-}
-
-.wrapper form .row {
-  height: 60px;
-  margin-top: 32px;
-  position: relative;
-}
-
-.wrapper form .row input {
-  height: 100%;
-  width: 100%;
-  outline: none;
-  padding: 0 50px 0 70px; /* Chừa khoảng cho icon bên trái và phải */
-  border-radius: 5px;
-  border: 1px solid lightgrey;
-  font-size: 18px;
-  transition: all 0.3s ease;
-}
-
-
-form .row input:focus {
-  border-color: #0066ff;
-}
-
-form .row input::placeholder {
-  color: #999;
-}
-
-.wrapper form .row i {
-  position: absolute;
-  width: 55px;
-  height: 100%;
-  color: #fff;
-  font-size: 22px;
-  background: #0066ff;
-  border: 1px solid #0066ff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
-.wrapper form .row i:first-child {
-  left: 0;
-  border-radius: 5px 0 0 5px;
-}
-
-.wrapper form .row i:last-child {
-  top:0;
-  right: 0;
-  background: none;
-  color: #0066ff;
-  border: none;
-  font-size: 20px;
-  cursor: pointer;
-}
-
-.wrapper form .pass {
-  margin-top: 12px;
-}
-
-.wrapper form .pass a {
-  color: #0066ff;
-  font-size: 17px;
-  text-decoration: none;
-}
-
-.wrapper form .pass a:hover {
-  text-decoration: underline;
-}
-
-.wrapper form .button input {
-  margin-top: 20px;
-  color: #fff;
-  font-size: 20px;
-  font-weight: 500;
-  padding-left: 0px;
-  background: #0066ff;
-  border: 1px solid #0066ff;
-  cursor: pointer;
-}
-
-form .button input:hover {
-  background: #0066ff;
-}
-
-.wrapper form .signup-link {
+.login-container {
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  width: 350px;
+  padding: 20px;
   text-align: center;
-  margin-top: 45px;
-  font-size: 17px;
 }
 
-.wrapper form .signup-link a {
-  color: #0066ff;
+.login-form .logo img {
+  width: 50px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  margin: 0 0 20px;
+  color: #6a6a6a;
+}
+
+.input-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.input-group input {
+  width: 95%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  font-size: 14px;
+}
+
+.input-group input:focus {
+  border-color: #a18cd1;
+}
+
+.login-btn {
+  background-color: #0066ff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.login-btn:hover {
+  background-color: #0456d1;
+}
+
+.register {
+  display: block;
+  margin-top: 10px;
+  color: #888;
+  text-decoration: none;
+  font-size: 14px;
+}
+.register:hover a {
+  color: #002358;
   text-decoration: none;
 }
 
-form .signup-link a:hover {
-  text-decoration: underline;
+.error-message {
+  background-color: #ffdddd;
+  color: #d8000c;
+  border: 1px solid #d8000c;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  font-weight: bold;
+  text-align: center;
 }
+
+.error-message p {
+  margin: 0;
+  font-size: 16px;
+}
+
+/* Các style khác cho form */

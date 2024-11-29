@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $error_message = "Mật khẩu không khớp.";
     } else {
         // Kiểm tra xem tên người dùng hoặc email đã tồn tại chưa
-        $check_sql = "SELECT * FROM user_table WHERE name = ? OR email = ?";
+        $check_sql = "SELECT * FROM user_table WHERE userName = ? OR email = ?";
         $stmt = mysqli_prepare($conn, $check_sql);
         mysqli_stmt_bind_param($stmt, "ss", $name, $email);
         mysqli_stmt_execute($stmt);
@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             
 
             // Thêm người dùng vào cơ sở dữ liệu
-            $insert_sql = "INSERT INTO user_table (name, email, password, agree_term, newsletter) VALUES (?, ?, ?, ?, ?)";
+            $insert_sql = "INSERT INTO user_table (userName, email, password, agree_term, newsletter) VALUES (?, ?, ?, ?, ?)";
             $stmt = mysqli_prepare($conn, $insert_sql);
             mysqli_stmt_bind_param($stmt, "ssssi", $name, $email, $hashed_password, $agree_term, $newsletter);
 
@@ -73,7 +73,7 @@ mysqli_close($conn);
           <div class="label">
             <label for="username">Tên người dùng:</label>
           </div>
-          <input type="text" placeholder="Nhập tên của bạn vào đây(VD: diep123, hoangdz,..)" name="username" id="username" style="font-size: large;" value="<?php echo htmlspecialchars($username ?? ''); ?>">
+          <input type="text" placeholder="Nhập tên của bạn vào đây(VD: diep123, hoangdz,..)" name="username" id="username" style="font-size: large;">
         </div>
         
         <!-- Email -->

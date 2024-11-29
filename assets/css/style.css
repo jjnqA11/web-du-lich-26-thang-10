@@ -108,17 +108,11 @@ div .login {
     margin-right: 1px;
 }
 
-.theme-toggle-btn{
-    width: 68px;
-    height: inherit;
-    padding: 8px;
-    border-radius: 8px;
-    transition: 0.8s ease-in-out;
-}
-
-.theme-toggle-btn:hover{
-    background-color: #69a4fe;
-    color: white;
+.theme-toggle-btn img {
+    background-color: #0066ff;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
 }
 
 .navbar ul li a {
@@ -492,10 +486,6 @@ h2.title:after {
     cursor: pointer;
     margin-bottom: 10px;
     transition: 0.3s ease-in-out;
-  }
-  
-  button:hover {
-    background-color: #055fbe;
   }
   
   @media (max-width: 1200px) {
