@@ -95,10 +95,11 @@
                     </div>
                 </div>
                 <div class="destination-card item">
-                    <img src="images/DTQGDB_Chua Keo Thai Binh.jpg" alt="Thái Bình">
+                   <a href="pages/thaibinh.php"><img src="images/DTQGDB_Chua Keo Thai Binh.jpg" alt="Thái Bình">
                     <div class="overlay">
                         <p>Thái Bình - Nơi sản sinh những nhân tài kiệt xuất</p>
                     </div>
+                </a>
                 </div>
                 <div class="destination-card item">
                     <img src="images/Ninh_binh.webp" alt="Ninh Bình">
