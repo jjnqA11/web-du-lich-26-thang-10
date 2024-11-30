@@ -1,19 +1,3 @@
-<?php
-// Khởi tạo mảng bình luận
-session_start();
-if (!isset($_SESSION['comments'])) {
-    $_SESSION['comments'] = [];
-}
-
-// Kiểm tra xem có bình luận mới không
-if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['comment'])) {
-    $comment = htmlspecialchars(trim($_POST['comment'])); // Làm sạch bình luận
-    $_SESSION['comments'][] = $comment; // Lưu bình luận vào session
-}
-
-// Lấy danh sách bình luận
-$comments = $_SESSION['comments'];
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -73,6 +57,7 @@ $comments = $_SESSION['comments'];
     <button type="submit">TÌM KIẾM NGAY</button>
         </form>
     </section>
+    <br><br><br>
     <div class="content">
         <div class="title"><h2>Thái Bình - Vùng đất hiền hoà, thăng hoa cảm xúc</h2></div>
         <div class="short-description"><p>Thái Bình tên gọi quen thuộc và thân thương với rất nhiều người. Thế nhưng cũng rất ít những người biết rằng, quê hương Thái Bình có rất nhiều điều thú vị  đằng sau. Hãy cùng khám phá nhé. </p></div>
@@ -100,28 +85,6 @@ $comments = $_SESSION['comments'];
             <p>Nội dung về văn hoá</p>
             <img src="../images/thaibinh.jpg">
             <p>Nội dung về văn hoá</p>
-        </div>
-    </div>
-    <div class="comment">
-        <div class="comment-form">
-            <img src="../images/user.png" alt="Avatar">
-            <form action="thaibinh.php" method="POST">
-                    <input type="text" name="comment" placeholder="Bình luận">
-                    <button type="submit">Gửi</button>
-            </form>
-        </div>
-    </div>
-    <div class="comments-list">
-            <h3>Bình luận:</h3>
-            <?php if (count($comments) > 0): ?>
-                <ul>
-                    <?php foreach ($comments as $c): ?>
-                        <li class="comment-item" style="padding-left: 1%;"><?php echo $c; ?></li>
-                    <?php endforeach; ?>
-                </ul>
-            <?php else: ?>
-                <p style="padding-left: 1%;">Chưa có bình luận nào.</p>
-            <?php endif; ?>
         </div>
     </div>
     <br><br><br>

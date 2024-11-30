@@ -93,7 +93,7 @@ if (isset($_GET['search_query'])) {
         <button type="submit">TÌM KIẾM NGAY</button>
             </form>
     </section>
-    <h2>Kết quả tìm kiếm:</h2>
+    <h2 id="search-results">Kết quả tìm kiếm:</h2>
     <section class="search-results">
         <?php if (empty($filteredResults)): ?>
             <p>Không tìm thấy kết quả nào.</p>
