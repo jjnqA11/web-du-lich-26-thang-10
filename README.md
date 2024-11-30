@@ -9,5 +9,6 @@ các chức năng
 - lọc kết quả tìm kiếm ( huỷ chức năng vì không đủ dữ liệu )
 - thanh toán ( chưa xong )
 - sáng tối ( đã xong )
+- phát triển thêm chức năng bình luận 
 - còn 1 số chức năng sẽ phát triển thêm.
 1 dự án chưa có frontend và backend. 
