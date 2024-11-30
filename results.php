@@ -11,19 +11,19 @@ if (isset($_GET['search_query'])) {
             'title' => 'Hà Nội - Thủ đô ngàn năm văn hiến',
             'description' => 'Hà Nội nổi tiếng với Hồ Gươm, phố cổ và các món ăn đặc sắc.',
             'image' => 'https://via.placeholder.com/150',
-            'link' => './pages/hanoi.html',
+            'link' => './pages/hanoi.php',
         ],
         [
             'title' => 'Thái Bình - Vùng đất hiền hòa, thăng hoa cảm xúc',
             'description' => 'Thái bình nổi tiếng là đất quê lúa, đất nghề bốn bề sông nước.',
             'image' => 'https://via.placeholder.com/150',
-            'link' => './pages/thaibinh.html',
+            'link' => './pages/thaibinh.php',
         ],
         [
             'title' => 'Ninh Bình - Thành phố đáng sống',
             'description' => 'Ninh Bình nổi tiếng với bãi biển Mỹ Khê và cầu Rồng đặc sắc.',
             'image' => 'https://via.placeholder.com/150',
-            'link' => '#',
+            'link' => './pages/ninhbinh.php',
         ]
     ];
 

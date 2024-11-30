@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kiểm tra Cookie</title>
+    <title>Hà nội</title>
     <script src="../assets/js/cookie.js" defer></script>
 </head>
 <body>

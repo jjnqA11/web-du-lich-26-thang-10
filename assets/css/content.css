@@ -1,0 +1,147 @@
+/* Định dạng tiêu đề */
+.title h2 {
+    font-size: 24px;
+    color: #333333;
+    margin-bottom: 10px;
+    padding-left: 5%;
+}
+
+/* Định dạng mô tả ngắn */
+.short-description p {
+    font-size: 16px;
+    color: #555555;
+    padding-left: 5%;
+    margin-bottom: 20px;
+    padding-left: 5%;
+}
+
+/* Mục lục */
+.muc-luc {
+    font-size: 16px;
+    color: #333333;
+    margin-bottom: 20px;
+    text-align: left;
+    padding-left: 5%;
+}
+
+.muc-luc ul {
+    list-style: none;
+    padding: 0;
+}
+
+.muc-luc ul li {
+    margin: 5px 0;
+}
+
+.muc-luc ul li a {
+    text-decoration: none;
+    color: #007BFF;
+}
+
+.muc-luc ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Nội dung giới thiệu */
+.gioi-thieu {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.gioi-thieu img {
+    width: 80%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+/* Nội dung chính */
+.noi-dung {
+    margin-bottom: 20px;
+    padding-left: 5%;
+}
+
+.noi-dung h3 {
+    font-size: 20px;
+    color: #333333;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.noi-dung p {
+    font-size: 16px;
+    color: #555555;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    text-align: justify;
+}
+
+.noi-dung img {
+    width: 80%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 8px;
+    margin: 10px auto;
+    display: block;
+}
+
+/* Bình luận */
+.comment {
+    padding: 20px; /* Khoảng cách bên trong */
+    margin: 20px 0; /* Khoảng cách bên ngoài */
+}
+
+.comment-form {
+    display: flex; /* Sử dụng flexbox để căn chỉnh các phần tử */
+    align-items: center; /* Căn giữa theo chiều dọc */
+}
+
+.comment-form img {
+    width: 40px; /* Kích thước của avatar */
+    height: 40px; /* Kích thước của avatar */
+    border-radius: 50%; /* Bo tròn hình avatar */
+    margin-right: 10px; /* Khoảng cách giữa avatar và input */
+}
+
+.comment-form input[type="text"] {
+    flex: 1; /* Chiếm không gian còn lại */
+    padding: 10px; /* Khoảng cách bên trong */
+    border: 1px solid #ccc; /* Đường viền cho input */
+    border-radius: 4px; /* Bo tròn các góc */
+    font-size: 16px; /* Kích thước chữ */
+    transition: border-color 0.3s; /* Hiệu ứng chuyển tiếp */
+}
+
+.comment-form input[type="text"]:focus {
+    border-color: #007bff; /* Đổi màu viền khi focus */
+    outline: none; /* Ẩn outline mặc định */
+}
+
+.comment-form button {
+    background-color: #007bff; /* Màu nền cho nút gửi */
+    color: white; /* Màu chữ */
+    border: none; /* Ẩn đường viền */
+    border-radius: 4px; /* Bo tròn các góc */
+    padding: 10px 15px; /* Khoảng cách bên trong */
+    margin-left: 10px; /* Khoảng cách giữa input và button */
+    cursor: pointer; /* Hiệu ứng con trỏ khi hover */
+    transition: background-color 0.3s; /* Hiệu ứng chuyển tiếp */
+}
+
+.comment-form button:hover {
+    background-color: #0056b3; /* Đổi màu nền khi hover */
+}
+
+.comments-list {
+    margin-top: 20px; /* Khoảng cách giữa danh sách bình luận và form bình luận */
+}
+.comments-list h3 {
+    padding-left: 1%;
+}
+.comments-list ul {
+    list-style-type: none; /* Hình thống danh sách */
+    padding: 0; /* Khoảng cách bên trong */
+    margin: 0; /* Khoảng cách bên ngoài */
+}
