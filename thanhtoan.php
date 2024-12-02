@@ -40,6 +40,7 @@
                             <div class="dropdown-menu" id="userDropdown">
                                 <span class="username"><b>Xin chào, <?php echo htmlspecialchars($_COOKIE['user']); ?>!</b></span>
                                 <a href="userInfo.php" class="dropdown-item">Trạng thái tài khoản</a>
+                                <a href="trangThaiDonHang.php" class="dropdown-item">Trạng thái đơn hàng</a>
                                 <a href="logout.php" class="dropdown-item">Đăng xuất</a>
                             </div>
                     </div>
@@ -54,7 +55,7 @@
 
             <p>Vui lòng nhập đầy đủ thông tin chính xác của khách hàng trước khi đặt phòng</p>
         </header>
-
+        <form id="bookingForm" action="trangThaiDonHang.php" method="POST">
         <div class="info_user">
             <div class="col-left">
                 <div>
@@ -78,7 +79,7 @@
                 <br>
                 <div>
                     <label for="phone">Số điện thoại:</label>
-                    <input id="phone" type="number" placeholder="Nhập số điện thoại">
+                    <input id="phone" placeholder="Nhập số điện thoại" style="width: 298px; height: 25px; border-radius: 5px">
                 </div>
                 <br>
                 <div>
@@ -105,23 +106,14 @@
                         </label>
                         <hr>
                         <div>
+                            <br>
                             <input id="btn-submit" type="submit" value="Đặt phòng">
                         </div>
                     </form>
                 </div>
             </div>
-            <div class="col-right">
-                <h1>Gio Hang</h1>
-
-                <div>
-                    <h2>Tour ngay 29/12</h2> <span>So tien cu the</span> 
-                </div>
-                <hr>
-                <div>
-                    <h1>Tong So Tien</h1> <span>110000000000000$</span>
-                </div>
-            </div>
         </div>
+    </form>
     </section>
 
     <section class="footer">
@@ -145,5 +137,6 @@
 
     <!-- Script -->
      <script src="assets/js/index.js"></script>
+     <script src="assets/js/thanhtoan.js"></script>
 </body>
 </html>
