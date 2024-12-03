@@ -1,154 +1,454 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-body{
+/* Reset */
+body, h1, h2, h3, p, ul, li, a, button, input {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Roboto, 'san-serif';
 }
 
-.container{
-    width: 100%;
-    height: 100%;
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
     display: flex;
+    height: 100vh;
 }
 
-.sidebar{
-    flex: 1;
-    background-color: #27403d;
-    color: white;
-}
-
-.logo{
-    width: inherit;
-    height: 86px;
+/* Sidebar */
+.sidebar {
+    background-color: #0066FF;
+    color: #FFFFFF;
+    width: 250px;
+    padding: 20px;
     display: flex;
-    gap: 36px;
-    align-items: center;
-    margin: 0px 24px;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.sidebar_wrapper{
-    width: inherit;
-    height: 80%;
-}
-
-.user{
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin: 0 24px;
-}
-
-.nav li {
-    border: none;
-    transition: 0.5s ease-out;
-}
-
-.nav li:hover{
-    border-bottom: 1px solid #333;
-}
-
-.nav li a{
-    color: white;
-}
-
-.photo{
-    display: inline-block;
-}
-
-ul{
-    list-style: none;
-}
-
-ul li{
-    margin: 12px 0;
-}
-
-table{
-    width: 100%;
-}
-th, td{
+.sidebar .logo {
     text-align: center;
 }
 
-button{
-    color: black;
-}
-
-a{
+.sidebar .logo a {
     text-decoration: none;
+    color: #FFFFFF;
 }
 
-.main-panel{
-    flex: 3;
+.sidebar .logo h3 {
+    margin-top: 10px;
+    font-size: 18px;
 }
 
-#navigation{
-    position: relative;
+.sidebar .sidebar_wrapper {
+    margin-top: 20px;
+}
+
+.sidebar .user {
     display: flex;
-    justify-content: flex-end;
     align-items: center;
-    width: inherit;
-    height: 64px;
-    border-bottom: 1px solid;
+    margin-bottom: 20px;
 }
 
-#navigation input[type="text"]{
-    height: 24px;
-    padding-right: 24px;
-    margin-right: 12px;
-}
-#navigation svg{
-    position: absolute;
-    margin-right: 12px;
+.sidebar .user .photo img {
+    border-radius: 50%;
+    margin-right: 10px;
 }
 
-.app-dashboard{
-    margin-top: 32px;
+.sidebar ul.nav {
+    list-style: none;
 }
 
-.create-user{
-    position: relative;
+.sidebar ul.nav li {
+    margin: 15px 0;
+}
+
+.sidebar ul.nav li a {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 16px;
+}
+
+.sidebar ul.nav li a:hover {
+    color: #B3D1FF;
+}
+
+/* Main Panel */
+.main-panel {
+    flex: 1;
     display: flex;
-    justify-content: end;
-    width: inherit;
-    margin-right: 36px;
+    flex-direction: column;
 }
 
-.add-user-box{
+.navbar {
+    background-color: #0066FF;
+    padding: 10px 20px;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar #navigation input[type="text"] {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.navbar #navigation input[type="text"]:focus {
+    outline: none;
+    box-shadow: 0px 0px 5px #B3D1FF;
+}
+
+/* Dashboard Content */
+.app-dashboard {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.create-user {
+    margin-bottom: 20px;
+}
+
+.create-user button {
+    background-color: #0066FF;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.create-user button:hover {
+    background-color: #0052CC;
+}
+
+.add-user-box {
+    background: #FFFFFF;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     display: none;
-    position: absolute;
-    /* margin-left: auto; */
-    /* margin-right: auto; */
-    /* bottom: 50%; */
-    top: 185px;
+}
+
+.add-user-box .header h2 {
+    color: #0066FF;
+    margin-bottom: 20px;
+}
+
+.add-user-box .f-input input {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 15px;
+    border: 1px solid #CCC;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.add-user-box .f-input input:focus {
+    border-color: #0066FF;
+    box-shadow: 0px 0px 5px #B3D1FF;
+}
+
+.add-user-box .button-register button {
+    background-color: #0066FF;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.add-user-box .button-register button:hover {
+    background-color: #0052CC;
+}
+
+/* Table */
+.main-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.main-content table thead th {
+    background-color: #0066FF;
+    color: #FFFFFF;
+    padding: 10px;
+    text-align: left;
+    font-size: 14px;
+}
+
+.main-content table tbody tr:nth-child(odd) {
+    background-color: #F9F9F9;
+}
+
+.main-content table tbody tr:nth-child(even) {
+    background-color: #FFFFFF;
+}
+
+.main-content table tbody td {
+    padding: 10px;
+    font-size: 14px;
+}
+
+.main-content table tbody td.settings button {
+    background-color: #0066FF;
+    color: #FFFFFF;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.main-content table tbody td.settings button:hover {
+    background-color: #0052CC;
+}
+
+/* Close Button */
+.add-user-box .close_btn button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.add-user-box .close_btn button:hover svg path {
+    fill: #FF6666;
+}
+.edit-user-box {
+    display: none; /* Ẩn modal mặc định */
+    position: fixed;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: aliceblue;
-    padding: 12px;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    width: 400px;
+    max-width: 100%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
 }
 
-.close_btn{
-    float: right;
+/* Tiêu đề modal */
+.edit-user-box .header {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-.create-user button{
+/* Các label và input trong form */
+.f-input {
+    margin-bottom: 15px;
+}
+
+.f-input label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.f-input input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.f-input input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Các nút trong form */
+.button-group {
     display: flex;
-    align-items: center;
-    background-color: #4CAF50;
+    justify-content: space-between;
 }
 
-.settings{
+.button-group button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.button-group button:hover {
+    background-color: #0056b3;
+}
+
+/* Nút Hủy */
+.button-group button[type="button"] {
+    background-color: #f44336;
+}
+
+.button-group button[type="button"]:hover {
+    background-color: #d32f2f;
+}
+#modal-overlay {
+    display: none; /* Ẩn nền mờ mặc định */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+#overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+
+.reset-password-box {
+    display: none; /* Ẩn modal mặc định */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    width: 400px;
+    max-width: 100%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+/* Nền mờ khi mở modal */
+#box-overlay {
+    display: none; /* Ẩn nền mờ mặc định */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+
+/* Nội dung của modal */
+.modal-content {
     display: flex;
-    justify-content: end;
-    margin-right: 36px;
-    
+    flex-direction: column;
+    gap: 15px;
 }
 
-.settings button:first-child{
-    background-color: #ffff00;
+/* Tiêu đề modal */
+.modal-content h3 {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 20px;
 }
 
-.settings button:last-child{
-    background-color: #de5233;
+/* Các label và input trong modal */
+.modal-content label {
+    font-weight: bold;
+    margin-bottom: 5px;
 }
+
+.modal-content input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.modal-content input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Các nút trong modal */
+.modal-content button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 5px 0;
+    transition: background-color 0.3s ease;
+    justify-content: space-between;
+}
+
+
+.modal-content button:hover {
+    background-color: #0056b3;
+}
+.modal-content button {
+    gap:20px;
+}
+#modal-overlay-delete {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+/* Hộp thoại xóa */
+.delete-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    width: 400px;
+    text-align: center;
+}
+
+.delete-modal h3 {
+    margin: 0 0 15px;
+}
+
+.delete-modal p {
+    margin-bottom: 20px;
+}
+
+.delete-modal .button-group button {
+    padding: 10px 15px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.delete-modal .button-group button[type="submit"] {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.delete-modal .button-group button[type="button"] {
+    background-color: #95a5a6;
+    color: white;
+}
+
