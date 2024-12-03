@@ -79,3 +79,8 @@ input[type="text"], input[type="number"] {
 #btn-submit:hover {
     background: #0056b3;
 }
+.error {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}

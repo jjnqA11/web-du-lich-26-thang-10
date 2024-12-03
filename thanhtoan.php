@@ -40,7 +40,7 @@
                             <div class="dropdown-menu" id="userDropdown">
                                 <span class="username"><b>Xin chào, <?php echo htmlspecialchars($_COOKIE['user']); ?>!</b></span>
                                 <a href="userInfo.php" class="dropdown-item">Trạng thái tài khoản</a>
-                                <a href="trangThaiDonHang.php" class="dropdown-item">Trạng thái đơn hàng</a>
+                                <a href="trangthaidonHang.php" class="dropdown-item">Trạng thái đơn hàng</a>
                                 <a href="logout.php" class="dropdown-item">Đăng xuất</a>
                             </div>
                     </div>
@@ -55,7 +55,7 @@
 
             <p>Vui lòng nhập đầy đủ thông tin chính xác của khách hàng trước khi đặt phòng</p>
         </header>
-        <form id="bookingForm" action="trangThaiDonHang.php" method="POST">
+        <form id="bookingForm" action="trangthaidonhang.php" method="POST">
         <div class="info_user">
             <div class="col-left">
                 <div>
@@ -64,32 +64,42 @@
                 <div>
                     <label for="name">Họ và Tên:</label>
                     <input id="name" type="text" placeholder="Nhập họ tên của bạn">
+                    <div id="error-name" class="error"></div>
                 </div>
                 <br>
                 <div>
-                    <label for="sex">Giới tính:</label>
-                    <input id="sex" type="radio"> Nam
-                    <input id="sex" type="radio"> Nữ
+                    <label for="sex-male">Giới tính:</label>
+                    <input id="sex-male" type="radio" name="sex" value="Nam">
+                    <label for="sex-male">Nam</label>
+
+                    <input id="sex-female" type="radio" name="sex" value="Nữ">
+                    <label for="sex-female">Nữ</label>
+
+                    <div id="error-sex" class="error"></div>
                 </div>
                 <br>
                 <div>
                     <label for="adress">Địa chỉ:</label>
                     <input id="adress" type="text" placeholder="Nhập địa chỉ của bạn">
+                    <div id="error-address" class="error"></div>
                 </div>
                 <br>
                 <div>
                     <label for="phone">Số điện thoại:</label>
-                    <input id="phone" placeholder="Nhập số điện thoại" style="width: 298px; height: 25px; border-radius: 5px">
+                    <input id="phone" type="number"placeholder="Nhập số điện thoại">
+                    <div id="error-phone" class="error"></div>
                 </div>
                 <br>
                 <div>
                     <label for="email">Email:</label>
                     <input id="email" type="text" placeholder="Email">
+                    <div id="error-email" class="error"></div>
                 </div>
                 <br>
                 <div>
                     <label for="cmnd">CMND:</label>
                     <input id="cmnd" type="number" placeholder="Nhập đầy đủ số CMND gồm 12 chữ số">
+                    <div id="error-cmnd" class="error"></div>
                 </div>
                 <br>
                 <div class="select-payment">
@@ -104,6 +114,7 @@
                         <label class="radio">
                             <input type="radio" name="fav_language"> Chuyển khoản
                         </label>
+                        <div id="error-payment-method" class="error"></div>
                         <hr>
                         <div>
                             <br>
