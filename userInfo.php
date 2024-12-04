@@ -43,7 +43,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (isset($_SESSION['user_id'])) {
                 mysqli_stmt_bind_param($stmt, "si", $new_name, $_SESSION['user_id']);
                 if (mysqli_stmt_execute($stmt)) {
-                    $_SESSION['user_name'] = $new_name; // Cập nhật lại tên trong session
+                    $_SESSION['user_name'] = $new_name; // Cập nhật lại tên trong cookie
+                    setcookie('user', $new_name, time() + (86400 * 30), "/"); // Cập nhật lại tên trong cookie
+                    
                     $message = "Tên người dùng đã được thay đổi thành công.";
                 } else {
                     $error = "Có lỗi xảy ra khi thay đổi tên.";
