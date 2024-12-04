@@ -121,7 +121,7 @@
                                 </svg>
                             </button>
                         </div>
-                        <form action="../admin.php" method="post" id="f-register">
+                        <form action="register-user.php" method="post" id="f-register">
                             <div class="header">
                             <h2>Đăng ký</h2>
                             </div>
@@ -157,14 +157,6 @@
                             </div>
                             <input type="password" placeholder="Nhập lại mật khẩu..." name="confirm_password" id="confirm_password">
                             </div>
-
-                            <!-- Thông báo lỗi/success -->
-                            <?php if (isset($error_message)): ?>
-                                <p style="color: red;"><?php echo $error_message; ?></p>
-                            <?php elseif (isset($success_message)): ?>
-                                <p style="color: green;"><?php echo $success_message; ?></p>
-                            <?php endif; ?>
-
                             <!-- Nút đăng ký và chuyển đến đăng nhập -->
                             <div class="button-register">
                                 <div class="accept-submit">

@@ -19,6 +19,16 @@ create_user_close_btn.addEventListener('click', () => {
         create_user_box.style.display = 'none';
     }
 })
+// mở box tạo user
+function showRegisterBox() {
+    document.getElementById("register-user-box").style.display = "block";
+    document.getElementById("register-overlay").style.display = "block";
+}
+// đóng box tạo user
+function hideRegisterBox() {
+    document.getElementById("register-user-box").style.display = "none";
+    document.getElementById("register-overlay").style.display = "none";
+}
 
 // Mở modal chỉnh sửa người dùng với thông tin người dùng
 function showEditBox(id, username, email) {
