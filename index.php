@@ -5,6 +5,24 @@
         header("Location: login.php");
         exit();
     }
+    include "./services/connect-mysql/db_connection.php";
+    if (!isset($_COOKIE['user'])) {
+        header("Location: login.php");
+        exit();
+    }
+
+    $sql = "SELECT id FROM khamphadisan . user_table where userName = '{$_COOKIE['user']}' ";
+    $result = $conn -> query($sql);
+
+    if($result){
+        // kiem tra neu co ket qua
+        if($result -> num_rows > 0){
+            // duyet qua cac dong du lieu
+            while($row = $result -> fetch_assoc()){
+                setcookie("idNguoiDung", $row['id'], time() + (10 * 365 * 24 * 60 * 60), "/");
+            }
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
