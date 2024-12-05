@@ -6,10 +6,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $servername = "localhost";
     $username = "root";
-    $db_password = "";
+    $db_password = "123456";
+    // thay doi database
     $database = "khamphadisan";
+
+    $port = 3307;
     // Kết nối cơ sở dữ liệu
-    $conn = new mysqli($servername, $username, $db_password, $database);
+    $conn = new mysqli($servername, $username, $db_password, $database, $port);
     if ($conn->connect_error) {
         die("Kết nối thất bại: " . $conn->connect_error);
     }
