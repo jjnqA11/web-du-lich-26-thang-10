@@ -2,15 +2,16 @@
     $servername = "localhost";
     $database = "khamphadisan";
     $username = "root";
-    $password = "";
-    $port = 3306; // mở cổng MYSQL mới
+    $password = "123456";
+    $port = 3307; // mở cổng MYSQL mới
 
     // create connection
     $conn = mysqli_connect($servername, $username, $password, $database, $port);
 
     //Check Connection
 
-    if($conn -> connect_error){
-        die("Connection failed:" . $conn -> connect_error);
+    if(!$conn){
+        die("Connection failed:" . mysqli_connect_error());
+    }else{
     }
 ?>

@@ -1,9 +1,22 @@
-
 <?php
+    include "./services/connect-mysql/db_connection.php";
     session_start();
     if (!isset($_COOKIE['user'])) {
         header("Location: login.php");
         exit();
+    }
+
+    $sql = "SELECT id FROM `khamphadisan` . `user_table` where userName = '{$_COOKIE['user']}' ";
+    $result = $conn -> query($sql);
+
+    if($result){
+        // kiem tra neu co ket qua
+        if($result -> num_rows > 0){
+            // duyet qua cac dong du lieu
+            while($row = $result -> fetch_assoc()){
+                setcookie("idNguoiDung", $row['id'], time() + (10 * 365 * 24 * 60 * 60), "/");
+            }
+        }
     }
 ?>
 <!DOCTYPE html>
@@ -13,7 +26,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Khám Phá Di Sản</title>
     <link rel="stylesheet" href="assets/css/style.css">
-
 </head>
 <body>
     <section id="header__banner">
@@ -230,7 +242,7 @@
           <div class="stars">
             <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
           </div>
-          <a href="thanhtoan.php"><button>Đặt Phòng Ngay</button></a>
+          <a href="thanhtoan.php?KhachSan=1"><button>Đặt Phòng Ngay</button></a>
         </div>
         
         <div class="hotel-card">
@@ -240,7 +252,7 @@
           <div class="stars">
             <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
           </div>
-          <a href="thanhtoan.php"><button>Đặt Phòng Ngay</button></a>
+          <a href="thanhtoan.php?KhachSan=2"><button>Đặt Phòng Ngay</button></a>
         </div>
       
         <div class="hotel-card">
@@ -250,7 +262,7 @@
           <div class="stars">
             <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
           </div>
-          <a href="thanhtoan.php"><button>Đặt Phòng Ngay</button></a>
+          <a href="thanhtoan.php?KhachSan=3"><button>Đặt Phòng Ngay</button></a>
         </div>
         
         <div class="hotel-card">
@@ -260,7 +272,7 @@
           <div class="stars">
             <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
           </div>
-          <a href="thanhtoan.php"><button>Đặt Phòng Ngay</button></a>
+          <a href="thanhtoan.php?KhachSan=4"><button>Đặt Phòng Ngay</button></a>
         </div>
     </section>
    
