@@ -2,10 +2,6 @@
     session_start(); 
     ob_start(); // Bắt đầu output buffering
 ?>
-<?php 
-    session_start(); 
-    ob_start(); // Bắt đầu output buffering
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -269,90 +265,48 @@
 
     <!-- Script -->
      <script src="assets/js/index.js"></script>
-     <script src="assets/js/thanhtoan.js"></script>
      <script>
-    document.getElementById('bookingForm').addEventListener('submit', function(event) {
-        let errors = []; // Mảng chứa thông báo lỗi
+        document.getElementById('bookingForm').addEventListener('submit', function(event) {
+            let errors = []; // Mảng chứa thông báo lỗi
 
-        // Lấy giá trị của các trường
-        const gender = document.querySelector('input[name="gender"]:checked');
-        const address = document.getElementById('adress').value.trim();
-        const phone = document.getElementById('phone').value.trim();
-        const payment = document.querySelector('input[name="select-payment-choice"]:checked');
+            // Lấy giá trị của các trường
+            const gender = document.querySelector('input[name="gender"]:checked');
+            const address = document.getElementById('adress').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const payment = document.querySelector('input[name="select-payment-choice"]:checked');
 
-        // Kiểm tra từng trường
-        if (!gender) {
-            errors.push("Vui lòng chọn giới tính!");
-        }
+            // Kiểm tra từng trường
+            if (!gender) {
+                errors.push("Vui lòng chọn giới tính!");
+            }
 
-        if (!address) {
-            errors.push("Vui lòng nhập địa chỉ!");
-        }
+            if (!address) {
+                errors.push("Vui lòng nhập địa chỉ!");
+            }
 
-        if (!phone) {
-            errors.push("Vui lòng nhập số điện thoại!");
-        }
+            if (!phone) {
+                errors.push("Vui lòng nhập số điện thoại!");
+            }
 
-        if (!payment) {
-            errors.push("Vui lòng chọn phương thức thanh toán!");
-        }
+            if (!payment) {
+                errors.push("Vui lòng chọn phương thức thanh toán!");
+            }
 
-        // Nếu có lỗi, hiển thị thông báo và ngăn gửi form
-        if (errors.length > 0) {
-            event.preventDefault(); // Ngăn form gửi
-            const errorDiv = document.querySelector('.error'); // Tìm phần hiển thị lỗi
-            errorDiv.innerHTML = errors.join('<br>'); // Hiển thị lỗi
-            errorDiv.style.color = 'red';
-        }else{
-            const errorDiv =document.querySelector('.error');
-            const completeSubmitForm = "Gui form thanh cong";
-            errorDiv.innerHTML = completeSubmitForm;
-            errorDiv.style.color = 'green';
-        }
-    });
-</script>
+            // Nếu có lỗi, hiển thị thông báo và ngăn gửi form
+            if (errors.length > 0) {
+                event.preventDefault(); // Ngăn form gửi
+                const errorDiv = document.querySelector('.error'); // Tìm phần hiển thị lỗi
+                errorDiv.innerHTML = errors.join('<br>'); // Hiển thị lỗi
+                errorDiv.style.color = 'red';
+            }else{
+                const errorDiv =document.querySelector('.error');
+                const completeSubmitForm = "Gui form thanh cong";
+                errorDiv.innerHTML = completeSubmitForm;
+                errorDiv.style.color = 'green';
+            }
+        });
+    </script>
 
-     <script>
-    document.getElementById('bookingForm').addEventListener('submit', function(event) {
-        let errors = []; // Mảng chứa thông báo lỗi
-
-        // Lấy giá trị của các trường
-        const gender = document.querySelector('input[name="gender"]:checked');
-        const address = document.getElementById('adress').value.trim();
-        const phone = document.getElementById('phone').value.trim();
-        const payment = document.querySelector('input[name="select-payment-choice"]:checked');
-
-        // Kiểm tra từng trường
-        if (!gender) {
-            errors.push("Vui lòng chọn giới tính!");
-        }
-
-        if (!address) {
-            errors.push("Vui lòng nhập địa chỉ!");
-        }
-
-        if (!phone) {
-            errors.push("Vui lòng nhập số điện thoại!");
-        }
-
-        if (!payment) {
-            errors.push("Vui lòng chọn phương thức thanh toán!");
-        }
-
-        // Nếu có lỗi, hiển thị thông báo và ngăn gửi form
-        if (errors.length > 0) {
-            event.preventDefault(); // Ngăn form gửi
-            const errorDiv = document.querySelector('.error'); // Tìm phần hiển thị lỗi
-            errorDiv.innerHTML = errors.join('<br>'); // Hiển thị lỗi
-            errorDiv.style.color = 'red';
-        }else{
-            const errorDiv =document.querySelector('.error');
-            const completeSubmitForm = "Gui form thanh cong";
-            errorDiv.innerHTML = completeSubmitForm;
-            errorDiv.style.color = 'green';
-        }
-    });
-</script>
 
 </body>
 </html>
