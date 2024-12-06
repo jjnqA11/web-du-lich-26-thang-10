@@ -89,8 +89,8 @@
             $servername = "localhost";
             $database = "khamphadisan";
             $username = "root";
-            $password = "";
-            $port = 3306; // mở cổng MYSQL mới
+            $password = "123456";
+            $port = 3307; // mở cổng MYSQL mới
 
             // create connection
             $conn = mysqli_connect($servername, $username, $password, $database, $port);
@@ -212,6 +212,64 @@
                                 // Xử lý theo giá trị của 'KhachSan'
                                 switch($_GET['KhachSan']){
                                     case 1: 
+                                        // Truy vấn thông tin khách sạn từ cơ sở dữ liệu
+                                        $sql = "SELECT name, title, price FROM hotel_table WHERE id = ?";
+                                        $stmt = mysqli_prepare($conn, $sql);
+                                        // type i -> int s -> string b -> blob f -> float
+                                        $stmt -> bind_param('i', $_GET['KhachSan']);
+                                        $stmt -> execute();
+                                        $result = $stmt -> get_result(); // Trả về kết quả truy vấn
+
+                                        // Kiểm tra nếu có kết quả
+                                        if($result -> num_rows > 0){
+                                            $hotel = $result -> fetch_assoc(); // Lấy thông tin khách sạn
+                                            echo "<td>{$hotel['name']}</td> <td>{$hotel['title']}</td> <td>{$hotel['price']}</td>";
+                                            $hotelPrice = $hotel['price']; // Lưu giá khách sạn vào biến $hotelPrice
+
+                                            // Thiết lập cookie
+                                            setcookie("hotel_price", $hotelPrice, time() + (10 * 365 * 24 * 60 * 60), "/");
+                                            setcookie("idKhachSan", $_GET['KhachSan'], time() + (10 * 365 * 24 * 60 * 60), "/");
+                                        }
+                                        break;
+                                    case 2: 
+                                        // Truy vấn thông tin khách sạn từ cơ sở dữ liệu
+                                        $sql = "SELECT name, title, price FROM hotel_table WHERE id = ?";
+                                        $stmt = mysqli_prepare($conn, $sql);
+                                        $stmt -> bind_param('i', $_GET['KhachSan']);
+                                        $stmt -> execute();
+                                        $result = $stmt -> get_result(); // Trả về kết quả truy vấn
+
+                                        // Kiểm tra nếu có kết quả
+                                        if($result -> num_rows > 0){
+                                            $hotel = $result -> fetch_assoc(); // Lấy thông tin khách sạn
+                                            echo "<td>{$hotel['name']}</td> <td>{$hotel['title']}</td> <td>{$hotel['price']}</td>";
+                                            $hotelPrice = $hotel['price']; // Lưu giá khách sạn vào biến $hotelPrice
+
+                                            // Thiết lập cookie
+                                            setcookie("hotel_price", $hotelPrice, time() + (10 * 365 * 24 * 60 * 60), "/");
+                                            setcookie("idKhachSan", $_GET['KhachSan'], time() + (10 * 365 * 24 * 60 * 60), "/");
+                                        }
+                                        break;
+                                    case 3: 
+                                        // Truy vấn thông tin khách sạn từ cơ sở dữ liệu
+                                        $sql = "SELECT name, title, price FROM hotel_table WHERE id = ?";
+                                        $stmt = mysqli_prepare($conn, $sql);
+                                        $stmt -> bind_param('i', $_GET['KhachSan']);
+                                        $stmt -> execute();
+                                        $result = $stmt -> get_result(); // Trả về kết quả truy vấn
+
+                                        // Kiểm tra nếu có kết quả
+                                        if($result -> num_rows > 0){
+                                            $hotel = $result -> fetch_assoc(); // Lấy thông tin khách sạn
+                                            echo "<td>{$hotel['name']}</td> <td>{$hotel['title']}</td> <td>{$hotel['price']}</td>";
+                                            $hotelPrice = $hotel['price']; // Lưu giá khách sạn vào biến $hotelPrice
+
+                                            // Thiết lập cookie
+                                            setcookie("hotel_price", $hotelPrice, time() + (10 * 365 * 24 * 60 * 60), "/");
+                                            setcookie("idKhachSan", $_GET['KhachSan'], time() + (10 * 365 * 24 * 60 * 60), "/");
+                                        }
+                                        break;
+                                    case 4: 
                                         // Truy vấn thông tin khách sạn từ cơ sở dữ liệu
                                         $sql = "SELECT name, title, price FROM hotel_table WHERE id = ?";
                                         $stmt = mysqli_prepare($conn, $sql);
