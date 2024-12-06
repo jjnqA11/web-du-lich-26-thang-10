@@ -201,7 +201,7 @@
                         $cartUser = "SELECT h.name, p.select_payment, p.totalBill 
                                     FROM `khamphadisan`.`payment_table` AS p 
                                     INNER JOIN `khamphadisan`.`hotel_table` AS h 
-                                    ON p.booking_hotel_id = h.id";
+                                    ON p.booking_hotel_id = h.id WHERE p.user_id = '{$_COOKIE['idNguoiDung']}'";
 
                         // Sử dụng đúng biến $cartUser
                         $cartUserResult = $conn->query($cartUser);
