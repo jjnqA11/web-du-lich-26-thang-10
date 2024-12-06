@@ -43,6 +43,7 @@
                             <div class="dropdown-menu" id="userDropdown">
                                 <span class="username"><b>Xin chào, <?php echo htmlspecialchars($_COOKIE['user']); ?>!</b></span>
                                 <a href="../userInfo.php" class="dropdown-item">Trạng thái tài khoản</a>
+                                <a href="../trangThaiDonHang.php" class="dropdown-item">Trạng thái đơn hàng</a>
                                 <a href="../logout.php" class="dropdown-item">Đăng xuất</a>
                             </div>
                     </div>

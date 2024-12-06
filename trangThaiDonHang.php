@@ -194,7 +194,7 @@
                             <th>Gia Thanh San Pham</th>
                             <th>Phuong thuc thanh toan</th>
                         </tr>
-                        <td></td><td></td><td></td>
+                        
                     </thead>
                     <tbody>
                     <?php

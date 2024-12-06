@@ -192,19 +192,37 @@
                     </div>
                         <?php 
                         if (isset($_POST['save'])) {
-                            $id = $_POST['id'];
-                            $username = $_POST['username'];
-                            $email = $_POST['email'];
-                            $password = $_POST['password'];
+                            $id = $_POST['id'] ?? null;
+                            $username = $_POST['username'] ?? null;
+                            $email = $_POST['email'] ?? null;
+                            $password = $_POST['password'] ?? null;
                         
-                            $sql = "UPDATE user_table SET userName = ?, email = ?, password = ? WHERE id = ?";
-                            $stmt = mysqli_prepare($conn, $sql);
-                            mysqli_stmt_bind_param($stmt, "sssi", $username, $email, $password, $id);
+                            if ($id && $username && $email) {
+                                // Lấy mật khẩu hiện tại từ cơ sở dữ liệu nếu không có mật khẩu mới
+                                if (empty($password)) {
+                                    $query = "SELECT password FROM user_table WHERE id = ?";
+                                    $stmt = mysqli_prepare($conn, $query);
+                                    mysqli_stmt_bind_param($stmt, "i", $id);
+                                    mysqli_stmt_execute($stmt);
+                                    mysqli_stmt_bind_result($stmt, $password);
+                                    mysqli_stmt_fetch($stmt);
+                                    mysqli_stmt_close($stmt);
+                                }
                         
-                            if (mysqli_stmt_execute($stmt)) {
-                                echo "<script>alert('Chỉnh sửa thành công!'); window.location.href='admin.php';</script>";
+                                $sql = "UPDATE user_table SET userName = ?, email = ?, password = ? WHERE id = ?";
+                                $stmt = mysqli_prepare($conn, $sql);
+                                mysqli_stmt_bind_param($stmt, "sssi", $username, $email, $password, $id);
+                        
+                                if (mysqli_stmt_execute($stmt)) {
+                                    $redirect_url = $_SERVER['HTTP_REFERER'];
+                                    echo "<script>alert('Chỉnh sửa thành công!'); window.location.href='$redirect_url';</script>";
+                                } else {
+                                    $redirect_url = $_SERVER['HTTP_REFERER'];
+                                    echo "<script>alert('Lỗi: " . mysqli_error($conn) . "');</script>";
+                                }
                             } else {
-                                echo "<script>alert('Lỗi: " . mysqli_error($conn) . "');</script>";
+                                $redirect_url = $_SERVER['HTTP_REFERER'];
+                                echo "<script>alert('Vui lòng điền đầy đủ thông tin!');</script>";
                             }
                         }
                         ?>

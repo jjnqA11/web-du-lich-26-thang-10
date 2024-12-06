@@ -804,3 +804,9 @@ body.dark-theme .username {
     color: black;
     transition: 0.3s ease-in-out;
 }
+
+body.dark-theme tr {
+    background-color: #373737;
+    color: white;
+    transition: 0.3s ease-in-out;
+}
