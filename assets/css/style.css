@@ -279,7 +279,6 @@ h2.title:after {
 }
 
 .container {
-    width: 100%;
     margin-right: auto;
     margin-left: auto;
     padding-right: 15px;
@@ -336,11 +335,35 @@ h2.title:after {
 }
 .container{
     display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 .container p {
     font-size: 14px;
     color: #666;
     margin: 0;
+}
+.tips-table {
+    display: flex;
+    flex-direction: column; /* Xếp dọc các thẻ */
+    align-items: center; /* Căn giữa nội dung theo chiều ngang */
+    height: 100%; /* Chiều cao của container */
+    border-radius: 5px;
+    margin-bottom: 20px;
+    row-gap: 20px;
+    transition: 0.3s ease-in-out;
+}
+.tips-card {
+    width: 80%; /* Tùy chỉnh kích thước thẻ */
+    margin: 0 auto; /* Căn giữa */
+}
+.tips-card a {
+    text-decoration: none;
+}
+.tips-card img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
 }
 .tour-card {
     width: 300px;
@@ -352,7 +375,6 @@ h2.title:after {
     right:20px; /* Cách bên phải 20px */
     top: 100px; /* Cách phía trên 100px */
     z-index : 1; /* Đảm bảo phần này nằm trên các phần khác */
-    margin-left: 325px;
     transition: 0.3s ease-in-out;
 }
 
@@ -733,6 +755,21 @@ body.dark-theme #CamNang {
 body.dark-theme #KhachSan {
     background-color: #2b2b2b;
     color: white;
+    transition: 0.3s ease-in-out;
+}
+body.dark-theme .content a {
+    background-color: #2b2b2b;
+    color: white;
+    transition: 0.3s ease-in-out;
+}
+body.dark-theme .content a:hover {
+    background-color: #2b2b2b;
+    color: rgb(175, 175, 175);
+    transition: 0.3s ease-in-out;
+}
+body.dark-theme .tit-kn-detail {
+    background-color: #2b2b2b;
+    color: #9f9f9f;
     transition: 0.3s ease-in-out;
 }
 

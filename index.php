@@ -204,6 +204,24 @@
                     </li>
                 </ul>
             </div>
+            <div class="tips-table">
+                <div class="tips-card">
+                    <a href="#"><img src="images/TPHCM.jpg" alt="TPHCM">
+                    <p>Những thứ phải mang khi đi du lịch</p></a>
+                </div>
+                <div class="tips-card">
+                    <a href="#"><img src="images/TPHCM.jpg" alt="TPHCM">
+                    <p>Những thứ phải mang khi đi du lịch</p></a>
+                </div>
+                <div class="tips-card">
+                    <a href="#"><img src="images/TPHCM.jpg" alt="TPHCM">
+                    <p>Những thứ phải mang khi đi du lịch</p></a>
+                </div>
+                <div class="tips-card">
+                    <a href="#"><img src="images/TPHCM.jpg" alt="TPHCM">
+                    <p>Những thứ phải mang khi đi du lịch</p></a>
+                </div>
+            </div>
             <div class="tour-card">
                 <h3>Tour Bali 5 ngày Cung đường đẹp nhất - Tặng Tour Xế Cổ Volkswagen - Làng cổ Penglipuran</h3>
                 <p class="original-price"><del>15.890.000₫</del></p>

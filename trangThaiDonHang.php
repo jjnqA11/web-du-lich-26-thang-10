@@ -76,10 +76,6 @@
             text-align: left;
             padding: 8px;
             }
-
-        tbody tr:nth-child(even) {
-            background-color: #f9f9f9; /* Sọc màu cho hàng chẵn */
-            }
     </style>
 </head>
 <body>
