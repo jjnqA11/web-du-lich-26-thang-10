@@ -75,6 +75,7 @@
             border: 1px solid #dddddd;
             text-align: left;
             padding: 8px;
+            width: auto;
             }
     </style>
 </head>
@@ -186,15 +187,17 @@
                 <table>
                     <thead>
                         <tr>
+                            <th>Id</th>
                             <th>Ten San Pham</th>
                             <th>Gia Thanh San Pham</th>
                             <th>Phuong thuc thanh toan</th>
+                            <th>Huy bo don hang</th>
                         </tr>
                         
                     </thead>
                     <tbody>
                     <?php
-                        $cartUser = "SELECT h.name, p.select_payment, p.totalBill 
+                        $cartUser = "SELECT h.name, p.select_payment, p.totalBill ,p.id
                                     FROM `khamphadisan`.`payment_table` AS p 
                                     INNER JOIN `khamphadisan`.`hotel_table` AS h 
                                     ON p.booking_hotel_id = h.id WHERE p.user_id = '{$_COOKIE['idNguoiDung']}'";
@@ -205,10 +208,13 @@
                         if ($cartUserResult) {
                             if ($cartUserResult->num_rows > 0) {
                                 while ($row = $cartUserResult->fetch_assoc()) {
+                                    $paymentId = $row['id'];
                                     echo "<tr>
+                                            <td>{$row['id']}</td>
                                             <td>{$row['name']}</td>
                                             <td>{$row['select_payment']}</td>
                                             <td>{$row['totalBill']}</td>
+                                            <td><a href='delete_payment.php?id=$paymentId' onclick='return confirm(\"Bạn có chắc chắn muốn xóa?\")'>X</a></td>
                                         </tr>";
                                 }
                             } else {
