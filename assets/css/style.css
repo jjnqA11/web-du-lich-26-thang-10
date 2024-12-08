@@ -240,19 +240,18 @@ h2.title:after {
 .destinations-container {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 30px;
     margin-top: 50px;
-    overflow-x: auto;
 }
 
 .destination-card {
     position: relative;
-    width: 200px;
-    overflow: hidden;
+    width: 100%;
     border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease-in-out;
     cursor: pointer;
+    transition: transform 0.3s ease; /* Hiệu ứng mượt khi hover */
 }
 
 .destination-card img {
@@ -266,10 +265,16 @@ h2.title:after {
     bottom: 0;
     background: rgba(0, 0, 0, 0.5);
     color: white;
-    width: 200px;
+    width: 100%;
     text-align: center;
     font-size: 14px;
 }
+
+.destination-card:hover {
+    transform: scale(1.05); /* Phóng to nhẹ khi hover */
+}
+
+
 .row {
     margin-right: 15px;
     margin-left: 15px;
@@ -300,7 +305,6 @@ h2.title:after {
 
 .list-kn li {
     display: flex;
-    align-items: center;
     margin-bottom: 20px;
     border-bottom: 1px solid #ddd;
     padding-bottom: 10px;
@@ -430,7 +434,7 @@ h2.title:after {
 
 .button-group {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     margin-top: 10px;
 }
 

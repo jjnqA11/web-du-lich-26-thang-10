@@ -40,20 +40,6 @@ function loadTheme() {
 document.addEventListener("DOMContentLoaded", loadTheme);
 
 
-// xử lý click vào box hiện ra title box
-let titleInfoBox = document.getElementById('title_detail_carousel');
-let imageTitleBox = document.querySelectorAll('.destination-card');
-let closeBtnTitle = document.getElementById('closeBtnTitle');
-imageTitleBox.forEach((box) => {
-    let ImageElement = box.querySelector('img');
-    ImageElement.addEventListener('click', () => {
-        titleInfoBox.style.display = "block";
-    });
-    closeBtnTitle.addEventListener('click', () => {
-        titleInfoBox.style.display = "none";
-    })
-})
-
 
 // xử lý tour-booking
 const giaBinhDan = 14490000;

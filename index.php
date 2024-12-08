@@ -85,27 +85,14 @@
                     <a href="/diem-den-hap-dan/">Điểm đến hấp dẫn</a>
                 </span>
             </h2>
-            <div id="title_detail_carousel">
-                <div class="table-content">
-                    <button id="closeBtnTitle">X</button>
-                    <div class="img_carousel">
-                        <img src="images/DTQGDB_Chua Keo Thai Binh.jpg" width="200px" height="100%" alt="">
-                    </div>
-                    <div class="title_detail_content">
-                        <h1>Ha Noi - Bieu Tuong du lich lich su doc dao cua viet nam</h1>
-                        <p>Thong Tin chi tiet</p>
-                        <button type="submit" id="submitTour">Dat Tour Ngay</button>
-                    </div>
-                </div>
-            </div>
-            <div class="destinations-container owl-carousel">
+            <div class="destinations-container">
                 <div class="destination-card item">
-                    <a>
+                    <a href="pages/hanoi.php">
                         <img src="images/ho-hoan-kiem-7185.jpg" alt="Hà Nội">
-                    </a>
                     <div class="overlay">
                         <p>Hà Nội – Biểu tượng lịch sử độc đáo của Việt Nam</p>
                     </div>
+                    </a>   
                 </div>
                 <div class="destination-card item">
                    <a href="pages/thaibinh.php"><img src="images/DTQGDB_Chua Keo Thai Binh.jpg" alt="Thái Bình">
@@ -115,34 +102,28 @@
                 </a>
                 </div>
                 <div class="destination-card item">
+                    <a href="pages/ninhbinh.php">
                     <img src="images/Ninh_binh.webp" alt="Ninh Bình">
                     <div class="overlay">
                         <p>Ninh Bình - Cảnh đẹp thiên nhiên ngút trời</p>
                     </div>
+                </a>
                 </div>
                 <div class="destination-card item">
+                    <a href="pages/hue.php">
                     <img src="images/hue.jpg" alt="Huế">
                     <div class="overlay">
                         <p>Huế – Biểu tượng Cố Đô</p>
                     </div>
+                </a>
                 </div>
                 <div class="destination-card item">
+                    <a href="pages/tphcm.php">
                     <img src="images/TPHCM.jpg" alt="TPHCM">
                     <div class="overlay">
                         <p>TP Hồ Chí Minh - Thành phố của tương lai</p>
                     </div>
-                </div>
-                <div class="destination-card item">
-                    <img src="images/TPHCM.jpg" alt="TPHCM">
-                    <div class="overlay">
-                        <p>TP Hồ Chí Minh - Thành phố của tương lai</p>
-                    </div>
-                </div>
-                <div class="destination-card item">
-                    <img src="images/TPHCM.jpg" alt="TPHCM">
-                    <div class="overlay">
-                        <p>TP Hồ Chí Minh - Thành phố của tương lai</p>
-                    </div>
+                </a>
                 </div>
             </div>
         </section>
@@ -217,10 +198,6 @@
                     <a href="#"><img src="images/TPHCM.jpg" alt="TPHCM">
                     <p>Những thứ phải mang khi đi du lịch</p></a>
                 </div>
-                <div class="tips-card">
-                    <a href="#"><img src="images/TPHCM.jpg" alt="TPHCM">
-                    <p>Những thứ phải mang khi đi du lịch</p></a>
-                </div>
             </div>
             <div class="tour-card">
                 <h3>Tour Bali 5 ngày Cung đường đẹp nhất - Tặng Tour Xế Cổ Volkswagen - Làng cổ Penglipuran</h3>
@@ -240,8 +217,7 @@
                 <p><strong>Thời gian:</strong> 5 Ngày 4 Đêm</p>
                 
                 <div class="button-group">
-                    <button class="btn-book">Đặt Tour</button>
-                    <button class="btn-request">Yêu cầu đặt</button>
+                    <button class="btn-book"><a href="#datTour" style="text-decoration: none; color: white;">Đặt Tour</a></button>
                 </div>
             </div>
         </div>        
@@ -295,7 +271,7 @@
         </div>
     </section>
    
-    <section class="tour-booking">
+    <section class="tour-booking" id="datTour">
         <h2>CHỌN NGÀY KHỞI HÀNH</h2>
         <table>
             <thead>

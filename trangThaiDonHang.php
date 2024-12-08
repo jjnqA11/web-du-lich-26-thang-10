@@ -171,7 +171,7 @@
                     <br>
                 <div>
                         <label for="phone">Số điện thoại:</label>
-                        <input id="phone" placeholder="Nhập số điện thoại" style="width: 298px; height: 25px; border-radius: 5px" value="<?php echo $phoneNumber; ?>" disabled>
+                        <input id="phone" placeholder="Nhập số điện thoại" style="width: 298px; height: 25px; border-radius: 5px color: #ccc" value="<?php echo $phoneNumber; ?>" disabled>
                 </div>
                     <br>
                 <div>
@@ -188,10 +188,10 @@
                     <thead>
                         <tr>
                             <th>Id</th>
-                            <th>Ten San Pham</th>
-                            <th>Gia Thanh San Pham</th>
-                            <th>Phuong thuc thanh toan</th>
-                            <th>Huy bo don hang</th>
+                            <th>Tên sản phẩm</th>
+                            <th>Giá </th>
+                            <th>Hình thức thanh toán</th>
+                            <th>Huỷ đơn</th>
                         </tr>
                         
                     </thead>
@@ -214,7 +214,14 @@
                                             <td>{$row['name']}</td>
                                             <td>{$row['select_payment']}</td>
                                             <td>{$row['totalBill']}</td>
-                                            <td><a href='delete_payment.php?id=$paymentId' onclick='return confirm(\"Bạn có chắc chắn muốn xóa?\")'>X</a></td>
+                                            <td><a href='delete_payment.php?id=$paymentId' onclick='return confirm(\"Bạn có chắc chắn muốn xóa?\")' style='
+                                            display: flex;
+                                            color: white; 
+                                            background-color: red; 
+                                            text-decoration: none; 
+                                            justify-content: center;
+                                            margin: 25%;
+                                            '>X</a></td>
                                         </tr>";
                                 }
                             } else {

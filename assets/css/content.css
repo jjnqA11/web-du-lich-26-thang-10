@@ -3,7 +3,7 @@
     font-size: 24px;
     color: #333333;
     margin-bottom: 10px;
-    padding-left: 5%;
+    padding: 5%;
 }
 
 /* Định dạng mô tả ngắn */
@@ -39,7 +39,7 @@
 }
 
 .muc-luc ul li a:hover {
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 /* Nội dung giới thiệu */
@@ -59,7 +59,7 @@
 /* Nội dung chính */
 .noi-dung {
     margin-bottom: 20px;
-    padding-left: 5%;
+    padding: 5%;
 }
 
 .noi-dung h3 {
@@ -144,4 +144,24 @@
     list-style-type: none; /* Hình thống danh sách */
     padding: 0; /* Khoảng cách bên trong */
     margin: 0; /* Khoảng cách bên ngoài */
+}
+
+body.dark-theme .title h2 {
+    color: #f4f6f8;
+}
+
+body.dark-theme .short-description p {
+    color: #ccc;
+}
+
+body.dark-theme .muc-luc {
+    color: #ccc;
+}
+
+body.dark-theme .noi-dung h3 {
+    color: #f4f6f8;
+}
+
+body.dark-theme .noi-dung p {
+    color: #ccc;
 }
