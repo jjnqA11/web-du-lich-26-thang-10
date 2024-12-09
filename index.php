@@ -203,7 +203,6 @@
                 <h3>Tour Bali 5 ngày Cung đường đẹp nhất - Tặng Tour Xế Cổ Volkswagen - Làng cổ Penglipuran</h3>
                 <p class="original-price"><del>15.890.000₫</del></p>
                 <p class="new-price">Giá mới: 14.490.000₫ <span class="discount">Tiết kiệm -9%</span></p>
-                <button class="btn-tour">In chương trình tour</button>
                 
                 <ul class="itinerary">
                     <li>Hà Nội – Bali – Ngắm hoàng hôn biển Jimbaran – Đền nước thiêng Tirta Empul</li>
@@ -213,7 +212,7 @@
                 
                 <p><strong>Di chuyển:</strong> Xe Bus đời mới</p>
                 <p><strong>Di chuyển:</strong> Vietjet Air</p>
-                <p><strong>Lịch khởi hành:</strong> 26-10-2024</p>
+                <p><strong>Lịch khởi hành:</strong> 24-12-2024</p>
                 <p><strong>Thời gian:</strong> 5 Ngày 4 Đêm</p>
                 
                 <div class="button-group">
