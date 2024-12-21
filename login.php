@@ -4,17 +4,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $servername = "localhost";
-    $username = "root";
-    $db_password = "";
-    // thay doi database
-    $database = "khamphadisan";
-    $port = 3306;
-    // Kết nối cơ sở dữ liệu
-    $conn = new mysqli($servername, $username, $db_password, $database, $port);
-    if ($conn->connect_error) {
-        die("Kết nối thất bại: " . $conn->connect_error);
-    }
+    include "./services/connect-mysql/db_connection.php";
 
     // Truy vấn cơ sở dữ liệu để lấy mật khẩu mã hóa
     $stmt = $conn->prepare("SELECT password, userName FROM user_table WHERE email = ?");

@@ -1,5 +1,5 @@
 function toggleTheme(event) {
-    event.preventDefault(); // Ngăn hành vi mặc định của thẻ <a>
+    event.preventDefault(); // Ngăn hành vi mặc định của thẻ <a> chuyển trang
 
     const body = document.body;
     const themeIcon = document.getElementById("theme-icon");
@@ -88,9 +88,13 @@ countNumberInputPassenger2.addEventListener('input', updatePrices);
 countNumberInputPassenger3.addEventListener('input', updatePrices);
 countNumberInputPassengerSell.addEventListener('input', updatePrices);
 
+
+// 
 function toggleDropdown() {
-    const dropdown = document.getElementById('userDropdown');
-    dropdown.classList.toggle('show');
+    const dropdown = document.getElementById('userDropdown'); // lấy phần tử id userDropdown
+
+    dropdown.classList.toggle('show'); 
+    // 
 }
 
 // Close dropdown when clicking outside
