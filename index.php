@@ -1,23 +1,31 @@
 <?php
     include "./services/connect-mysql/db_connection.php";
-    session_start();
-    if (!isset($_COOKIE['user'])) {
-        header("Location: login.php");
-        exit();
+    session_start(); // khoi tao phien dang nhap
+
+    if (!isset($_COOKIE['user'])) { // neu khong ton tai cookie user
+        header("Location: login.php"); // quay lai trang dang nhap
+        exit(); // dừng việc thực thi chương trình ngay tại đây 
+        // mọi đoạn mã bên dưới sẽ không được chạy 
+        echo "Doan ma nay nay se khong duoc in ra";
     }
 
-    $sql = "SELECT id FROM `khamphadisan` . `user_table` where userName = '{$_COOKIE['user']}' ";
-    $result = $conn -> query($sql);
+    $sql = "SELECT id FROM `khamphadisan` . `user_table` where userName = '{$_COOKIE['user']}' "; // lấy giá trị id trong database "khamphadisan" . table "user_table" where userName = cookie['user]
+    $result = $conn -> query($sql); // thực thi câu lệnh sql 
 
-    if($result){
         // kiem tra neu co ket qua
         if($result -> num_rows > 0){
             // duyet qua cac dong du lieu
-            while($row = $result -> fetch_assoc()){
+            while($row = $result -> fetch_assoc()){ // lay tung dong du lieu duoi dang mot mang ket hop ["key" => "value"]
                 setcookie("idNguoiDung", $row['id'], time() + (10 * 365 * 24 * 60 * 60), "/");
+                // setcookie("name", "value", "expire", "path") 
+                /**
+                 * name: ten cua cookie
+                 * value: gia tri cua cookie 
+                 * expire: thoi gian het han cua cookie 10 nam * 365 ngay * 24 gio * 60 phut * 60 giay
+                 * path: duong dan ma cookie khả dụng mặc định / (cookie khả dụng cho toàn bộ trang web) từ trang index.php
+                 */
             }
         }
-    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -55,7 +63,8 @@
                     </li>  
                         <div class="user-info">
                             <!-- Avatar icon -->
-                            <div class="user-avatar" onclick="toggleDropdown()">
+                            <div class="user-avatar" onclick="toggleDropdown()"> 
+                                
                                 <img src="images/user.png" alt="Avatar" class="avatar"> 
                             </div>
                             <!-- Dropdown menu -->
