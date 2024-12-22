@@ -25,7 +25,7 @@ Mặc dù không phải là một sản phẩm thương mại hoàn chỉnh, d�
    - Chịu trách nhiệm xử lý giao diện bằng **HTML**, **CSS**.  
 2. **Nguyễn Quang Diệp**:  
    - Phụ trách phần backend với **PHP**, **MySQL** và **JavaScript thô** bao gồm phát triển các chức năng xử lý dữ liệu.  
-3. **Tôi**:  
+3. **Nguyễn Đình Khánh**:  
    - Tập trung vào sửa lỗi (fix bug) liên quan đến các chức năng web.  
    - Tối ưu và chỉnh sửa bố cục các trang để đảm bảo tính thẩm mỹ và trải nghiệm người dùng.  
 
