@@ -1,72 +1,104 @@
-### README: Web Du Lịch
+### README: Dự án Web Du Lịch  
 
 #### Giới thiệu  
-Dự án này là bài tập lớn thuộc phạm vi môn học về phát triển web. Mục tiêu chính là xây dựng một ứng dụng web du lịch cơ bản với các chức năng quản lý tài khoản và trải nghiệm người dùng thân thiện.  
+Dự án này là bài tập lớn trong khuôn khổ môn học phát triển web, tập trung xây dựng một ứng dụng web du lịch cơ bản. Mục tiêu chính là cung cấp một nền tảng để quản lý tài khoản, hỗ trợ tìm kiếm và tối ưu trải nghiệm người dùng.  
 
-Dự án được triển khai bằng **XAMPP**, một công cụ phát triển tích hợp để chạy PHP và MySQL. Để đảm bảo tính ổn định, vui lòng không tự ý chỉnh sửa port của PHP mà không thông báo.  
+Dự án được triển khai bằng **XAMPP**, tích hợp các công cụ cần thiết như PHP và MySQL để xây dựng ứng dụng web. Lưu ý, để đảm bảo tính ổn định và tương thích, vui lòng không tự ý chỉnh sửa port PHP hoặc cấu hình cơ bản.  
+
+---
+
+#### Ý tưởng  
+Dự án được lấy cảm hứng từ nhu cầu thực tế của người dùng khi tìm kiếm thông tin du lịch trên các nền tảng trực tuyến. Ý tưởng chính:  
+
+- Xây dựng một website đơn giản và dễ sử dụng, giúp người dùng nhanh chóng tìm kiếm các điểm đến du lịch và lập kế hoạch.  
+- Hỗ trợ đăng ký tài khoản để cá nhân hóa trải nghiệm, quản lý lịch trình hoặc thông tin cá nhân.  
+- Tích hợp thanh toán trực tuyến cho các dịch vụ du lịch.  
+- Đem lại trải nghiệm giao diện sáng tối hiện đại, phù hợp với mọi hoàn cảnh sử dụng (ban ngày hoặc ban đêm).  
+
+Mặc dù không phải là một sản phẩm thương mại hoàn chỉnh, dự án này là bước đầu trong việc nghiên cứu và phát triển một nền tảng web hướng đến người dùng.  
+
+---
+
+#### Phân chia công việc  
+
+1. **Nguyễn Vũ Hoàng**:  
+   - Chịu trách nhiệm xử lý giao diện bằng **HTML**, **CSS**.  
+2. **Nguyễn Quang Diệp**:  
+   - Phụ trách phần backend với **PHP**, **MySQL** và **JavaScript thô** bao gồm phát triển các chức năng xử lý dữ liệu.  
+3. **Tôi**:  
+   - Tập trung vào sửa lỗi (fix bug) liên quan đến các chức năng web.  
+   - Tối ưu và chỉnh sửa bố cục các trang để đảm bảo tính thẩm mỹ và trải nghiệm người dùng.  
 
 ---
 
 #### Các chức năng chính  
-Hiện tại, ứng dụng hỗ trợ các chức năng sau:  
+
+Ứng dụng cung cấp các tính năng sau:  
 
 1. **Tạo tài khoản**:  
-   - Cho phép người dùng đăng ký tài khoản mới. *(Đã hoàn thành)*  
+   - Người dùng có thể đăng ký tài khoản mới. *(Đã hoàn thành)*  
 
 2. **Đăng nhập**:  
-   - Người dùng có thể sử dụng tài khoản đã đăng ký để đăng nhập. *(Đã hoàn thành)*  
+   - Sử dụng tài khoản đã đăng ký để truy cập ứng dụng. *(Đã hoàn thành)*  
 
 3. **Quản lý tài khoản**:  
-   - Hỗ trợ admin trong việc kiểm soát và quản lý tài khoản người dùng. *(Đã hoàn thành)*  
+   - Admin có thể xem, chỉnh sửa hoặc xóa tài khoản người dùng. *(Đã hoàn thành)*  
 
 4. **Lấy lại mật khẩu**:  
-   - Chức năng này đã bị loại bỏ do không nằm trong phạm vi chương trình giảng dạy.  
+   - Liên hệ với Quản trị viên để yêu cầu lấy lại mật khẩu.  
 
 5. **Tìm kiếm**:  
-   - Hỗ trợ tìm kiếm nội dung trên trang web. *(Đã hoàn thành)*  
+   - Người dùng có thể tìm kiếm thông tin liên quan trên trang web. *(Đã hoàn thành)*  
 
 6. **Lọc kết quả tìm kiếm**:  
-   - Tính năng này đã bị loại bỏ do không thuộc phạm vi chương trình giảng dạy.  
+   - Chức năng này không được triển khai vì độ phức tạp trong việc xử lý dữ liệu. 
 
 7. **Thanh toán**:  
-   - Hỗ trợ người dùng thực hiện thanh toán trực tuyến. *(Đã hoàn thành)*  
+   - Tính năng thanh toán được tích hợp để người dùng thực hiện giao dịch trực tuyến. *(Đã hoàn thành)*  
 
 8. **Chế độ sáng/tối**:  
-   - Tích hợp giao diện chế độ sáng/tối để nâng cao trải nghiệm người dùng. *(Đã hoàn thành)*  
+   - Giao diện hỗ trợ chế độ sáng và tối, giúp cải thiện trải nghiệm người dùng. *(Đã hoàn thành)*  
 
-9. **Phát triển tính năng bình luận**:  
-   - Chức năng này đã bị loại bỏ do nằm ngoài chương trình học.  
+9. **Chức năng bình luận**:  
+   - Đã bị loại bỏ do không nằm trong phạm vi yêu cầu của bài tập lớn.  
 
-10. **Các tính năng khác**:  
-    - Một số chức năng nâng cao sẽ được phát triển thêm trong tương lai.  
+10. **Các tính năng bổ sung**:  
+    - Một số chức năng khác sẽ được phát triển thêm trong các phiên bản tiếp theo.  
 
 ---
 
-#### Hướng dẫn sử dụng  
+#### Hướng dẫn cài đặt và sử dụng  
 
-1. **Cài đặt database**:  
-   - Mở công cụ **phpMyAdmin** (trong XAMPP).  
-   - Nhập tệp `khamphadisan.sql` vào phpMyAdmin để khởi tạo cơ sở dữ liệu.  
+1. **Cài đặt cơ sở dữ liệu**:  
+   - Mở **phpMyAdmin** trong **XAMPP**.  
+   - Nhập tệp `khamphadisan.sql` vào để khởi tạo cơ sở dữ liệu.  
 
 2. **Sử dụng ứng dụng**:  
-   - Sau khi nhập dữ liệu thành công, người dùng có thể tạo tài khoản và đăng nhập để trải nghiệm các tính năng.  
+   - Sau khi nhập dữ liệu thành công, bạn có thể tạo tài khoản và đăng nhập để sử dụng các tính năng của ứng dụng.  
 
----
-
-#### Quản lý website  
-
-- Để quản lý các tài khoản hiện có, đăng nhập với tài khoản admin.  
-- Sau đó, truy cập vào đường dẫn:  
-  ```
-  http://localhost/dulich/admin/admin.php
-  ```  
+3. **Quản lý web**:  
+   - Đăng nhập với tài khoản admin.  
+   - Truy cập vào đường dẫn:  
+     ```
+     http://localhost/dulich/admin/admin.php
+     ```  
+     để thực hiện các thao tác quản lý tài khoản.  
 
 ---
 
 #### Lưu ý  
-- Nếu gặp lỗi trong quá trình cài đặt hoặc sử dụng, vui lòng báo cáo ngay để được hỗ trợ.  
-- Đừng chỉnh sửa port PHP hoặc các tệp cấu hình mà không thảo luận trước.  
 
---- 
+- Nếu gặp bất kỳ lỗi nào trong quá trình sử dụng, vui lòng liên hệ nhóm phát triển để được hỗ trợ kịp thời.  
+- Tuyệt đối không chỉnh sửa port hoặc cấu hình của PHP mà không thông báo trước.  
 
-Cảm ơn bạn đã quan tâm và sử dụng dự án!
+---
+
+#### Tài liệu tham khảo  
+- **XAMPP Documentation**: [https://www.apachefriends.org/index.html](https://www.apachefriends.org/index.html)  
+- **PHP Documentation**: [https://www.php.net/docs.php](https://www.php.net/docs.php)  
+- **MySQL Documentation**: [https://dev.mysql.com/doc/](https://dev.mysql.com/doc/)  
+
+---
+
+Cảm ơn bạn đã quan tâm và sử dụng dự án này!  
+Nhóm phát triển luôn mong muốn cải thiện và nhận phản hồi để nâng cao chất lượng sản phẩm.  
