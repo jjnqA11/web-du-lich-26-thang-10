@@ -34,7 +34,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             // Thêm người dùng vào cơ sở dữ liệu
             $insert_sql = "INSERT INTO user_table (userName, email, password, agree_term, newsletter) VALUES (?, ?, ?, ?, ?)";
+            // Chuẩn bị câu lệnh SQL để thực thi, giúp bảo vệ chống SQL Injection
+            // $conn là kết nối cơ sở dữ liệu, $insert_sql là chuỗi SQL chứa các tham số `?` cần gắn giá trị
             $stmt = mysqli_prepare($conn, $insert_sql);
+            // Gắn các giá trị thực tế vào các tham số `?` trong câu lệnh đã chuẩn bị
+            // "ssssi" chỉ định kiểu dữ liệu của các tham số: 
+            // s - string (chuỗi) cho $name, $email, $hashed_password
+            // i - integer (số nguyên) cho $agree_term, $newsletter
             mysqli_stmt_bind_param($stmt, "ssssi", $name, $email, $hashed_password, $agree_term, $newsletter);
 
             if (mysqli_stmt_execute($stmt)) {

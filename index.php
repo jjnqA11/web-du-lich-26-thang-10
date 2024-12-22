@@ -6,7 +6,6 @@
         header("Location: login.php"); // quay lai trang dang nhap
         exit(); // dừng việc thực thi chương trình ngay tại đây 
         // mọi đoạn mã bên dưới sẽ không được chạy 
-        echo "Doan ma nay nay se khong duoc in ra";
     }
 
     $sql = "SELECT id FROM `khamphadisan` . `user_table` where userName = '{$_COOKIE['user']}' "; // lấy giá trị id trong database "khamphadisan" . table "user_table" where userName = cookie['user]
