@@ -95,12 +95,19 @@
                 
 
             $hovaten = $_COOKIE['user'];
+
             $gioitinh = $_POST['gender'];
+
             $diachi = $_POST['address'];
+
             $sodienthoai = $_POST['phone'];
+
             $hinhthucthanhtoan = $_POST['select-payment-choice'];
+
             $_COOKIE['hotel_price'] = (int) $_COOKIE['hotel_price']; // Ép kiểu thành integer
+
             $_COOKIE['idNguoiDung'] = (int) $_COOKIE['idNguoiDung'];
+
             $_COOKIE['idKhachSan'] = (int) $_COOKIE['idKhachSan'];
 
             $sql = "INSERT INTO `khamphadisan` . `payment_table` (totalBill, user_id, booking_hotel_id, gender, address, select_payment, phoneNumber) values (?,?,?,?,?,?,?)";
@@ -232,7 +239,7 @@
 
                                             // Thiết lập cookie
                                             setcookie("hotel_price", $hotelPrice, time() + (10 * 365 * 24 * 60 * 60), "/");
-                                            setcookie("idKhachSan", $_GET['KhachSan'], time() + (10 * 365 * 24 * 60 * 60), "/");
+                                            setcookie("idKhachSan", $_GET['KhachSan'], time() + (10 * 365 * 24 * 60 * 60), "/"); // thời hạn cookie 10 năm
                                         }
                                         break;
                                     case 3: 
@@ -320,7 +327,7 @@
 
             // Kiểm tra từng trường
             if (!gender) {
-                errors.push("Vui lòng chọn giới tính!");
+                errors.push("Vui lòng chọn giới tính!"); // đẩy chuỗi vào mảng
             }
 
             if (!address) {

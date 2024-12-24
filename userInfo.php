@@ -63,7 +63,7 @@ session_start();
                     if (!empty($new_name)) {
                         $updateSQL = "UPDATE user_table SET userName = '$new_name' WHERE id = $user_id";
                         if ($conn->query($updateSQL)) {
-                            setcookie('user', $new_name, time() + (86400 * 30), "/");
+                            setcookie('user', $new_name, time() + 30*24*60*60, "/");
                             echo "<p style='color: green'>Tên người dùng đã được thay đổi thành công.</p>";
                         } else {
                             echo "<p style='color: red'>Có lỗi xảy ra khi thay đổi tên.</p>";
@@ -125,7 +125,10 @@ session_start();
 
     <section>
     <h2>Xóa tài khoản</h2>
-    <form method="POST" action="userInfo.php" onsubmit="return confirmDelete();">
+    <form method="POST" action="userInfo.php" onsubmit="confirmDelete();"> 
+
+    <!-- Sự kiện onsubmit sẽ xảy ra khi người dùng nhấn nút "Submit" trên biểu mẫu hoặc khi form được gửi đi thông qua JavaScript. -->
+     
         <button type="submit" name="delete_account" class="delete-account-btn">Xóa tài khoản</button>
     </form>
     <?php
@@ -133,9 +136,14 @@ session_start();
                     // Xóa tài khoản
                     $deleteSQL = "DELETE FROM user_table WHERE id = $user_id";
                     if ($conn->query($deleteSQL)) {
+
                         setcookie('user', '', time() - 3600, "/"); // Xóa cookie
-                        session_destroy();
-                        header("Location: login.php?message=" . urlencode("Tài khoản đã bị xóa."));
+
+                        session_destroy(); // hủy dữ liệu của tất cả các biến tồn tại, không hu
+
+                        header("Location: login.php?message=" . urlencode("Tài khoản đã bị xóa.")); 
+                        // echo urldecode("Tài khoản đã bị xóa.");
+                        // urlencode mã hóa thông điệp thay thế các kí tự đặc biệt trong chuỗi thành các kí tự mã hóa tương ứng trong URL
                         exit();
                     } else {
                         echo "Có lỗi xảy ra khi xóa tài khoản.";

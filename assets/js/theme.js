@@ -2,18 +2,27 @@ function toggleTheme(event) {
     event.preventDefault(); // Ngăn hành vi mặc định của thẻ <a>
 
     const body = document.body;
+    
     const themeIcon = document.getElementById("theme-icon");
 
     // Kiểm tra và chuyển đổi class "dark-theme" và "light-theme"
     if (body.classList.contains('dark-theme')) {
+
         body.classList.remove('dark-theme');
+
         body.classList.add('light-theme');
+
         themeIcon.src = '../images/sun-icon.png';
+
         localStorage.setItem('theme', 'light'); // Lưu trạng thái light
     } else {
+
         body.classList.remove('light-theme');
+
         body.classList.add('dark-theme');
+
         themeIcon.src = '../images/moon-icon.png';
+
         localStorage.setItem('theme', 'dark'); // Lưu trạng thái dark
     }
 }

@@ -75,7 +75,7 @@ const updatePrices = () => {
     tongSoTienSauCung = bill1 + bill2 + bill3 + billSell;
 
     // Cập nhật giao diện
-    totalPrice1.innerText = `${bill1.toLocaleString()}₫`;
+    totalPrice1.innerText = `${bill1.toLocaleString()}₫`; 
     totalPrice2.innerText = `${bill2.toLocaleString()}₫`;
     totalPrice3.innerText = `${bill3.toLocaleString()}₫`;
     totalPriceSell.innerText = `${billSell.toLocaleString()}₫`;
@@ -97,7 +97,7 @@ function toggleDropdown() {
     // 
 }
 
-// Close dropdown when clicking outside
+// đóng dropdown khi click ra ngoài thẻ class user-info
 document.addEventListener('click', (e) => {
     const dropdown = document.getElementById('userDropdown');
     const userInfo = document.querySelector('.user-info');

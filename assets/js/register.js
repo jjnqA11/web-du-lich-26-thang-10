@@ -62,32 +62,45 @@ function validateEmail(email) {
 
 // Hàm hiển thị thông báo lỗi
 function showError(inputId, message) {
+
   const inputElement = document.getElementById(inputId);
+
   const errorMessage = document.createElement("div");
+
   errorMessage.className = "error-message";  // Thêm class để dễ dàng quản lý lỗi
+
   errorMessage.style.color = "red";          // Đổi màu chữ thành đỏ
+
   errorMessage.style.fontSize = "small";     // Tùy chỉnh kích thước chữ
+
   errorMessage.textContent = message;        // Thiết lập thông điệp lỗi
+
   inputElement.parentNode.appendChild(errorMessage);  // Thêm thông báo lỗi vào phần tử input
 }
 
 // Hàm kiểm tra trạng thái checkbox
 function checkCheckboxes() {
+
   const agreeTerm = document.querySelector("input[name='agree-term']");
+
   const submitButton = document.getElementById("btn-submit");
 
-  // Nếu cả hai checkbox đều không được chọn, làm mờ nút đăng ký
+  // Nếu checkbox agreeTerm không được chọn, làm mờ nút đăng ký
   if (!agreeTerm.checked ) {
-      submitButton.disabled = true; // Làm mờ nút
-      submitButton.style.opacity = 0.5; // Thay đổi độ mờ
+
+
+      submitButton.style.opacity = 0.5; // Thay đổi độ mờ , phần tử mờ đi 50%
+
   } else {
-      submitButton.disabled = false; // Kích hoạt nút
-      submitButton.style.opacity = 1; // Đặt lại độ mờ
+
+      submitButton.style.opacity = 1; // hiển thị phần tử không bị trong suốt
+
   }
 }
 
 // Thêm sự kiện change cho các checkbox
-document.querySelector("input[name='agree-term']").addEventListener("change", checkCheckboxes);
+document.querySelector("input[name='agree-term']").addEventListener("change", checkCheckboxes); // thay đổi nếu có sự kiện 
+
 document.querySelector("input[name='newsletter']").addEventListener("change", checkCheckboxes);
 
 // Gọi hàm kiểm tra checkbox khi trang được tải
