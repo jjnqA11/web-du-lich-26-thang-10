@@ -42,7 +42,7 @@ input[type="text"], input[type="number"] {
     border: 1px solid #ccc; /* Thêm viền cho input */
     border-radius: 4px; /* Bo góc */
     box-sizing: border-box; /* Đảm bảo padding không làm thay đổi kích thước */
-    color:#ccc
+    color:#2c2a2a
 }
 
 .select-payment form {

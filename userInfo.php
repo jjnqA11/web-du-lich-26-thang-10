@@ -1,147 +1,29 @@
 <?php
 session_start();
 // Kết nối cơ sở dữ liệu
-include 'services/connect-mysql/db_connection.php';
+        include 'services/connect-mysql/db_connection.php';
 
-if (isset($_COOKIE['user']) && isset($_COOKIE['password'])) {
-    // Lấy giá trị từ cookie
-    $_SESSION['user'] = $_COOKIE['user'];
-    $password = $_COOKIE['password'];
-    
-    // Lấy thông tin người dùng từ cơ sở dữ liệu
-    $user = $_SESSION['user'];
-    $query = "SELECT id, userName FROM user_table WHERE userName = ?";
-    $stmt = mysqli_prepare($conn, $query);
-    mysqli_stmt_bind_param($stmt, "s", $user);
-    mysqli_stmt_execute($stmt);
-    $result = mysqli_stmt_get_result($stmt);
-    
-    if ($row = mysqli_fetch_assoc($result)) {
-        $_SESSION['user_id'] = $row['id']; // Lưu ID người dùng vào session
-        $_SESSION['user_name'] = $row['userName']; // Lưu tên người dùng vào session
-    } else {
-        header("Location: login.php");
-        exit();
-    }
-    
-    mysqli_stmt_close($stmt);
-} else {
-    header("Location: login.php");
-    exit();
-}
-
-// Xử lý khi người dùng gửi form
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST['update_name'])) {
-        // Đổi tên người dùng
-        $new_name = trim($_POST['new_name']);
-        if (!empty($new_name)) {
-            $updateSQL = "UPDATE user_table SET userName = ? WHERE id = ?";
-            $stmt = mysqli_prepare($conn, $updateSQL);
-    
-            // Kiểm tra xem session có tồn tại thông tin người dùng không
-            if (isset($_SESSION['user_id'])) {
-                mysqli_stmt_bind_param($stmt, "si", $new_name, $_SESSION['user_id']);
-                if (mysqli_stmt_execute($stmt)) {
-                    $_SESSION['user_name'] = $new_name; // Cập nhật lại tên trong cookie
-                    setcookie('user', $new_name, time() + (86400 * 30), "/"); // Cập nhật lại tên trong cookie
-                    
-                    $message = "Tên người dùng đã được thay đổi thành công.";
-                } else {
-                    $error = "Có lỗi xảy ra khi thay đổi tên.";
-                }
-            } else {
-                $error = "Không tìm thấy thông tin người dùng.";
-            }
-    
-            mysqli_stmt_close($stmt);
-        } else {
-            $error = "Tên không được để trống.";
-        }
-    }
-
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        if (isset($_POST['update_password'])) {
-            $current_password = $_POST['current_password'];
-            $new_password = $_POST['new_password'];
-            $confirm_password = $_POST['confirm_password'];
-    
-            if (!empty($current_password) && !empty($new_password) && !empty($confirm_password)) {
-                if ($new_password === $confirm_password) {
-                    // Kiểm tra mật khẩu hiện tại
-                    $checkSQL = "SELECT password FROM user_table WHERE id = ?";
-                    $stmt = mysqli_prepare($conn, $checkSQL);
-                    if ($stmt === false) {
-                        die("Lỗi chuẩn bị câu lệnh SQL: " . mysqli_error($conn));
-                    }
-    
-                    mysqli_stmt_bind_param($stmt, "i", $_SESSION['user_id']);
-                    mysqli_stmt_execute($stmt);
-                    $result = mysqli_stmt_get_result($stmt);
-    
-                    if ($result && mysqli_num_rows($result) > 0) {
-                        $row = mysqli_fetch_assoc($result);
-                        $hashed_password = $row['password'];
-    
-                        if (password_verify($current_password, $hashed_password)) {
-                            // Mã hóa mật khẩu mới
-                            $hashed_new_password = password_hash($new_password, PASSWORD_DEFAULT);
-    
-                            // Cập nhật mật khẩu mới
-                            $updateSQL = "UPDATE user_table SET password = ? WHERE id = ?";
-                            $stmt = mysqli_prepare($conn, $updateSQL);
-                            if ($stmt === false) {
-                                die("Lỗi chuẩn bị câu lệnh SQL: " . mysqli_error($conn));
-                            }
-    
-                            mysqli_stmt_bind_param($stmt, "si", $hashed_new_password, $_SESSION['user_id']);
-                            if (mysqli_stmt_execute($stmt)) {
-                                $message = "Mật khẩu đã được thay đổi thành công.";
-                            } else {
-                                $error = "Có lỗi xảy ra khi thay đổi mật khẩu.";
-                            }
-                        } else {
-                            $error = "Mật khẩu hiện tại không đúng.";
-                        }
-                    } else {
-                        $error = "Không tìm thấy người dùng.";
-                    }
-    
-                    mysqli_stmt_close($stmt);
-                } else {
-                    $error = "Mật khẩu mới và xác nhận mật khẩu không khớp.";
-                }
-            } else {
-                $error = "Vui lòng điền đầy đủ các trường.";
-            }
-        }
-    }
-
-    if (isset($_POST['delete_account'])) {
-        // Xóa tài khoản khỏi cơ sở dữ liệu
-        $deleteSQL = "DELETE FROM user_table WHERE id = ?";
-        $stmt = mysqli_prepare($conn, $deleteSQL);
-        if ($stmt === false) {
-            die("Lỗi chuẩn bị câu lệnh SQL: " . mysqli_error($conn));
-        }
-
-        // Sử dụng ID người dùng từ session
-        mysqli_stmt_bind_param($stmt, "i", $_SESSION['user_id']);
-        if (mysqli_stmt_execute($stmt)) {
-            session_destroy(); // Xóa session
-            header("Location: login.php?message=" . urlencode("Tài khoản của bạn đã bị xóa."));
+        // Kiểm tra cookie
+        if (!isset($_COOKIE['user'])) {
+            header("Location: login.php");
             exit();
-        } else {
-            $error = "Có lỗi xảy ra khi xóa tài khoản.";
         }
-        mysqli_stmt_close($stmt);
-    }
-}
 
-// Đóng kết nối
-mysqli_close($conn);
+        // Lấy thông tin người dùng từ cookie
+        $user = $_COOKIE['user'];
+
+        // Lấy ID người dùng từ cơ sở dữ liệu
+        $sql = "SELECT id FROM user_table WHERE userName = '$user'";
+        $result = $conn->query($sql);
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $user_id = $row['id'];
+        } else {
+            header("Location: login.php");
+            exit();
+        }
+        
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -170,9 +52,28 @@ mysqli_close($conn);
         <h2>Đổi tên người dùng</h2>
         <form method="POST" action="userInfo.php">
             <label for="new_name">Tên mới:</label>
-            <input type="text" id="new_name" name="new_name" value="<?php echo htmlspecialchars($_SESSION['user_name']); ?>">
+            <input type="text" id="new_name" name="new_name" value="<?php echo isset($_COOKIE['user_name']) ? htmlspecialchars($_COOKIE['user_name']) : ''; ?>">
             <button type="submit" name="update_name">Cập nhật tên</button>
         </form>
+        <?php 
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                    if (isset($_POST['update_name'])) {
+                    // Đổi tên người dùng
+                    $new_name = trim($_POST['new_name']);
+                    if (!empty($new_name)) {
+                        $updateSQL = "UPDATE user_table SET userName = '$new_name' WHERE id = $user_id";
+                        if ($conn->query($updateSQL)) {
+                            setcookie('user', $new_name, time() + (86400 * 30), "/");
+                            echo "<p style='color: green'>Tên người dùng đã được thay đổi thành công.</p>";
+                        } else {
+                            echo "<p style='color: red'>Có lỗi xảy ra khi thay đổi tên.</p>";
+                        }
+                    } else {
+                        echo "<p style='color: red'>Tên không được để trống.</p>";
+                    }
+                }
+            }
+        ?>
     </section>
 
     <section>
@@ -189,6 +90,37 @@ mysqli_close($conn);
 
             <button type="submit" name="update_password">Cập nhật mật khẩu</button>
         </form>
+        <?php
+    if (isset($_POST['update_password'])) {
+        // Thay đổi mật khẩu
+        $current_password = $_POST['current_password'];
+        $new_password = $_POST['new_password'];
+        $confirm_password = $_POST['confirm_password'];
+
+        if (!empty($current_password) && !empty($new_password) && !empty($confirm_password)) {
+            if ($new_password === $confirm_password) {
+                // Kiểm tra mật khẩu hiện tại
+                $checkSQL = "SELECT password FROM user_table WHERE id = $user_id AND password = '$current_password'";
+                $checkResult = $conn->query($checkSQL);
+                if ($checkResult->num_rows > 0) {
+                    // Cập nhật mật khẩu mới
+                    $updateSQL = "UPDATE user_table SET password = '$new_password' WHERE id = $user_id";
+                    if ($conn->query($updateSQL)) {
+                        echo "<p style='color: green'>Mật khẩu đã được thay đổi thành công.</p>";
+                    } else {
+                        echo "<p style='color: red'>Có lỗi xảy ra khi thay đổi mật khẩu.</p>";
+                    }
+                } else {
+                    echo "<p style='color: red'>Mật khẩu hiện tại không đúng.</p>";
+                }
+            } else {
+                echo "<p style='color: red'>Mật khẩu mới và xác nhận mật khẩu không khớp.</p>";
+            }
+        } else {
+            echo "<p style='color: red'>Vui lòng điền đầy đủ các trường.</p>";
+        }
+    }
+    ?>
     </section>
 
     <section>
@@ -196,6 +128,23 @@ mysqli_close($conn);
     <form method="POST" action="userInfo.php" onsubmit="return confirmDelete();">
         <button type="submit" name="delete_account" class="delete-account-btn">Xóa tài khoản</button>
     </form>
+    <?php
+                if (isset($_POST['delete_account'])) {
+                    // Xóa tài khoản
+                    $deleteSQL = "DELETE FROM user_table WHERE id = $user_id";
+                    if ($conn->query($deleteSQL)) {
+                        setcookie('user', '', time() - 3600, "/"); // Xóa cookie
+                        session_destroy();
+                        header("Location: login.php?message=" . urlencode("Tài khoản đã bị xóa."));
+                        exit();
+                    } else {
+                        echo "Có lỗi xảy ra khi xóa tài khoản.";
+                    }
+                }
+
+            // Đóng kết nối
+            $conn->close();
+        ?>
     </section>
 
     <a href="index.php">Quay lại trang chủ</a>

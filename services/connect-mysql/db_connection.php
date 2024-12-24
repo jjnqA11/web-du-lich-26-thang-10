@@ -2,11 +2,9 @@
     $servername = "localhost";
     $database = "khamphadisan";
     $username = "root";
-    $password = "123456";
-    $port = 3307; // mở cổng MYSQL mới
-
-    // create connection
-    $conn = mysqli_connect($servername, $username, $password, $database, $port);
+    $password = "";
+        // create connection
+    $conn = mysqli_connect($servername, $username, $password, $database);
 
     //Check Connection
 

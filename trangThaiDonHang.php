@@ -2,9 +2,8 @@
     include "./services/connect-mysql/db_connection.php";
     // Lấy giá trị từ cookie
     $username_cookie = $_COOKIE['user'] ?? null;
-    $password_cookie = $_COOKIE['password'] ?? null;
 
-    if (!$username_cookie || !$password_cookie) {
+    if (!$username_cookie) {
         die("Cookie không tồn tại hoặc không hợp lệ!");
     }
     
@@ -26,11 +25,6 @@
 
     if($result -> num_rows > 0){
         $user = $result -> fetch_assoc();
-        $db_password_hashed = $user['password'];// mat khau da ma hoa trong database
-
-        if(password_verify($password_cookie, $db_password_hashed)){
-        }
-
     }else{
         die("Khong tim thay nguoi dung va ten: " . $username_cookie);
     }

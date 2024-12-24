@@ -10,13 +10,12 @@ if (!$id) {
 }
 
 // Truy vấn thông tin người dùng
-$sql = "SELECT * FROM user_table WHERE id = ?";
-$stmt = mysqli_prepare($conn, $sql);
-mysqli_stmt_bind_param($stmt, "i", $id);
-mysqli_stmt_execute($stmt);
-$result = mysqli_stmt_get_result($stmt);
+$sql = "SELECT * FROM user_table WHERE id = $id";  // Truy vấn trực tiếp
+$result = mysqli_query($conn, $sql);
 
-if ($row = mysqli_fetch_assoc($result)) {
+if ($result && mysqli_num_rows($result) > 0) {
+    $row = mysqli_fetch_assoc($result);
+
     // Hiển thị form chỉnh sửa thông tin người dùng
     echo '<form method="POST" action="update-user.php">
         <input type="hidden" name="id" value="' . htmlspecialchars($row['id']) . '">
@@ -31,4 +30,7 @@ if ($row = mysqli_fetch_assoc($result)) {
 } else {
     echo "Không tìm thấy người dùng.";
 }
+
+// Đóng kết nối cơ sở dữ liệu
+mysqli_close($conn);
 ?>

@@ -27,10 +27,7 @@
                     </div>
                 </div>
                 <ul class="nav">
-                    <li class="nav-item"><a href="#">Quan tri</a></li>
-                    <li class="nav-item"><a href="#">Menu</a></li>
-                    <li class="nav-item"><a href="#">Cai Dat Trang</a></li>
-                    <li class="nav-item"><a href="#">Dang ki truc tuyen</a></li>
+                    <li class="nav-item"><a href="../index.php">Quay lại trang chủ</a></li>
                 </ul>
             </div>
         </div>
@@ -45,66 +42,62 @@
     </nav>
 
     <?php
-    // Kết nối cơ sở dữ liệu
-    include "../services/connect-mysql/db_connection.php";
+            // Kết nối cơ sở dữ liệu
+        include "../services/connect-mysql/db_connection.php";
 
-    // Kiểm tra kết nối
-    if (!$conn) {
-        die("Lỗi kết nối cơ sở dữ liệu: " . mysqli_connect_error());
-    }
-
-    // Xử lý tìm kiếm
-    $search = trim($_GET['query'] ?? '');
-    if ($search !== '') {
-        $sql = "SELECT id, userName, email, password FROM user_table WHERE userName LIKE ? OR email LIKE ? OR id LIKE ?";
-        $stmt = mysqli_prepare($conn, $sql);
-
-        if ($stmt) {
-            $like_search = "%" . $search . "%";
-            mysqli_stmt_bind_param($stmt, "sss", $like_search, $like_search, $like_search);
-            mysqli_stmt_execute($stmt);
-            $result = mysqli_stmt_get_result($stmt);
-
-            // Hiển thị kết quả
-            if ($result && mysqli_num_rows($result) > 0) {
-                echo '<table>
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Tên người dùng</th>
-                                <th>Email</th>
-                                <th>Mật khẩu</th>
-                                <th>Hành động</th>
-                            </tr>
-                        </thead>
-                        <tbody>';
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo  '
-                        <tr>
-                            <td>' . $row["id"] . '</td>
-                            <td>' . $row["userName"] . '</td>
-                            <td>' . $row["email"] . '</td>
-                            <td>******</td> <!-- Mật khẩu ẩn đi, chỉ hiển thị dấu sao -->
-                            <td>
-                                <!-- Nút Đặt lại mật khẩu -->
-                                <button onclick="showPasswordBox(' . $row["id"] . ')">Đặt lại mật khẩu</button>
-                                <!-- Nút Sửa -->
-                                <button onclick="showEditBox(' . $row["id"] . ', \'' . $row["userName"] . '\', \'' . $row["email"] . '\')">Sửa</button>
-                                <!-- Nút Xóa -->
-                                <button onclick="showDeleteBox(' . $row["id"] . ')">Xóa</button>
-                            </td>
-                        </tr>';
+            // Kiểm tra kết nối
+        if (!$conn) {
+            die("Lỗi kết nối cơ sở dữ liệu: " . mysqli_connect_error());
                 }
-                echo '</tbody>
-                      </table>';
-            } else {
-                echo '<p>Không tìm thấy kết quả nào.</p>';
-            }
-        } else {
-            echo '<p>Lỗi khi chuẩn bị câu lệnh: ' . mysqli_error($conn) . '</p>';
-        }
-    }
-        ?>
+
+                    // Xử lý tìm kiếm
+                    $search = trim($_GET['query'] ?? '');
+                    if ($search !== '') {
+                        // Truy vấn tìm kiếm người dùng
+                        $sql = "SELECT id, userName, email, password FROM user_table WHERE userName LIKE '%$search%' OR email LIKE '%$search%' OR id LIKE '%$search%'";
+
+                        $result = mysqli_query($conn, $sql);
+
+                        // Hiển thị kết quả
+                        if ($result && mysqli_num_rows($result) > 0) {
+                            echo '<table>
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Tên người dùng</th>
+                                            <th>Email</th>
+                                            <th>Mật khẩu</th>
+                                            <th>Hành động</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>';
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                echo  '
+                                    <tr>
+                                        <td>' . $row["id"] . '</td>
+                                        <td>' . $row["userName"] . '</td>
+                                        <td>' . $row["email"] . '</td>
+                                        <td>******</td> <!-- Mật khẩu ẩn đi, chỉ hiển thị dấu sao -->
+                                        <td>
+                                            <!-- Nút Đặt lại mật khẩu -->
+                                            <button onclick="showPasswordBox(' . $row["id"] . ')">Đặt lại mật khẩu</button>
+                                            <!-- Nút Sửa -->
+                                            <button onclick="showEditBox(' . $row["id"] . ', \'' . $row["userName"] . '\', \'' . $row["email"] . '\')">Sửa</button>
+                                            <!-- Nút Xóa -->
+                                            <button onclick="showDeleteBox(' . $row["id"] . ')">Xóa</button>
+                                        </td>
+                                    </tr>';
+                            }
+                            echo '</tbody>
+                                </table>';
+                        } else {
+                            echo '<p>Không tìm thấy kết quả nào.</p>';
+                        }
+                    } else {
+                        echo '<p>Vui lòng nhập từ khóa tìm kiếm.</p>';
+                    }
+                ?>
+
             <div class="app-dashboard">
                 <div class="create-user">
                     <button id="create_user_btn">
@@ -190,30 +183,29 @@
                             </div>
                         </form>
                     </div>
-                        <?php 
+                    <?php
                         if (isset($_POST['save'])) {
                             $id = $_POST['id'] ?? null;
                             $username = $_POST['username'] ?? null;
                             $email = $_POST['email'] ?? null;
                             $password = $_POST['password'] ?? null;
-                        
+
                             if ($id && $username && $email) {
-                                // Lấy mật khẩu hiện tại từ cơ sở dữ liệu nếu không có mật khẩu mới
+                                // Nếu không có mật khẩu mới, lấy mật khẩu hiện tại từ cơ sở dữ liệu
                                 if (empty($password)) {
-                                    $query = "SELECT password FROM user_table WHERE id = ?";
-                                    $stmt = mysqli_prepare($conn, $query);
-                                    mysqli_stmt_bind_param($stmt, "i", $id);
-                                    mysqli_stmt_execute($stmt);
-                                    mysqli_stmt_bind_result($stmt, $password);
-                                    mysqli_stmt_fetch($stmt);
-                                    mysqli_stmt_close($stmt);
+                                    $query = "SELECT password FROM user_table WHERE id = $id";  // Truy vấn trực tiếp
+                                    $result = mysqli_query($conn, $query);
+                                    if ($result && mysqli_num_rows($result) > 0) {
+                                        $row = mysqli_fetch_assoc($result);
+                                        $password = $row['password'];  // Lấy mật khẩu cũ
+                                    }
                                 }
-                        
-                                $sql = "UPDATE user_table SET userName = ?, email = ?, password = ? WHERE id = ?";
-                                $stmt = mysqli_prepare($conn, $sql);
-                                mysqli_stmt_bind_param($stmt, "sssi", $username, $email, $password, $id);
-                        
-                                if (mysqli_stmt_execute($stmt)) {
+
+                                // Cập nhật thông tin người dùng
+                                $sql = "UPDATE user_table SET userName = '$username', email = '$email', password = '$password' WHERE id = $id";
+                                $result = mysqli_query($conn, $sql);
+
+                                if ($result) {
                                     $redirect_url = $_SERVER['HTTP_REFERER'];
                                     echo "<script>alert('Chỉnh sửa thành công!'); window.location.href='$redirect_url';</script>";
                                 } else {
@@ -226,6 +218,7 @@
                             }
                         }
                         ?>
+
                     </div>
 
                     <!-- Nền mờ khi mở hộp thoại reset -->

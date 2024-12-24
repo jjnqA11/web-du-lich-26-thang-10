@@ -1,55 +1,5 @@
-<?php 
-session_start();
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-
-    include "./services/connect-mysql/db_connection.php";
-
-    // Truy vấn cơ sở dữ liệu để lấy mật khẩu mã hóa
-    $stmt = $conn->prepare("SELECT password, userName FROM user_table WHERE email = ?");
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $stmt->store_result();
-
-    if ($stmt->num_rows > 0) {
-        $stmt->bind_result($hashed_password_from_db, $name_from_db);
-        $stmt->fetch();
-
-        // Kiểm tra mật khẩu
-        if (password_verify($password, $hashed_password_from_db)) {
-            $_SESSION['user'] = $name_from_db; // Lưu tên người dùng vào session
-            $_SESSION['password'] = $password;
-
-            // Tạo cookie lưu trữ userName
-            setcookie("user", $name_from_db, time() + (86400 * 30), "/", "", true, true);
-            setcookie("password", $password, time() + (86400 * 30), "/", "", true, true);
-            // Đóng kết nối trước khi chuyển hướng
-            $stmt->close();
-            $conn->close();
-
-            // Chuyển hướng đến trang index.php
-            header("Location: index.php");
-            exit();
-        } else {
-            // Sai mật khẩu
-            $_SESSION['error'] = "Sai mật khẩu.";
-            $_SESSION['email'] = $email;
-            $stmt->close();
-            $conn->close();
-            header("Location:login.php");
-            exit();
-        }
-    } else {
-        // Email không tồn tại
-        $_SESSION['error'] = "Email không tồn tại.";
-        $_SESSION['email'] = $email;
-        $stmt->close();
-        $conn->close();
-        header("Location:login.php");
-        exit();
-    }
-}
+<?php
+include('./services/connect-mysql/db_connection.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -80,12 +30,36 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <input type="password" id="password" name="password" placeholder="Nhập mật khẩu ở đây" required>
                 </div>    
                  <!-- Kiểm tra lỗi và hiển thị thông báo -->
-                    <?php if (isset($_SESSION['error'])): ?>
-                        <div class="error-message">
-                            <p><?php echo htmlspecialchars($_SESSION['error']); ?></p>
-                        </div>
-                        <?php unset($_SESSION['error']); // Xóa thông báo sau khi hiển thị ?>
-                    <?php endif; ?>
+                 <?php
+                    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                        $email = $_POST['email'];
+                        $password = $_POST['password'];
+
+                        // Kiểm tra thông tin đăng nhập trong cơ sở dữ liệu
+                        $sql = "SELECT id, userName FROM user_table WHERE email = '$email' AND password = '$password'";
+                        $result = $conn->query($sql);
+
+                        if ($result->num_rows > 0) {
+                            // Lấy thông tin người dùng từ kết quả truy vấn
+                            $row = $result->fetch_assoc();
+                            $userName = $row['userName'];
+
+                            // Khởi tạo session
+                            session_start();
+                            $_SESSION["user"] = $userName;
+
+                            // Tạo cookie lưu thông tin người dùng (cookie tồn tại trong 30 ngày)
+                            setcookie("user", $userName, time() + (30 * 24 * 60 * 60), "/");
+
+                            // Chuyển hướng đến trang chính
+                            header("Location: index.php");
+                            exit();
+                        } else {
+                            // Hiển thị thông báo lỗi nếu đăng nhập thất bại
+                            echo "<p class='warning' style='color: red'>Email hoặc mật khẩu không hợp lệ</p>";
+                        }
+                    }
+                    ?>
                 <button type="submit" class="login-btn">Login</button>
                 <div class="register">
                     <label for="register">Chưa có tài khoản? <a href="register.php" style="text-decoration: none; color: #0066ff">Đăng ký</a></label>
