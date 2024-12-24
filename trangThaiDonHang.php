@@ -185,8 +185,8 @@
                         <tr>
                             <th>Id</th>
                             <th>Tên sản phẩm</th>
-                            <th>Giá </th>
                             <th>Hình thức thanh toán</th>
+                            <th>Giá</th>
                             <th>Huỷ đơn</th>
                         </tr>
                         
