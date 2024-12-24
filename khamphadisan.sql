@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 09, 2024 lúc 03:38 PM
+-- Thời gian đã tạo: Th12 24, 2024 lúc 10:03 AM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.0.30
 
@@ -67,9 +67,9 @@ CREATE TABLE `payment_table` (
 
 INSERT INTO `payment_table` (`id`, `totalBill`, `user_id`, `booking_hotel_id`, `gender`, `address`, `select_payment`, `phoneNumber`) VALUES
 (25, 150000, 1, 1, 'nam', '232', 'tien mat', 322223232),
-(27, 150000, 1, 1, 'nam', '23', 'tien mat', 2147483647),
 (28, 606000, 5, 4, 'nam', '434', 'tien mat', 234),
-(29, 200000, 5, 3, 'nam', '342', 'tien mat', 234);
+(29, 200000, 5, 3, 'nam', '342', 'tien mat', 234),
+(31, 150000, 17, 1, 'nam', '54545', 'tien mat', 1234567889);
 
 -- --------------------------------------------------------
 
@@ -104,11 +104,13 @@ CREATE TABLE `user_table` (
 --
 
 INSERT INTO `user_table` (`id`, `userName`, `password`, `email`, `agree_term`, `newsletter`) VALUES
-(1, 'admin1', '$2y$10$UDOaEIneaF3oli8NAN30nuLiSfvHdUJRYAbVLAdAgiPLkVG3tqO5u', 'admin1@1', 1, 0),
-(5, 'admin2', '$2y$10$8gKj/3F6bTeepO978iZLjOWePK3Yi6XbsM3tVFuTaRAF3RPjk.l/K', 'admin2@2', 1, 0),
-(9, 'deptrai', '123', 'deptrai@mail.com', 0, 0),
-(10, 'khanhdzok334', '$2y$10$xCUPi8sxe6TuiP1Jbj/j6.D/d63bfnobo0HfLedze.3yTsAvhDhzK', 'admin3@mail.com', 0, 0),
-(11, 'admin4', '$2y$10$1PCuPGO6Hh0VVjk9gw2/S.sKSQrGNZrdHYeNZVsxlu.1vQzZrHlUi', 'admin4@4.com', 1, 0);
+(1, 'admin1', '12345', 'admin1@1', 1, 0),
+(5, 'admin2', '12345', 'admin2@2', 1, 0),
+(13, 'diep', '123', 'diep@123', 1, 1),
+(14, 'admin4', '1234', '1@1', 1, 1),
+(17, 'khanhdzhaa', '1234', 'khanh@mail', 1, 1),
+(19, 'hoangvudeptrai', '123', 'hoang@123.com', 0, 0),
+(20, 'khanhdz1', '1234', 'khanh@12', 0, 0);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -154,7 +156,7 @@ ALTER TABLE `hotel_table`
 -- AUTO_INCREMENT cho bảng `payment_table`
 --
 ALTER TABLE `payment_table`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT cho bảng `travel_table`
@@ -166,7 +168,7 @@ ALTER TABLE `travel_table`
 -- AUTO_INCREMENT cho bảng `user_table`
 --
 ALTER TABLE `user_table`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
