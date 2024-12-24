@@ -9,11 +9,6 @@
     
     $sql = "SELECT userName , password from user_table where userName = ?";
 
-    $userId = "SELECT p.address, p.phoneNumber, u.email 
-    FROM `khamphadisan`.`payment_table` AS p 
-    INNER JOIN `khamphadisan`.`user_table` AS u 
-    ON p.user_id = u.id";
-
 
     // truyen cart vao table data
 
@@ -134,7 +129,14 @@
                     ?>
                 </div>
                 <br>
-                <?php
+                <?php         
+                    $userId = "SELECT p.address, p.phoneNumber, u.email 
+
+                    FROM `khamphadisan`.`payment_table` AS p 
+
+                    INNER JOIN `khamphadisan`.`user_table` AS u 
+                    
+                    ON p.user_id = u.id";
 
                     $userIdResult = $conn->query($userId);
                     $addressUser;

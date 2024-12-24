@@ -3,7 +3,11 @@
 if (isset($_GET['search_query'])) {
     $search_query = $_GET['search_query'];
     // Làm sạch đầu vào để tránh XSS (Cross-site scripting)
-    $search_query = htmlspecialchars($search_query, ENT_QUOTES, 'UTF-8');
+    $search_query = htmlspecialchars($search_query, ENT_QUOTES, 'UTF-8'); 
+    /**
+     * hàm htmlspecialchars() mã hóa các kí tự đặc biệt thành các kí tự html an toàn "<" => "&lt"
+     * ENT_QUOTES : mã hóa cả kí tự nháy đơn và nháy kép
+     * */
 
     // Mảng dữ liệu mock (thay thế bằng dữ liệu thực tế hoặc kết nối cơ sở dữ liệu)
     $mockData = [
@@ -28,8 +32,11 @@ if (isset($_GET['search_query'])) {
     ];
 
     // Lọc dữ liệu mock để tìm các kết quả phù hợp với từ khóa
-    $filteredResults = array_filter($mockData, function($item) use ($search_query) {
+    $filteredResults = array_filter($mockData, function($item) use ($search_query) { // Sử dụng hàm array_filter() để lọc mảng mockData theo điều kiện tìm kiếm
+            // Kiểm tra xem chuỗi tìm kiếm có xuất hiện trong trường 'title' hoặc 'description' của từng phần tử không
+            // stripos() tìm kiếm chuỗi không phân biệt chữ hoa chữ thường (case-insensitive)
         return stripos($item['title'], $search_query) !== false || stripos($item['description'], $search_query) !== false;
+
     });
 } else {
     $filteredResults = [];

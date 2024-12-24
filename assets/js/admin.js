@@ -1,7 +1,9 @@
 // xu ly click hien thi box tao nguoi dung
 
 let create_user_btn = document.getElementById('create_user_btn');
+
 let create_user_box = document.getElementsByClassName('add-user-box')[0];
+
 let create_user_close_btn = document.getElementsByClassName('close_btn')[0];
 
 create_user_btn.addEventListener('click', () => {
