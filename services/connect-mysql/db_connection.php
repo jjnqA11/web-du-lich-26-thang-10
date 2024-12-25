@@ -2,8 +2,8 @@
     $servername = "localhost";
     $database = "khamphadisan";
     $username = "root";
-    $password = "123456";
-    $port = 3307;
+    $password = "";
+    $port = 3306;
 
     // create connection
 

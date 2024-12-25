@@ -5,70 +5,45 @@ include './services/connect-mysql/db_connection.php';
 // Kiểm tra nếu form đã được gửi
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Lấy dữ liệu từ form
-    $name = $_POST['username'] ?? ''; // toán tử null coalecsing (a ?? b) nếu giá trị a tồn tại và không phải là null thì nhận giá trị a 
-    // còn không nhận giá trị b 
-
+    $name = $_POST['username'] ?? ''; // toán tử null coalecsing (a ?? b) nếu giá trị a tồn tại và không phải là null thì nhận giá trị a còn không nhận giá trị b 
     $email = $_POST['email'] ?? '';
-
     $password = $_POST['password'] ?? '';
-
     $confirm_password = $_POST['confirm_password'] ?? '';
     $agree_term = isset($_POST['agree-term']) ? 1 : 0; // Kiểm tra checkbox đồng ý điều khoản
-    $newsletter = isset($_POST['newsletter']) ? 1 : 0; 
-    // toán tử 3 ngôi kiểm tra xem giá trị POST trả về có tồn tại và không phải là null hay không
-    // nếu true trả về 1 còn false trả về 0
+    $newsletter = isset($_POST['newsletter']) ? 1 : 0;
 
     // Kiểm tra dữ liệu hợp lệ
     if (empty($name) || empty($email) || empty($password) || empty($confirm_password)) {
-
         $error_message = "Vui lòng điền đầy đủ thông tin.";
-
     } elseif ($password !== $confirm_password) {
-
         $error_message = "Mật khẩu không khớp.";
-
     } else {
-
         // Kiểm tra xem tên người dùng hoặc email đã tồn tại chưa
         $check_sql = "SELECT * FROM user_table WHERE userName = ? OR email = ?";
-
         $stmt = mysqli_prepare($conn, $check_sql);
+        mysqli_stmt_bind_param($stmt, "ss", $name, $email);
+        mysqli_stmt_execute($stmt); // thực thi câu lệnh
+        $result = mysqli_stmt_get_result($stmt);  // trả về 1 đối tượng đại diện cho bản ghi được trả về từ câu truy vấn 
 
-        $stmt -> bind_param( "ss", $name, $email);
-
-        $stmt -> execute(); // thực thi câu lệnh
-
-        $result = $stmt->get_result(); // trả về 1 đối tượng đại diện cho bản ghi được trả về từ câu truy vấn 
-
-        if ($result -> num_rows > 0) { // kiểm tra xem có bản ghi nào thỏa mãn điều kiện được trả về hay không
-
+        if (mysqli_num_rows($result) > 0) {  // kiểm tra xem có bản ghi nào thỏa mãn điều kiện được trả về hay không
             $error_message = "Tên người dùng hoặc email đã tồn tại.";
-
         } else {
             // Lưu mật khẩu dạng thuần vào cơ sở dữ liệu
             $insert_sql = "INSERT INTO user_table (userName, email, password, agree_term, newsletter) VALUES (?, ?, ?, ?, ?)";
+            $stmt = mysqli_prepare($conn, $insert_sql);
+            mysqli_stmt_bind_param($stmt, "ssssi", $name, $email, $password, $agree_term, $newsletter);
 
-            $stmt = $conn -> prepare( $insert_sql);
-
-            $stmt -> bind_param( "ssssi", $name, $email, $password, $agree_term, $newsletter);
-
-
-            if ($stmt -> execute()) {
-                $success_message = "Đăng ký thành công. Vui lòng chờ đợi đăng nhập.";
-                header("Location: login.php");
+            if (mysqli_stmt_execute($stmt)) {
+                $success_message = "Đăng ký thành công. Vui lòng đăng nhập.";
             } else {
-
                 $error_message = "Có lỗi xảy ra, vui lòng thử lại.";
-
             }
         }
-        $stmt -> close(); // giải phóng bộ nhớ biến $stmt
-
+        mysqli_stmt_close($stmt);
     }
 }
-
 // Đóng kết nối
-$conn -> close();
+mysqli_close($conn);
 ?>
 
 
@@ -80,6 +55,7 @@ $conn -> close();
   <title>Đăng ký tài khoản</title>
   <link rel="stylesheet" href="assets/css/register.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script src="assets/js/register.js"></script>
 </head>
 <body>
     <div class="container">
@@ -101,9 +77,7 @@ $conn -> close();
           <div class="label">
             <label for="email">Email:</label>
           </div>
-          <input type="email" placeholder="Điền Email của bạn..." name="email" id="email" value="<?php 
-            // ?? nếu giá trị là null or không xác định giá trị trả về defaultValue 
-           echo htmlspecialchars($email ?? ''); ?>">
+          <input type="email" placeholder="Điền Email của bạn..." name="email" id="email" value="<?php echo htmlspecialchars($email ?? ''); ?>">
         </div>
         
         <!-- Mật khẩu -->
@@ -150,6 +124,5 @@ $conn -> close();
         </div>
       </form>
     </div>
-    <script src="assets/js/register.js"></script>
 </body>
 </html>

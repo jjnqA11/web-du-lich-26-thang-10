@@ -125,7 +125,7 @@ session_start();
 
     <section>
     <h2>Xóa tài khoản</h2>
-    <form method="POST" action="userInfo.php" onsubmit="confirmDelete();"> 
+    <form method="POST" action="userInfo.php" onsubmit="return confirmDelete();"> 
 
     <!-- Sự kiện onsubmit sẽ xảy ra khi người dùng nhấn nút "Submit" trên biểu mẫu hoặc khi form được gửi đi thông qua JavaScript. -->
      
