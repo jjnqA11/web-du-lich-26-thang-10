@@ -13,15 +13,18 @@
     // truyen cart vao table data
 
     $stmt = mysqli_prepare($conn, $sql);
+
     $stmt -> bind_param("s", $username_cookie);
+
     $stmt -> execute();
+
     $result = $stmt->get_result();
 
 
-    if($result -> num_rows > 0){
-        $user = $result -> fetch_assoc();
-    }else{
+    if($result -> num_rows <= 0){
+
         die("Khong tim thay nguoi dung va ten: " . $username_cookie);
+
     }
 ?>
 <!DOCTYPE html>
@@ -130,13 +133,14 @@
                 </div>
                 <br>
                 <?php         
-                    $userId = "SELECT p.address, p.phoneNumber, u.email 
-
-                    FROM `khamphadisan`.`payment_table` AS p 
-
-                    INNER JOIN `khamphadisan`.`user_table` AS u 
-                    
-                    ON p.user_id = u.id";
+                    $userId = 
+                    "SELECT p.address, p.phoneNumber, u.email " .
+                    // lấy email người dùng trong bảng user_table, address trong bảng payment_table, phoneNumber trong bảng payment_table
+                    "FROM `khamphadisan`.`payment_table` AS p " .
+                    // từ bảng payment_table viết tắt "AS" p nối với bảng user_table dựa trên điều kiện nối
+                    "INNER JOIN `khamphadisan`.`user_table` AS u " .
+                    // điều kiện kết nối (p.user_id = u.id) chỉ lấy các bản ghi trong bảng payment_table mà user_id khớp với id của bảng user_table
+                    "ON p.user_id = u.id";
 
                     $userIdResult = $conn->query($userId);
                     $addressUser;
@@ -183,7 +187,6 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Id</th>
                             <th>Tên sản phẩm</th>
                             <th>Giá </th>
                             <th>Hình thức thanh toán</th>
@@ -193,20 +196,27 @@
                     </thead>
                     <tbody>
                     <?php
-                        $cartUser = "SELECT h.name, p.select_payment, p.totalBill ,p.id
-                                    FROM `khamphadisan`.`payment_table` AS p 
-                                    INNER JOIN `khamphadisan`.`hotel_table` AS h 
-                                    ON p.booking_hotel_id = h.id WHERE p.user_id = '{$_COOKIE['idNguoiDung']}'";
+                        $cartUser = "SELECT h.name, p.select_payment, p.totalBill, p.id " . 
+                        // lấy các trường tên khách sạn (name), trường hình thức thanh toán (select_payment), trường giá (totalBill)
+                        "FROM `khamphadisan`.`payment_table` AS p " . 
+                        // từ bảng payment_table viết tắt "AS" p nối với bảng hotel_table dựa trên điều kiện nối
+                        "INNER JOIN `khamphadisan`.`hotel_table` AS h " . 
+                        // điều kiện kết nối (p.booking_hotel_id = h.id) chỉ lấy các bản ghi trong bảng payment_table mà booking_hotel_id khớp với id của bảng hotel_table
+                        "ON p.booking_hotel_id = h.id WHERE p.user_id = '{$_COOKIE['idNguoiDung']}'";
+                        // giới hạn kết quả chỉ bao gồm các bản ghi mà user_id trong bảng payment_table khớp với giá trị $_COOKIE['idNguoiDung]
 
                         // Sử dụng đúng biến $cartUser
                         $cartUserResult = $conn->query($cartUser);
 
                         if ($cartUserResult) {
+                            
                             if ($cartUserResult->num_rows > 0) {
+
                                 while ($row = $cartUserResult->fetch_assoc()) {
+
                                     $paymentId = $row['id'];
+                                    
                                     echo "<tr>
-                                            <td>{$row['id']}</td>
                                             <td>{$row['name']}</td>
                                             <td>{$row['select_payment']}</td>
                                             <td>{$row['totalBill']}</td>
@@ -221,7 +231,7 @@
                                         </tr>";
                                 }
                             } else {
-                                echo "<tr><td colspan='3'>No records found</td></tr>";
+                                echo "<tr><td colspan='4' style='text-align:center;'>No records found</td></tr>";
                             }
                         } else {
                             echo "Query failed: " . $conn->error;
@@ -255,7 +265,9 @@
         </footer>
     </section>
     <!-- Script -->
+
      <script src="assets/js/index.js"></script>
+
      <script src="assets/js/thanhtoan.js"></script>
 </body>
 </html>

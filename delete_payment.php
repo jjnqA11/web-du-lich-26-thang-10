@@ -23,6 +23,7 @@
                 window.location.href = 'trangThaiDonHang.php';
             </script>`;
             // window.location.href: chuyển hướng trang sang trang khác
+            header("Location: trangThaiDonHang.php");
         } else {
             echo "Lỗi khi xóa: " . $conn->error; // hiển thị lỗi
         }

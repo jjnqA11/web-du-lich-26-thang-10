@@ -80,7 +80,6 @@ $conn -> close();
   <title>Đăng ký tài khoản</title>
   <link rel="stylesheet" href="assets/css/register.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <script src="assets/js/register.js"></script>
 </head>
 <body>
     <div class="container">
@@ -102,7 +101,9 @@ $conn -> close();
           <div class="label">
             <label for="email">Email:</label>
           </div>
-          <input type="email" placeholder="Điền Email của bạn..." name="email" id="email" value="<?php echo htmlspecialchars($email ?? ''); ?>">
+          <input type="email" placeholder="Điền Email của bạn..." name="email" id="email" value="<?php 
+            // ?? nếu giá trị là null or không xác định giá trị trả về defaultValue 
+           echo htmlspecialchars($email ?? ''); ?>">
         </div>
         
         <!-- Mật khẩu -->
@@ -149,5 +150,6 @@ $conn -> close();
         </div>
       </form>
     </div>
+    <script src="assets/js/register.js"></script>
 </body>
 </html>
