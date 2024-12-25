@@ -7,7 +7,7 @@
 
     // create connection
 
-    $conn = mysqli_connect($servername, $username, $password, $database, $port);
+    $conn = mysqli_connect($servername, $username, $password, $database);
 
     //Check Connection
 
