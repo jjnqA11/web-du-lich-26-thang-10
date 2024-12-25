@@ -106,9 +106,9 @@
 
             $_COOKIE['hotel_price'] = (int) $_COOKIE['hotel_price']; // Ép kiểu thành integer
 
-            $_COOKIE['idNguoiDung'] = (int) $_COOKIE['idNguoiDung'];
+            $_COOKIE['idNguoiDung'] = (int) $_COOKIE['idNguoiDung']; // lấy user_id
 
-            $_COOKIE['idKhachSan'] = (int) $_COOKIE['idKhachSan'];
+            $_COOKIE['idKhachSan'] = (int) $_COOKIE['idKhachSan']; // lấy booking_hotel_id
 
             $sql = "INSERT INTO `khamphadisan` . `payment_table` (totalBill, user_id, booking_hotel_id, gender, address, select_payment, phoneNumber) values (?,?,?,?,?,?,?)";
 
@@ -151,7 +151,7 @@
                     <br>
                     <div>
                         <label for="phone">Số điện thoại:</label>
-                        <input id="phone" type="number" placeholder="Nhập số điện thoại" style="width: 298px; height: 25px; border-radius: 5px" name="phone">
+                        <input id="phone" type="text" placeholder="Nhập số điện thoại" style="width: 298px; height: 25px; border-radius: 5px" name="phone">
                     </div>
                     <br>
                     <div class="select-payment">

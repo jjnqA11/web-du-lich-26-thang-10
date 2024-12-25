@@ -135,6 +135,7 @@ session_start();
                 if (isset($_POST['delete_account'])) {
                     // Xóa tài khoản
                     $deleteSQL = "DELETE FROM user_table WHERE id = $user_id";
+                    
                     if ($conn->query($deleteSQL)) {
 
                         setcookie('user', '', time() - 3600, "/"); // Xóa cookie

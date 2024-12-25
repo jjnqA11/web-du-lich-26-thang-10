@@ -6,14 +6,22 @@ function toggleTheme(event) {
 
     // Kiểm tra và chuyển đổi class "dark-theme" và "light-theme"
     if (body.classList.contains('dark-theme')) {
-        body.classList.remove('dark-theme');
-        body.classList.add('light-theme');
-        themeIcon.src = 'images/sun-icon.png';
+
+        body.classList.remove('dark-theme'); // xóa lớp class "dark-theme ra khỏi phần tử body"
+
+        body.classList.add('light-theme'); // xóa lớp class "dark-theme ra khỏi phần tử body"
+
+        themeIcon.src = 'images/sun-icon.png'; // thêm vào thuộc tính src trên đường dẫn 
+
         localStorage.setItem('theme', 'light'); // Lưu trạng thái light
     } else {
+
         body.classList.remove('light-theme');
+
         body.classList.add('dark-theme');
+
         themeIcon.src = 'images/moon-icon.png';
+
         localStorage.setItem('theme', 'dark'); // Lưu trạng thái dark
     }
 }
@@ -46,8 +54,11 @@ const giaBinhDan = 14490000;
 const giaSell = 16990000;
 
 let countNumberInputPassenger1 = document.getElementById('input-passenger1');
+
 let countNumberInputPassenger2 = document.getElementById('input-passenger2');
+
 let countNumberInputPassenger3 = document.getElementById('input-passenger3');
+
 let countNumberInputPassengerSell = document.getElementById('input-passenger-sell');
 
 let totalPrice1 = document.getElementById('tour-booking-price1');
@@ -60,7 +71,8 @@ let tongSoTienSauCung = 0;
 
 // Hàm tính tổng và cập nhật giá trị hiển thị
 const updatePrices = () => {
-    const tongSoNguoi1 = parseInt(countNumberInputPassenger1.value) || 0;
+    const tongSoNguoi1 = parseInt(countNumberInputPassenger1.value) || 0; 
+    // đảm bảo rằng truyền vào một số hợp lệ và được ép kiểu , nếu truyền vào số không hợp lệ (NaN) thì giá trị mặc định sẽ là 0
     const tongSoNguoi2 = parseInt(countNumberInputPassenger2.value) || 0;
     const tongSoNguoi3 = parseInt(countNumberInputPassenger3.value) || 0;
     const tongSoNguoiSell = parseInt(countNumberInputPassengerSell.value) || 0;
@@ -75,7 +87,7 @@ const updatePrices = () => {
     tongSoTienSauCung = bill1 + bill2 + bill3 + billSell;
 
     // Cập nhật giao diện
-    totalPrice1.innerText = `${bill1.toLocaleString()}₫`; 
+    totalPrice1.innerText = `${bill1.toLocaleString()}₫`; // toLocaleString() định dạng số (thêm dấu phân cách)
     totalPrice2.innerText = `${bill2.toLocaleString()}₫`;
     totalPrice3.innerText = `${bill3.toLocaleString()}₫`;
     totalPriceSell.innerText = `${billSell.toLocaleString()}₫`;
@@ -99,10 +111,13 @@ function toggleDropdown() {
 
 // đóng dropdown khi click ra ngoài thẻ class user-info
 document.addEventListener('click', (e) => {
+
     const dropdown = document.getElementById('userDropdown');
+
     const userInfo = document.querySelector('.user-info');
 
     if (!userInfo.contains(e.target)) {
+        
         dropdown.classList.remove('show');
     }
 });

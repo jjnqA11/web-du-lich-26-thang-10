@@ -186,17 +186,25 @@
                     <?php
                         if (isset($_POST['save'])) {
                             $id = $_POST['id'] ?? null;
+
                             $username = $_POST['username'] ?? null;
+
                             $email = $_POST['email'] ?? null;
+
                             $password = $_POST['password'] ?? null;
+
 
                             if ($id && $username && $email) {
                                 // Nếu không có mật khẩu mới, lấy mật khẩu hiện tại từ cơ sở dữ liệu
                                 if (empty($password)) {
                                     $query = "SELECT password FROM user_table WHERE id = $id";  // Truy vấn trực tiếp
+
                                     $result = mysqli_query($conn, $query);
+
                                     if ($result && mysqli_num_rows($result) > 0) {
+
                                         $row = mysqli_fetch_assoc($result);
+                                        
                                         $password = $row['password'];  // Lấy mật khẩu cũ
                                     }
                                 }
