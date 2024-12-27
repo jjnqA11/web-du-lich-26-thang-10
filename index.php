@@ -50,20 +50,28 @@
             <ul class="menu">
                 <div class="menu_item">
                     <li><a href="#">TRANG CHỦ</a></li>
-                    <li><a href="#DiemDen">ĐIỂM ĐẾN HẤP DẪN</a></li>
+                    <!-- Load lại trang -->
+                    <li><a href="#DiemDen">ĐIỂM ĐẾN HẤP DẪN</a></li> 
+                    <!-- Link đến id="DiemDen" -->
                     <li><a href="#CamNang">CẨM NANG DU LỊCH</a></li>
+                    <!-- Link đến id="CamNang" -->
                     <li><a href="#KhachSan">KHÁCH SẠN</a></li>
+                    <!-- Link đến id="KhachSan" -->
                 </div>
                 <div class="menu_item">
+                    <div class="admin" onload="checkUser()">
+                        <a href="admin/admin.php">
+                            <img src="images/admin-icon.png" alt="Admin Icon" width="40" height="40"></a>
+                        </div>
                     <li class="theme-toggle">
                         <a class="theme-toggle-btn" onclick="toggleTheme(event)">
                             <img id="theme-icon" src="images/sun-icon.png" alt="Theme Icon">
                         </a>
                     </li>  
                         <div class="user-info">
+                            
                             <!-- Avatar icon -->
                             <div class="user-avatar" onclick="toggleDropdown()"> 
-                                
                                 <img src="images/user.png" alt="Avatar" class="avatar"> 
                             </div>
                             <!-- Dropdown menu -->
@@ -250,6 +258,7 @@
             <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
           </div>
           <a href="thanhtoan.php?KhachSan=1"><button>Đặt Phòng Ngay</button></a>
+          <!-- truyền vào file thanhtoan.php với param khachsan = 1 -->
         </div>
         
         <div class="hotel-card">
@@ -260,6 +269,7 @@
             <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
           </div>
           <a href="thanhtoan.php?KhachSan=2"><button>Đặt Phòng Ngay</button></a>
+          <!-- truyền vào file thanhtoan.php với param khachsan = 2 -->
         </div>
       
         <div class="hotel-card">
@@ -270,6 +280,7 @@
             <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
           </div>
           <a href="thanhtoan.php?KhachSan=3"><button>Đặt Phòng Ngay</button></a>
+          <!-- truyền vào file thanhtoan.php với param khachsan = 3 -->
         </div>
         
         <div class="hotel-card">
@@ -280,6 +291,7 @@
             <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
           </div>
           <a href="thanhtoan.php?KhachSan=4"><button>Đặt Phòng Ngay</button></a>
+          <!-- truyền vào file thanhtoan.php với param khachsan = 4 -->
         </div>
     </section>
    

@@ -20,9 +20,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
         // Kiểm tra xem tên người dùng hoặc email đã tồn tại chưa
         $check_sql = "SELECT * FROM user_table WHERE userName = ? OR email = ?";
+
         $stmt = mysqli_prepare($conn, $check_sql);
+
         mysqli_stmt_bind_param($stmt, "ss", $name, $email);
+
         mysqli_stmt_execute($stmt); // thực thi câu lệnh
+        
         $result = mysqli_stmt_get_result($stmt);  // trả về 1 đối tượng đại diện cho bản ghi được trả về từ câu truy vấn 
 
         if (mysqli_num_rows($result) > 0) {  // kiểm tra xem có bản ghi nào thỏa mãn điều kiện được trả về hay không
@@ -54,7 +58,6 @@ mysqli_close($conn);
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Đăng ký tài khoản</title>
   <link rel="stylesheet" href="assets/css/register.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <script src="assets/js/register.js"></script>
 </head>
 <body>

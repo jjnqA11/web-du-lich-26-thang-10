@@ -21,9 +21,11 @@ Mặc dù không phải là một sản phẩm thương mại hoàn chỉnh, d�
 
 #### Các thành viên trong nhóm  
 
-1. **Nguyễn Vũ Hoàng**:  
-2. **Nguyễn Quang Diệp**:   
-3. **Nguyễn Đình Khánh - TRƯỞNG NHÓM**:  
+1. **Nguyễn Vũ Hoàng**: Quản lý viết html và css thô và phát triển giao diện sáng tối, hỗ trợ thiết kế giao diện đăng ký/đăng nhập
+
+2. **Nguyễn Quang Diệp**:  Quản lý database và thiết kế giao diện và chức năng đăng ký / đăng nhập, phát triển các chức năng sử dụng js
+
+3. **Nguyễn Đình Khánh - TRƯỞNG NHÓM**:  Phát triển và quản lý CRUD và chỉnh sửa bố cục các trang, khắc phục một số lỗi liên quan đến 1 vài chức năng 
    
 ---
 
@@ -55,10 +57,7 @@ Mặc dù không phải là một sản phẩm thương mại hoàn chỉnh, d�
 8. **Chế độ sáng/tối**:  
    - Giao diện hỗ trợ chế độ sáng và tối, giúp cải thiện trải nghiệm người dùng. *(Đã hoàn thành)*  
 
-9. **Chức năng bình luận**:  
-   - Đã bị loại bỏ do không nằm trong phạm vi yêu cầu của bài tập lớn.  
-
-10. **Các tính năng bổ sung**:  
+9. **Các tính năng bổ sung**:  
     - Một số chức năng khác sẽ được phát triển thêm trong các phiên bản tiếp theo.  
 
 ---

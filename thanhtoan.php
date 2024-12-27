@@ -326,7 +326,7 @@
             const payment = document.querySelector('input[name="select-payment-choice"]:checked');
 
             // Kiểm tra từng trường
-            if (!gender) {
+            if (!gender) { // nếu các trường để trống trả ra lỗi
                 errors.push("Vui lòng chọn giới tính!"); // đẩy chuỗi vào mảng
             }
 

@@ -104,7 +104,7 @@ if (isset($_GET['search_query'])) {
     <h2 id="search-results">Kết quả tìm kiếm:</h2>
     <section class="search-results">
         <?php if (empty($filteredResults)): ?>
-            <p>Không tìm thấy kết quả nào.</p>
+            <p style="text-align:center">Không tìm thấy kết quả nào.</p>
         <?php else: ?>
             <?php foreach ($filteredResults as $result): ?>
                 <div class="search-results-card">
