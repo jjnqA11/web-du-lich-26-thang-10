@@ -62,22 +62,72 @@ Mặc dù không phải là một sản phẩm thương mại hoàn chỉnh, d�
 
 ---
 
-#### Hướng dẫn cài đặt và sử dụng  
+# 🌍 Hướng Dẫn Cài Đặt & Sử Dụng Dự Án Du Lịch
 
-1. **Cài đặt cơ sở dữ liệu**:  
-   - Mở **phpMyAdmin** trong **XAMPP**.  
-   - Nhập tệp `khamphadisan.sql` vào để khởi tạo cơ sở dữ liệu.  
+## ⚙️ 1. Đặt Dự Án Vào Thư Mục XAMPP
 
-2. **Sử dụng ứng dụng**:  
-   - Sau khi nhập dữ liệu thành công, bạn có thể tạo tài khoản và đăng nhập để sử dụng các tính năng của ứng dụng.  
+1. Sau khi tải xong thì tìm đến thư mục htdocs của xampp rồi dán dự án vào đấy nhé. 
 
-3. **Quản lý web**:  
-   - Đăng nhập với tài khoản admin.  
-   - Truy cập vào đường dẫn:  
-     ```
-     http://localhost/dulich/admin/admin.php
-     ```  
-     để thực hiện các thao tác quản lý tài khoản.  
+   ```bash
+   C:\xampp\htdocs\
+   ```
+2. Ví dụ, nếu tên thư mục dự án là `dulich`, đường dẫn đầy đủ sẽ là:
+
+   ```bash
+   C:\xampp\htdocs\dulich
+   ```
+
+---
+
+## 🗄️ 2. Cài Đặt Cơ Sở Dữ Liệu
+
+1. Mở **XAMPP Control Panel** → bật **Apache** và **MySQL**.
+2. Truy cập **phpMyAdmin** tại địa chỉ:
+
+   ```
+   http://localhost/phpmyadmin
+   ```
+3. Tạo một **database mới**, ví dụ: `khamphadisan`.
+4. Nhập tệp SQL đi kèm trong dự án (`khamphadisan.sql`) để khởi tạo dữ liệu:
+
+   * Vào tab **Import** → chọn file `khamphadisan.sql` → **Go**.
+
+---
+
+## 🧭 3. Sử Dụng Ứng Dụng
+
+* Sau khi import cơ sở dữ liệu thành công, mở trình duyệt và truy cập:
+
+  ```
+  http://localhost/dulich
+  ```
+* Tại đây, bạn có thể **tạo tài khoản mới** và **đăng nhập** để trải nghiệm các tính năng của hệ thống.
+
+---
+
+## 🧑‍💻 4. Quản Lý Trang Web (Admin)
+
+* Đăng nhập với tài khoản **Admin**.
+* Truy cập trang quản trị qua đường dẫn:
+
+  ```
+  http://localhost/dulich/admin/admin.php
+  ```
+* Tại đây bạn có thể:
+
+  * Quản lý tài khoản người dùng
+  * Cập nhật nội dung trang web
+  * Kiểm soát hoạt động của hệ thống
+
+---
+
+## 💡 Gợi Ý
+
+* Nếu truy cập bị lỗi, hãy đảm bảo rằng:
+
+  * Apache và MySQL đang chạy trong **XAMPP**
+  * Tên thư mục và đường dẫn trùng khớp với dự án (`dulich`)
+  * File `khamphadisan.sql` đã được import thành công
 
 ---
 
